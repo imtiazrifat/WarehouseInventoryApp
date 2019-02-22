@@ -1,0 +1,137 @@
+﻿<script src="~/Areas/Inventory/Scripts/OutletPOReturnView/IndividualOutletPOReturnView.js"></script>
+
+
+<div id="myModalFroRetrun" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">APT ERP</h4>
+            </div>
+            <div id="modal-body">
+                <h2 id="rif"></h2>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="btnYes" data-dismiss="modal">Yes</button>
+                <button type="button" class="btn btn-warning" id="btnNo" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<head>
+</head>
+
+<div class="jarviswidget" id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false">
+    <header>
+        <span class="widget-icon"> <i class="fa fa-edit"></i> </span>
+        <h2>Individual Outlet PO Return View</h2>
+
+    </header>
+
+    <!-- widget div-->
+    <div>
+
+        <!-- widget edit box -->
+        <div class="jarviswidget-editbox">
+            <!-- This area used as dropdown edit box -->
+
+        </div>
+        <!-- end widget edit box -->
+        <!-- widget content -->
+        <div class="widget-body no-padding">
+
+            <div class="smart-form">
+                <div data-toggle="validator">
+                    <fieldset>
+                        <div class="container-fluid">
+                            <input type="text" id="hdnOutletPOReturnMasterId" hidden="" value="0" />
+                            <input type="text" id="hdnOutletPOReturnDetailsId" hidden="" value="0" />
+                            <input type="text" id="hdnOutletPOMasterId" hidden="" value="0" />
+                            <input type="text" id="hdnOutletPODetailsId" hidden="" value="0" />
+                            <input type="text" id="hdnWarehouseId" hidden="" value="0" />
+                            <input type="text" id="hdnOutletId" hidden="" value="0" />
+                            <div class="row-xs-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="row-xs-12">
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                            <section>
+                                                <label for="textOutletName" class="label">Outlet Name</label>
+                                                <label class="input">
+                                                    <input type="text" id="textOutletName" name="textOutletName" maxlength="50" placeholder="Outlet Name(Read Only)" readonly="readonly"/>
+                                                </label>
+                                            </section>
+                                        </div>
+                                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                            <section>
+                                                <label for="txtTotalQuantity" class="label">Total Quantity</label>
+                                                <label class="input">
+                                                    <input type="number" id="txtTotalQuantity" name="txtTotalQuantity" maxlength="50" placeholder=" Total Product Quantity(Read Only)" min="0" step="1" readonly="readonly"/>
+                                                </label>
+                                            </section>
+                                        </div>
+                                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                            <section>
+                                                <label for="txtTotalPrice" class="label">Total Price </label>
+
+                                                <label class="input">
+                                                    <input type="number" id="txtTotalPrice" name="txtTotalPrice" maxlength="50" placeholder="Total Price(Read Only)" readonly="readonly"/>
+                                                </label>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-12">
+                                <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
+                                    <footer>
+                                        <button class="btn btn-primary" id="btnAllIndividualOutletPORetrun">Retrun All</button>
+                                    </footer>
+                                </div>
+                            </div>
+
+                            <div class="row-12">
+                                <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
+                                    <table id="myTableIndividualOutletPOReturnView" class="table table-bordered table-hover responsive-utilities ">
+                                        <thead>
+                                        <tr>
+                                            <th>OutletPOReturnMasterId</th>
+                                            <th>OutletPOReturnDetailsId</th>
+                                            <th>WarehouseId</th>
+                                            <th>OutletId</th>
+                                            <th>ProductId</th>
+                                            <th>SL.</th>
+                                            <th>Product Name</th>
+                                            <th>Product Quantity</th>
+                                            <th>Price Amount</th>
+                                            <th>Return Status</th>
+                                            <th>Return</th>
+                                        </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- end widget content -->
+    <!-- end widget div -->
+
+</div>
+<!-- end widget -->
+
+
+<div id="dialog_simple" title="APT ERP V 1.0.0">
+    <p>
+    </p>
+</div>

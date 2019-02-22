@@ -1,0 +1,214 @@
+﻿<script src="~/Areas/Inventory/Scripts/Product/CreateProduct.js"></script>
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">APT ERP</h4>
+            </div>
+            <div id="modal-body">
+                <h2 id="rif"></h2>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<head>
+    <script src="~/Areas/Inventory/Scripts/Product/CreateProduct.js"></script>
+
+</head>
+
+<div class="jarviswidget" id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false">
+    <header>
+        <span class="widget-icon"> <i class="fa fa-edit"></i> </span>
+        <h2>Create Product </h2>
+
+    </header>
+
+    <!-- widget div-->
+    <div>
+
+        <!-- widget edit box -->
+        <div class="jarviswidget-editbox">
+            <!-- This area used as dropdown edit box -->
+
+        </div>
+        <!-- end widget edit box -->
+        <!-- widget content -->
+        <div class="widget-body no-padding">
+
+            <div class="smart-form">
+                @*<header>
+                    Standard Form Header
+                </header>*@
+
+
+
+                <div data-toggle="validator" >
+                    <fieldset>
+
+                        <div class="container-fluid">
+                            <div class="row-lg-12">
+
+                                <input type="text" id="hdnProductId" hidden="" value="0" />
+                                <input type="text" id="hdnProductPriceId" hidden="" value="0"/>
+
+                                <div class="col-lg-3 col-md-3 col-sm-5 col-xs-12">
+                                    <section>
+                                        <label for="cmbFactoryId" class="label">Factory Name:</label>
+                                        <label class="select">
+                                            <select id="cmbFactoryId"><option></option></select>
+                                        </label>
+                                    </section>
+                                    <section>
+                                        <label for="cmbItemId" class="label">Item</label>
+                                        <label class="select">
+                                            <select id="cmbItemId"><option></option></select>
+                                        </label>
+                                    </section>
+                                    <section>
+                                        <label for="cmbSizeId" class="label">Size</label>
+                                        <label class="select">
+                                            <select id="cmbSizeId"><option></option></select>
+                                        </label>
+                                    </section>
+
+                                    <section>
+                                        <label for="cmbUoMId" class="label">UoM Code:</label>
+                                        <label class="select">
+                                            <select id="cmbUoMId"><option></option></select>
+                                        </label>
+                                    </section>
+                                    <section>
+                                        <label for="cmbColorId" class="label">Color</label>
+                                        <label class="select">
+                                            <select id="cmbColorId"><option></option></select>
+                                        </label>
+                                    </section>
+                                    
+                                    @*<section>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="chkIsActive" id="chkIsActive">
+                                                <i></i>IsActive
+                                            </label>
+                                        </section>*@
+                                </div>
+
+                                <div class="col-xs-1"></div>
+
+                                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                                    <section>
+                                        <label for="txtProductCode" class="label">Product Code</label>
+                                        <label class="input">
+                                            <input type="text" id="txtProductCode" name="txtProductCode" maxlength="50" placeholder="Product Code" required />
+                                        </label>
+                                    </section>
+                                    <section>
+                                        <label for="txtProductName" class="label">Product Name</label>
+                                        <label class="input">
+                                            <input type="text" id="txtProductName" name="txtProductName" maxlength="50" placeholder="Product Name" required />
+                                        </label>
+                                    </section>
+
+                                    <section>
+                                        <label for="txtProductMainBarcode" class="label">Main Barcode<button class="btn btn-primary" id="btnReloadProductMainBarcode">Reload</button></label>
+                                        
+                                        <label class="input">
+                                            <input type="text" id="txtProductMainBarcode" name="txtProductMainBarcode" maxlength="50" placeholder="Main Barcode" readonly="readonly"/>
+                                            
+                                         </label>
+                                    </section>
+
+                                    <section>
+                                        <label for="txtProductFactoryBarcode" class="label">Factory Bar Code</label>
+                                        <label class="input">
+                                            <input type="number" id="txtProductFactoryBarcode" name="txtProductFactoryBarcode" maxlength="12" placeholder="Factory Barcode" min="0" step="1"/>
+                                        </label>
+                                    </section>
+                                    <section>
+                                        <label for="txtMinimumStock" class="label">Minimum Stock</label>
+                                        <label class="input">
+                                            <input type="number" id="txtMinimumStock" name="txtMinimumStock" maxlength="50" placeholder="Minimum Stock" min="0" step="1"required />
+                                        </label>
+                                    </section>
+
+                                </div>
+
+
+
+                                <div class="col-xs-1"></div>
+
+                                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                                    <div class="form-group">
+                                        <h3>Price Setup</h3>
+                                        <div class="bordered  "></div>
+
+                                        <section>
+                                            <label for="txtCostPrice" class="label">Cost Price</label>
+                                            <label class="input">
+                                                <input type="number" id="txtCostPrice" name="txtCostPrice" maxlength="50" placeholder="Cost Test" min="0" step="1" required />
+                                            </label>
+                                        </section>
+                                        <section>
+                                            <label for="txtWholeSalePrice" class="label">Whole Sale Price</label>
+                                            <label class="input">
+                                                <input type="number" id="txtWholeSalePrice" name="txtWholeSalePrice" maxlength="50" placeholder="Whole Sale Price" min="0" step="1" required />
+                                            </label>
+                                        </section>
+                                        <section>
+                                            <label for="txtRetailPrice" class="label">Retail Price</label>
+                                            <label class="input">
+                                                <input type="number" id="txtRetailPrice" name="txtRetailPrice" maxlength="50" placeholder="Retail Price" min="0" step="1" required />
+                                            </label>
+                                        </section>
+                                        <section>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="chkIsActive" id="chkIsActive">
+                                                <i></i>IsActive
+                                            </label>
+                                        </section>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <footer>
+
+                            <div class="row">
+                                <button class="btn btn-primary" id="btnSaveProduct">
+                                    Save
+                                </button>
+                                <button type="button" class="btn btn-warning" id="btnClearProductForm">
+                                    Clear
+                                </button>
+                            </div>
+                        </footer>
+                    </fieldset>
+                </div>
+
+
+
+            </div>
+
+        </div>
+        <!-- end widget content -->
+
+    </div>
+    <!-- end widget div -->
+
+</div>
+<!-- end widget -->
+
+
+<div id="dialog_simple" title="APT ERP V 1.0.0">
+    <p>
+    </p>
+</div>

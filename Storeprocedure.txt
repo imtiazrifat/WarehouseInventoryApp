@@ -1,0 +1,190 @@
+1_____________________________________________________
+
+USE [RetailSalesManagement]
+GO
+/****** Object:  StoredProcedure [dbo].[spSaleInvoice]    Script Date: 4/26/2017 11:32:36 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[spSaleInvoice]
+@OutletSaleInvoiceNo AS Int
+
+AS
+BEGIN
+
+SELECT 
+
+ISNULL(InvOutletInvoiceMaster.PaymentMode,'No Data')as PaymentMode,
+ISNULL(InvOutletInvoiceMaster.TotalItem,'No Data')as TotalItem,
+ISNULL(InvOutletInvoiceMaster.TotalGrandPrice,0.0)as TotalGrandPrice,
+ISNULL(InvOutletInvoiceMaster.VAT,0.0)as VAT,
+ISNULL(InvOutletInvoiceMaster.Discount,0.0)as Discount,
+ISNULL(InvOutletInvoiceMaster.PayableAmount,0.0)as PayableAmount,
+ISNULL(InvOutletInvoiceMaster.Cash,0.0)as Cash,
+ISNULL(InvOutletInvoiceMaster.Credit,0.0)as Credit,
+ISNULL(InvOutletInvoiceMaster.PaidAmount,0.0)as PaidAmount,
+ISNULL(InvOutletInvoiceMaster.DueOrRefund,0.0)as DueOrRefund
+
+FROM 
+
+InvOutletInvoiceMaster invoiceMaster
+
+INNER JOIN InvOutletInvoiceDetail outInvDetail on invoiceMaster.OutletInvoiceMasterId= outInvDetail.OutletInvoiceMasterId 
+INNER JOIN InvProduct invProduct on  outInvDetail.ProductId=invProduct.ProductId
+INNER JOIN InvProductPrice productPrice on  invProduct.ProductId = productPrice.ProductId
+INNER JOIN InvOutlet outlet on invoiceMaster.OutletId = outlet.OutletId
+INNER JOIN InvFactory factory on invProduct.FactoryId = factory.FactoryId
+INNER JOIN InvItem item on invProduct.ItemId = item.ItemId
+INNER JOIN InvSize size on invProduct.SizeId = size.SizeId
+INNER JOIN InvUoM uOm on invProduct.UoMId = uOm.UoMId
+INNER JOIN InvColor color on invProduct.ColorId = color.ColorId
+
+where 
+invoiceMaster.OutletSaleInvoiceNo = @OutletSaleInvoiceNo 
+AND invoiceMaster.IsActive='true' AND outInvDetail.IsActive='true' AND productPrice.IsActive='true'
+
+
+
+
+
+END
+
+2.Worked(StoreProcedure)__________________________________________________________________
+USE [RetailSalesManagement]
+GO
+/****** Object:  StoredProcedure [dbo].[spSaleInvoice]    Script Date: 4/26/2017 11:32:36 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[spSaleInvoice]
+@OutletSaleInvoiceNo AS Int
+
+AS
+BEGIN
+
+--  exec spSaleInvoice 1704260001    ----To Debugging in SQL just select  "exec spSaleInvoice 1704260001"    then press Execute to working or not below code      
+SELECT 
+
+ISNULL(invoiceMaster.PaymentMode,'No Data')as PaymentMode,
+ISNULL(invoiceMaster.TotalItem,0.0)as TotalItem,
+ISNULL(invoiceMaster.TotalGrandPrice,0.0)as TotalGrandPrice,
+ISNULL(invoiceMaster.VAT,0.0)as VAT,
+ISNULL(invoiceMaster.Discount,0.0)as Discount,
+
+ISNULL(invoiceMaster.Cash,0.0)as Cash,
+ISNULL(invoiceMaster.Credit,0.0)as Credit,
+ISNULL(invoiceMaster.PaidAmount,0.0)as PaidAmount,
+ISNULL(invoiceMaster.DueOrRefund,0.0)as DueOrRefund,
+
+ISNULL(outInvDetail.ProductQuantity,0.0)as ProductQuantity,
+ISNULL(outInvDetail.UnitPrice,0.0)as UnitPrice,
+ISNULL(outInvDetail.TotalPrice,0.0)as TotalPrice
+
+
+FROM
+
+InvOutletInvoiceMaster invoiceMaster
+
+INNER JOIN InvOutletInvoiceDetail outInvDetail on invoiceMaster.OutletInvoiceMasterId= outInvDetail.OutletInvoiceMasterId 
+INNER JOIN InvProduct invProduct on  outInvDetail.ProductId=invProduct.ProductId
+INNER JOIN InvProductPrice productPrice on  invProduct.ProductId = productPrice.ProductId
+INNER JOIN InvOutlet outlet on invoiceMaster.OutletId = outlet.OutletId
+INNER JOIN InvFactory factory on invProduct.FactoryId = factory.FactoryId
+INNER JOIN InvItem item on invProduct.ItemId = item.ItemId
+INNER JOIN InvSize size on invProduct.SizeId = size.SizeId
+INNER JOIN InvUoM uOm on invProduct.UoMId = uOm.UoMId
+INNER JOIN InvColor color on invProduct.ColorId = color.ColorId
+
+where 
+invoiceMaster.OutletSaleInvoiceNo = @OutletSaleInvoiceNo 
+AND invoiceMaster.IsActive='true' AND outInvDetail.IsActive='true' AND productPrice.IsActive='true'
+
+END
+
+
+
+3_(Working)_______________________________________
+USE [RetailSalesManagement]
+GO
+/****** Object:  StoredProcedure [dbo].[spSaleInvoice]    Script Date: 4/26/2017 11:32:36 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[spSaleInvoice]
+@OutletSaleInvoiceNo AS Int
+
+AS
+BEGIN
+
+--  exec spSaleInvoice 1704260001    ----To Debugging in SQL just select  "exec spSaleInvoice 1704260001"    then press Execute to working or not below code      
+SELECT 
+ISNULL(invoiceMaster.OutletInvoiceMasterId,0)as OutletInvoiceMasterId,
+ISNULL(invoiceMaster.OutletSaleInvoiceNo,0)as 'Sale Invoice No',
+ISNULL(invoiceMaster.OutletId,0)as 'OutletId',
+ISNULL(invoiceMaster.SalePersonId,0)as SalePersonId,
+ISNULL(invoiceMaster.CustomerId,0)as CustomerId,
+ISNULL(invoiceMaster.PaymentMode,'No Data')as 'Payment Mode',
+ISNULL(invoiceMaster.TotalItem,0.0)as 'Total Item',
+ISNULL(invoiceMaster.TotalGrandPrice,0.0)as 'Total Grand Price',
+ISNULL(invoiceMaster.VAT,0.0)as VAT,
+ISNULL(invoiceMaster.Discount,0.0)as Discount,
+ISNULL(invoiceMaster.Cash,0.0)as Cash,
+ISNULL(invoiceMaster.Credit,0.0)as Credit,
+ISNULL(invoiceMaster.PaidAmount,0.0)as 'Paid Amount',
+ISNULL(invoiceMaster.DueOrRefund,0.0)as 'Due Or Refund',
+ISNULL(invoiceMaster.Note,'No Data')as Note,
+ISNULL(invoiceMaster.Status,0)as Status,
+ISNULL(invoiceMaster.IsActive,0)as IsActive,
+ISNULL(invoiceMaster.IsChanged,0)as IsChanged,
+ISNULL(invoiceMaster.IsDeleted,0)as IsDeleted,
+ISNULL(invoiceMaster.IsEdited,0)as IsEdited,
+ISNULL(invoiceMaster.IsFullPaid,0)as IsFullPaid,
+ISNULL(invoiceMaster.IsReturned,0)as IsReturned,
+ISNULL(invoiceMaster.CreatedBy,'No Data')as CreatedBy,
+ISNULL(invoiceMaster.CreatedDate,0.0)as CreatedDate,
+ISNULL(invoiceMaster.ModifiedBy,'No Data')as ModifiedBy,
+ISNULL(invoiceMaster.ModifiedDate,0.0)as ModifiedDate,
+ISNULL(invoiceMaster.PreviousInvoice,'No Data')as PreviousInvoice,
+ISNULL(invoiceMaster.NewInvoice,'No Data')as NewInvoice,
+
+ISNULL(outInvDetail.OutletInvoiceDetailsId,0)as OutletInvoiceDetailsId,
+ISNULL(outInvDetail.ProductQuantity,0.0)as 'Product Quantity',
+ISNULL(outInvDetail.UnitPrice,0.0)as 'Unit Price',
+ISNULL(outInvDetail.TotalPrice,0.0)as 'Total Price',
+
+ISNULL(invProduct.ProductId,0) as ProductId,
+ISNULL(invProduct.ProductName,'No Data')as ProductName,
+
+ISNULL(outlet.OutletId,0)as OutletId,
+ISNULL(outlet.OutletName,'No Data')as OutletName,
+ISNULL(factory.FactoryId,0)as FactoryId,
+ISNULL(factory.FactoryName,'No Data')as FactoryName,
+ISNULL(item.ItemId,0)as ItemId,
+ISNULL(item.ItemName,'No Data')as ItemName,
+ISNULL(size.SizeId,0)as SizeId,
+ISNULL(size.SizeName,'No Data')as SizeName,
+ISNULL(uOm.UoMId,0)as UoMId,
+ISNULL(uOm.UoMShortName,'No Data')as UoMShortName,
+ISNULL(color.ColorId,0)as ColorId,
+ISNULL(color.ColorName,'No Data')as ColorName
+
+FROM
+InvOutletInvoiceMaster invoiceMaster
+INNER JOIN InvOutletInvoiceDetail outInvDetail on invoiceMaster.OutletInvoiceMasterId = outInvDetail.OutletInvoiceMasterId 
+INNER JOIN InvProduct invProduct on  outInvDetail.ProductId = invProduct.ProductId
+--INNER JOIN InvProductPrice productPrice on  invProduct.ProductId = productPrice.ProductId
+INNER JOIN InvOutlet outlet on invoiceMaster.OutletId = outlet.OutletId
+INNER JOIN InvFactory factory on invProduct.FactoryId = factory.FactoryId
+INNER JOIN InvItem item on invProduct.ItemId = item.ItemId
+INNER JOIN InvSize size on invProduct.SizeId = size.SizeId
+INNER JOIN InvUoM uOm on invProduct.UoMId = uOm.UoMId
+INNER JOIN InvColor color on invProduct.ColorId = color.ColorId
+
+where 
+invoiceMaster.OutletSaleInvoiceNo = @OutletSaleInvoiceNo 
+AND invoiceMaster.IsActive='true' AND outInvDetail.IsActive='true'
+
+END

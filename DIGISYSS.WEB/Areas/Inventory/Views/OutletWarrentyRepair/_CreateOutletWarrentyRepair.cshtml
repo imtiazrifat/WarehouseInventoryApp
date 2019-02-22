@@ -1,0 +1,330 @@
+﻿<script src="~/Areas/Inventory/Scripts/OutletWarrentyRepair/CreateOutletWarrentyRepair.js"></script>
+
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">APT ERP</h4>
+            </div>
+            <div id="modal-body">
+                <h2 id="rif"></h2>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<head>
+    @*tsdstdstd*@
+</head>
+
+<div class="jarviswidget" id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false">
+    <header>
+        <span class="widget-icon"> <i class="fa fa-edit"></i> </span>
+        <h2>Create Outlet Warrenty Repair</h2>
+
+    </header>
+
+    <!-- widget div-->
+    <div>
+
+        <!-- widget edit box -->
+        <div class="jarviswidget-editbox">
+            <!-- This area used as dropdown edit box -->
+
+        </div>
+        <!-- end widget edit box -->
+        <!-- widget content -->
+        <div class="widget-body no-padding">
+
+            <div class="smart-form">
+                <div data-toggle="validator">
+                    @*<fieldset>*@
+                    <div class="container-fluid">
+                        <input type="text" id="hdnOutletWarrentyRepairId" hidden="" value="0" />
+                        <input type="text" id="hdnOutletInvoiceDetailsId" hidden="" value="0" />
+                        <input type="text" id="hdnOutletSaleInvoiceNo" hidden="" value="0" />
+                        <input type="text" id="hdnOutletId" hidden="" value="0" />
+                        <input type="text" id="hdnRepairTokenNo" hidden="" value="0" />
+                        <input type="text" id="hdnCreatedDate" hidden="" value="0" />
+                        <div class="row-xs-12">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                <fieldset>
+                                    <div class="row-xs-8">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                                                <section>
+                                                    <h6>Invoice No.</h6>
+                                                    <label for="txtOutletSaleInvoiceNo" class="label"></label>
+                                                    <label class="input">
+                                                        <input type="number" id="txtOutletSaleInvoiceNo" class="form-control input-lg" name="txtOutletSaleInvoiceNo" maxlength="50" min="1" placeholder="Invoice No" />
+                                                    </label>
+                                                </section>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <footer>
+                                                        <div class="col-lg-9">
+                                                            <button class="btn btn-primary" id="btnSearchOutletSaleInvoiceNo">Search</button>
+                                                        </div>
+                                                    </footer>
+                                                </div>
+                                            </div>
+
+
+                                            @*<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <footer>
+                                                        <div class="col-lg-6">
+                                                            <button type="button" class="btn btn-warning" id="btnClearOutletWarrentyRepairForm">Clear</button>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <button class="btn btn-primary" id="btnUpdateRequest">Save</button>
+                                                        </div>
+                                                    </footer>
+                                                </div>*@
+
+                                        </div>
+                                    </div>
+
+                                </fieldset>
+
+
+                            </div>
+
+                            <div class="row-xs-12">
+                                <fieldset>
+                                    <div class="row-xs-12">
+                                        <div class="row-xs-12">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <table id="myTableOutletWarrentyRepair" class="table table-bordered table-hover responsive-utilities ">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>OutletSaleInvoiceNo</th>
+                                                            <th>OutletId</th>
+                                                            <th>ProductId</th>
+                                                            <th>SL.</th>
+                                                            @*<th>Purchase Date</th>*@
+                                                            <th>Product Name</th>
+                                                            <th>Barcode</th>
+                                                            <th>UoM</th>
+                                                            <th>Qty</th>
+                                                            <th>Unit Price</th>
+                                                            <th>VAT</th>
+                                                            <th>Total Price</th>
+                                                            <th>Edit</th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <div class="row-xs-12">
+                        <fieldset>
+                            <div class="container-fluid">
+                                <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <section>
+                                            <h6>Product Name</h6>
+                                            <label for="txtProductName" class="label"></label>
+                                            <input type="text" id="hdnProductId" hidden="" />
+                                            <input type="text" id="hdnProductName" hidden="" />
+                                            <label class="input">
+                                                <input type="text" id="txtProductName" name="txtProductName" maxlength="50" placeholder="Product Name" readonly="readonly" />
+                                            </label>
+                                        </section>
+                                        <section>
+                                            <label for="txtPurchaseDate" class="label">Purchase Date</label>
+                                            <label class="input">
+                                                <input type="datetime" id="txtPurchaseDate" class="datepicker" name="txtPurchaseDate" maxlength="50" placeholder="Purchase Date" />
+                                            </label>
+                                        </section>
+                                        <section>
+                                            <label for="txtReturnDate" class="label">Return Date</label>
+                                            <label class="input">
+                                                <input type="datetime" id="txtReturnDate" class="datepicker" name="txtReturnDate" maxlength="50" placeholder="Return Date" />
+                                            </label>
+                                        </section>
+
+
+                                    </div>
+                                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"></div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        @*<section>
+                                                <h6>Warrenty type</h6>
+                                                <label for="cmbWarrentyId" class="label"></label>
+                                                <label class="select">
+                                                    <select id="cmbWarrentyId"><option></option></select>
+                                                </label>
+                                            </section>*@
+                                        <section>
+                                            <h6>Warrenty type</h6>
+                                            <label for="txtWarrentyType" class="label"></label>
+                                            <label class="input">
+                                                <input type="text" id="txtWarrentyType" name="txtWarrentyType" maxlength="50" placeholder="Warrenty Type" />
+                                            </label>
+                                        </section>
+                                        <section>
+                                            <label for="txtProductQuantity" class="label"> Quantity</label>
+                                            <label class="input">
+                                                <input type="number" id="txtProductQuantity" name="txtProductQuantity" maxlength="50" placeholder="Product Quantity" min="1" step="1" />
+                                            </label>
+                                        </section>
+                                        <section>
+                                            <label for="txtProblem" class="label">Problem</label>
+                                            <label class="input">
+                                                <input type="text" id="txtProblem" name="txtProblem" maxlength="300" placeholder="Problem" />
+                                            </label>
+                                        </section>
+                                    </div>
+                                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"></div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <section>
+                                            <label for="txtRepairCost" class="label">Repair Cost</label>
+                                            <label class="input">
+                                                <input type="text" id="txtRepairCost" name="txtRepairCost" maxlength="50" placeholder="Repair Cost" />
+                                            </label>
+                                        </section>
+                                    </div>
+
+
+                                </div>
+                                <div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <footer>
+                                    @*<div class="col-lg-9">*@
+                                    <div class="col-lg-12">
+                                        <button class="btn btn-primary" id="btnSaveOutletWarrentyRepairData">Save</button>
+                                        <button class="btn btn-warning" id="btnClearAllData">Clear</button>
+                                    </div>
+                                </footer>
+                            </div>
+                        </fieldset>
+                    </div>
+                    @*<div class="row-xs-8">
+                            <fieldset>
+                                <div class="container-fluid">
+                                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                            <section>
+                                                <h6>Product Name</h6>
+                                                <label for="txtProductName" class="label"></label>
+                                                <input type="text" id="hdnProductId" hidden="" />
+                                                <input type="text" id="hdnProductName" hidden="" />
+                                                <label class="input">
+                                                    <input type="text" id="txtProductName" name="txtProductName" maxlength="50" placeholder="Product Name" readonly="readonly" />
+                                                </label>
+                                            </section>
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"></div>
+                                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+
+                                            <section>
+                                                <h6>Warrenty type</h6>
+                                                <label for="txtWarrentyType" class="label"></label>
+                                                <label class="input">
+                                                    <input type="text" id="txtWarrentyType" name="txtWarrentyType" maxlength="50" placeholder="Warrenty Type"/>
+                                                </label>
+                                            </section>
+                                        </div>
+
+                                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                            <section>
+                                                <label for="txtPurchaseDate" class="label">Purchase Date</label>
+                                                <label class="input">
+                                                    <input type="text" id="txtPurchaseDate" name="txtPurchaseDate" maxlength="50" placeholder="Purchase Date" readonly="readonly"/>
+                                                </label>
+                                            </section>
+
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"></div>
+                                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                            <section>
+                                                <label for="txtProblem" class="label">Problem</label>
+                                                <label class="input">
+                                                    <input type="text" id="txtProblem" name="txtProblem" maxlength="300" placeholder="Problem" />
+                                                </label>
+                                            </section>
+                                        </div>
+
+                                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                            <section>
+                                                <label for="txtReturnDate" class="label">Return Date</label>
+                                                <label class="input">
+                                                    <input type="text" id="txtReturnDate" name="txtReturnDate" maxlength="50" placeholder="Return Date" readonly="readonly">
+                                                </label>
+                                            </section>
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"></div>
+                                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+
+                                            <section>
+                                                <label for="txtProductQuantity" class="label"> Quantity</label>
+                                                <label class="input">
+                                                    <input type="number" id="txtProductQuantity" name="txtProductQuantity" maxlength="50" placeholder="Product Quantity" min="1" step="1"/>
+                                                </label>
+                                            </section>
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"></div>
+                                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                            <section>
+                                                <label for="txtRepairCost" class="label">Repair Cost</label>
+                                                <label class="input">
+                                                    <input type="text" id="txtRepairCost" name="txtRepairCost" maxlength="50" placeholder="txtRepairCost"/>
+                                                </label>
+                                            </section>
+                                        </div>
+
+
+                                    </div>
+                                    <div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <footer>
+
+                                        <div class="col-lg-12">
+                                            <button class="btn btn-primary" id="btnSaveOutletWarrentyRepairData">Save</button>
+                                            <button class="btn btn-warning" id="btnClearAllData">Clear</button>
+                                        </div>
+                                    </footer>
+                                </div>
+                            </fieldset>
+                        </div>*@
+
+
+                    @*</fieldset>*@
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- end widget content -->
+    <!-- end widget div -->
+
+</div>
+<!-- end widget -->
+
+
+<div id="dialog_simple" title="APT ERP V 1.0.0">
+    <p>
+    </p>
+</div>
+
+

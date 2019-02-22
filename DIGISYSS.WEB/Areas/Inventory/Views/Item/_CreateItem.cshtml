@@ -1,0 +1,142 @@
+﻿
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">APT ERP</h4>
+            </div>
+            <div id="modal-body">
+                <h2 id="rif"></h2>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<head>
+    <script src="~/Areas/Inventory/Scripts/Item/CreateItem.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+
+<div class="jarviswidget" id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false">
+    <header>
+        <span class="widget-icon"> <i class="fa fa-edit"></i> </span>
+        <h2>Create Item </h2>
+
+    </header>
+
+    <!-- widget div-->
+    <div>
+
+        <!-- widget edit box -->
+        <div class="jarviswidget-editbox">
+            <!-- This area used as dropdown edit box -->
+
+        </div>
+        <!-- end widget edit box -->
+        <!-- widget content -->
+        <div class="widget-body no-padding">
+
+            <div class="smart-form">
+             <fieldset>
+                    <div class="container-fluid">
+                       
+                                <input type="text" id="hdnItemId" hidden="" value="0" />
+
+                                <section>
+                                    <label for="cmbGroupId" class="label">Group Name:</label>
+                                    <label class="select">
+                                        <select id="cmbGroupId"><option></option></select>
+                                    </label>
+                                </section>
+
+
+                                @*//This below  Coded is written by Rifat viya to reduce the size of the textbox or Droprown or  anything else*@
+
+                                @*<section>
+                                        <div class="col-md-12">
+                                            <label for="txtItemCode" class="label">Item Code</label>
+                                            <div class="col-md-6">
+                                                <label class="input  ">
+                                                    <input type="text" id="txtItemCode" name="txtItemCode" maxlength="50" placeholder="Item Code" required />
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <br><br>
+                                    </section>*@
+
+                                <section>
+                                    <label for="txtItemCode" class="label">Item Code</label>
+
+                                    <label class="input  ">
+                                        <input type="text" id="txtItemCode" name="txtItemCode" maxlength="50" placeholder="Item Code" required />
+                                    </label>
+                                </section>
+
+
+                                <section>
+                                    <label for="txtItemName" class="label">Item Name</label>
+
+                                    <label class="input">
+                                        <input type="text" id="txtItemName" name="txtItemName" maxlength="50" placeholder="Item Name" />
+                                    </label>
+
+                                </section>
+                                <section>
+                                    <label for="txtItemDetails" class="label">Item Details</label>
+                                    <label class="input">
+                                        <input type="text" id="txtItemDetails" name="txtItemDetails" maxlength="350" placeholder="Item Details" />
+                                    </label>
+                                </section>
+
+                                <section>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="chkIsActive" id="chkIsActive">
+                                        <i></i>IsActive
+                                    </label>
+                                </section>
+                            </div>
+                     
+                   
+                    <footer>
+                        <button class="btn btn-primary" id="btnSaveItem">
+                            @*onclick="createAssetCategoryManager.SaveAssetCategory()"*@
+                            Save
+                        </button>
+                        <button type="button" class="btn btn-warning" id="btnClearItemForm">
+                            Clear
+                        </button>
+                    </footer>
+
+                </fieldset>
+
+            </div>
+
+        </div>
+        <!-- end widget content -->
+
+    </div>
+    <!-- end widget div -->
+
+</div>
+<!-- end widget -->
+
+
+<div id="dialog_simple" title="APT ERP V 1.0.0">
+    <p>
+    </p>
+</div>

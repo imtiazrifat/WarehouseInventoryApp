@@ -1,0 +1,116 @@
+﻿<script src="~/Areas/Inventory/Scripts/WarehouseStock/CreateWarehouseStock.js"></script>
+<script src="~/Areas/Inventory/Scripts/WarehouseStock/AdjustReason.js"></script>
+<head>
+    <script>
+        $(document).ready(function () {
+            $(function () { adjustReason.loadAdjustReasonInDD(); });
+        });
+    </script>
+</head>
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">APT ERP</h4>
+            </div>
+            <div id="modal-body">
+                <h2 id="rif"></h2>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="jarviswidget" id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false">
+    <header>
+        <span class="widget-icon"> <i class="fa fa-edit"></i> </span>
+        <h2>Warehouse Stock </h2>
+
+    </header>
+
+    <!-- widget div-->
+    <div>
+
+        <!-- widget edit box -->
+        <div class="jarviswidget-editbox">
+            <!-- This area used as dropdown edit box -->
+
+        </div>
+        <!-- end widget edit box -->
+        <!-- widget content -->
+        <div class="widget-body no-padding">
+
+            <div class="smart-form">
+                <fieldset>
+                    <input type="text" id="hdnWarehouseStockId" hidden="" value="0" />
+                    <section>
+                        <h6>Product</h6>
+                        <label for="cmbProductId" class="label"></label>
+                        <label class="select">
+                            <select id="cmbProductId"><option></option></select>
+                        </label>
+                    </section>
+
+             
+                    <section>
+                        <label for="txtWarehouseId" class="label">Outlet Id</label>
+                        <label class="input">
+                            <input type="number" id="txtWarehouseId" name="txtWarehouseId" maxlength="50" placeholder="Warehouse Id" min="1" step="1" readonly="readonly" />
+                        </label>
+                    </section>
+                    <section>
+                        <label for="txtAdjustedStock" class="label">Ajsuted Stock(Quantity)</label>
+                        <label class="input">
+                            <input type="number" id="txtAdjustedStock" name="txtAdjustedStock" placeholder="Adjusted Stock" min="0" step="1" />
+                        </label>
+                    </section>
+               
+                    <section>
+                        <label for="cmbAdjustedReason" class="label">Adjusted Reason</label>
+                        <label class="select">
+                            <select id="cmbAdjustedReason"><option></option></select>
+                        </label>
+                    </section>
+
+                    <section>
+                        <label for="txtWarehouseStockQuantity" class="label">Warehouse Stock Quantity</label>
+                        <label class="input">
+                            <input type="text" id="txtWarehouseStockQuantity" name="txtWarehouseStockQuantity" maxlength="350" placeholder="Warehouse Stock Quantity" readonly="readonly" />
+                        </label>
+                    </section>
+                    
+                    <section>
+                        <label class="checkbox">
+                            <input type="checkbox" name="chkIsActive" id="chkIsActive">
+                            <i></i>IsActive
+                        </label>
+                    </section>                    
+                </fieldset>
+                <footer>
+                    <button class="btn btn-primary" id="btnSaveWarehouseStock">Save</button>
+                    <button type="button" class="btn btn-warning" id="btnClearWarehouseStockForm">Clear</button>
+                </footer>
+            </div>
+
+        </div>
+        <!-- end widget content -->
+
+    </div>
+    <!-- end widget div -->
+
+</div>
+<!-- end widget -->
+
+
+<div id="dialog_simple" title="APT ERP V 1.0.0">
+    <p>
+    </p>
+</div>

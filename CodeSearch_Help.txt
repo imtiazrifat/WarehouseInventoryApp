@@ -1,0 +1,19 @@
+1. Pass a Object through Ajax 
+
+http://stackoverflow.com/questions/1068189/post-an-object-as-data-using-jquery-ajax
+
+2.
+
+
+
+3.
+
+
+
+
+
+
+
+
+
+

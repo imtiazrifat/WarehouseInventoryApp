@@ -1,0 +1,88 @@
+﻿<script src="~/Areas/Inventory/Scripts/WarehousePO/ApprovedPOByWarehouse.js"></script>
+
+
+@{
+    ViewBag.Title = "WarehousePO";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">APT ERP</h4>
+                </div>
+                <div id="modal-body">
+                    <h2 id="rif"></h2>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <head>
+
+    </head>
+
+    <div class="jarviswidget" id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false">
+        <header>
+            <span class="widget-icon"> <i class="fa fa-edit"></i> </span>
+            <h2>Approved PO(Purchase Order) By Warehouse </h2>
+
+        </header>
+
+        <!-- widget div-->
+        <div>
+
+            <!-- widget edit box -->
+            <div class="jarviswidget-editbox">
+                <!-- This area used as dropdown edit box -->
+
+            </div>
+            <!-- end widget edit box -->
+            <!-- widget content -->
+            <div class="widget-body no-padding">
+
+                <div class="smart-form">
+                    <div data-toggle="validator">
+                        <fieldset>
+                            <div class="container-fluid">
+                               <table id="myTableApprovedPOByWarehouse" class="table table-bordered table-hover responsive-utilities ">
+                                    <thead>
+                                    <tr>
+                                        <th>SL.</th>
+                                        <th>Outlet Name</th>
+                                        <th>Apply Date</th>
+                                        <th>Quantity</th>
+                                        <th>Total Grand Price</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                        <th>Cancel</th>
+                                    </tr>
+                                    </thead>
+                                </table>
+                            </div>
+
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- end widget content -->
+        <!-- end widget div -->
+
+    </div>
+    <!-- end widget -->
+
+
+    <div id="dialog_simple" title="APT ERP V 1.0.0">
+        <p>
+        </p>
+    </div>

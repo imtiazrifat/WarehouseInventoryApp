@@ -1,0 +1,125 @@
+﻿<script src="~/Areas/Inventory/Scripts/OutletPOView/OutletPOViewSettings.js"></script>
+
+@{
+    ViewBag.Title = "OutletPOView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en-us">
+
+<body class="">
+    @*<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>*@
+@*<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">*@
+    @*<link rel="stylesheet" href="//code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css">*@
+
+  @*  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>*@
+<!-- MAIN PANEL -->
+    @*id="main"*@
+    <div role="main">
+
+        <!-- RIBBON -->
+        <div id="ribbon">
+
+            <span class="ribbon-button-alignment">
+                <span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh" rel="tooltip" data-placement="bottom" data-original-title="
+                    <i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
+                    <i class="fa fa-refresh"></i>
+                </span>
+            </span>
+
+            <!-- breadcrumb -->
+            <ol class="breadcrumb">
+                <li>Home</li>
+                <li>Forms</li>
+                <li>Smart Form Elements</li>
+            </ol>
+        </div>
+        <!-- END RIBBON -->
+        <!-- MAIN CONTENT -->
+        <div id="content">
+
+
+
+
+            <!-- widget grid -->
+            <section id="widget-grid" class="">
+
+
+                <!-- START ROW -->
+
+                <div class="row-12">
+
+                    <!-- NEW COL START -->
+                    <article class="col-sm-12 col-md-12 col-lg-12">
+                        @Html.Partial("_AllOutletPOView")
+                        <!-- END COL -->
+                    </article>
+                    <div id="popup" style="display: none" >
+                      @*  <article class="col-sm-12 col-md-12 col-lg-12">*@
+                            @Html.Partial("_IndividualOutletPOView")
+                      @*  </article>*@
+                    </div>
+                    <div id="popup2" style="display: none" title="APT ERP V 1.0.0">
+                        <article class="col-sm-12 col-md-12 col-lg-12">
+                            @Html.Partial("_ASingleProducDataOfOutletPOView")
+                        </article>
+                    </div>
+                        @*<article class="col-sm-12 col-md-12 col-lg-12">
+                @Html.Partial("_ApprovedPOByWarehouse")
+            </article>*@
+
+                    </div>
+
+                <!-- END ROW -->
+                <!-- NEW ROW -->
+
+                <!-- END ROW-->
+
+            </section>
+            <!-- end widget grid -->
+
+
+        </div>
+        <!-- END MAIN CONTENT -->
+
+    </div>
+    <!-- END MAIN PANEL -->
+
+
+
+
+
+    <script type="text/javascript">
+
+        // DO NOT REMOVE : GLOBAL FUNCTIONS!
+
+        $(document).ready(function () {
+
+            pageSetUp();
+
+        })
+
+    </script>
+
+    <!-- Your GOOGLE ANALYTICS CODE Below -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+
+</body>
+
+</html>

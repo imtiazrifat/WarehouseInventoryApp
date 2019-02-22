@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F63BE41A-4427-4B3E-A289-A7D7EE069163}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DIGISYSS.Entities</RootNamespace>
+    <AssemblyName>DIGISYSS.Entities</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="InvAddress.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvCategory.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvCityList.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvColor.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvDiscount.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvDistrictList.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvFactory.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvGroup.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvItem.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvOutlet.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvOutletInvoiceDetail.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvOutletInvoiceHistory.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvOutletInvoiceMaster.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvOutletPODetail.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvOutletPOInvoiceDetail.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvOutletPOInvoiceMaster.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvOutletPOMaster.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvOutletPOReturnDetail.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvOutletPOReturnMaster.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvOutletStock.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvOutletWarrentyRepair.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvPackageDetail.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvPackageMaster.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvProduct.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvProductPrice.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvProductPurchase.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvProductWarrenty.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvSize.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvSupplier.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvTax.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvUoM.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvWarehouse.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvWarehousePODetail.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvWarehousePOInvoiceDetail.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvWarehousePOInvoiceMaster.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvWarehousePOItemReceived.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvWarehousePOMaster.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvWarehouseStock.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvWarrentyPeriod.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RetailSalesModels.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RetailSalesModels.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RetailSalesModels.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RetailSalesModels.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RetailSalesModels.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="spSaleInvoice_Result.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TestStudent.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TestStudentAddress.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TestStudentHistory.cs">
+      <DependentUpon>RetailSalesModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\OutletPOReturnDetailsViewModel.cs" />
+    <Compile Include="ViewModel\OutletPOReturnPackageVM.cs" />
+    <Compile Include="ViewModel\OutletSaleUIDetailsViewModel.cs" />
+    <Compile Include="ViewModel\OutletSaleUIVM.cs" />
+    <Compile Include="ViewModel\WarehousePODetailsViewModel.cs" />
+    <Compile Include="ViewModel\OutletPODetailsViewModel.cs" />
+    <Compile Include="ViewModel\ProductWarehousePOVM.cs" />
+    <Compile Include="ViewModel\ProductDetailsViewModel.cs" />
+    <Compile Include="ViewModel\PackageDetailsViewModel.cs" />
+    <Compile Include="ViewModel\OutletPOPackageVM.cs" />
+    <Compile Include="ViewModel\ProductPackageVM.cs" />
+    <Compile Include="ViewModel\StudentDetails.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="RetailSalesModels.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RetailSalesModels.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="RetailSalesModels.edmx.diagram">
+      <DependentUpon>RetailSalesModels.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="RetailSalesModels.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RetailSalesModels.edmx</DependentUpon>
+      <LastGenOutput>RetailSalesModels.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="RetailSalesModels.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RetailSalesModels.edmx</DependentUpon>
+      <LastGenOutput>RetailSalesModels.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

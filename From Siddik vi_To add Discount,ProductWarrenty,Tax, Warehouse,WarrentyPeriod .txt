@@ -1,0 +1,279 @@
+USE [master]
+GO
+/****** Object:  Database RetailSalesManagement    Script Date: 11/22/2016 3:34:59 PM ******/
+
+GO
+ALTER DATABASE RetailSalesManagement SET COMPATIBILITY_LEVEL = 120
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [RetailSalesManagement.[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE RetailSalesManagement SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE RetailSalesManagement SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE RetailSalesManagement SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE RetailSalesManagement SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE RetailSalesManagement SET ARITHABORT OFF 
+GO
+ALTER DATABASE RetailSalesManagement SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE RetailSalesManagement SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE RetailSalesManagement SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE RetailSalesManagement SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE RetailSalesManagement SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE RetailSalesManagement SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE RetailSalesManagement SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE RetailSalesManagement SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE RetailSalesManagement SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE RetailSalesManagement SET  DISABLE_BROKER 
+GO
+ALTER DATABASE RetailSalesManagement SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE RetailSalesManagement SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE RetailSalesManagement SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE RetailSalesManagement SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE RetailSalesManagement SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE RetailSalesManagement SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE RetailSalesManagement SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE RetailSalesManagement SET RECOVERY FULL 
+GO
+ALTER DATABASE RetailSalesManagement SET  MULTI_USER 
+GO
+ALTER DATABASE RetailSalesManagement SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE RetailSalesManagement SET DB_CHAINING OFF 
+GO
+ALTER DATABASE RetailSalesManagement SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE RetailSalesManagement SET TARGET_RECOVERY_TIME = 0 SECONDS 
+GO
+ALTER DATABASE RetailSalesManagement SET DELAYED_DURABILITY = DISABLED 
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'RetailSalesManagement', N'ON'
+GO
+USE RetailSalesManagement
+GO
+/****** Object:  Table [dbo].[InvAddress]    Script Date: 11/22/2016 3:34:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[InvCategory]    Script Date: 11/22/2016 3:34:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[InvDiscount]    Script Date: 11/22/2016 3:34:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[InvDiscount](
+	[DiscountId] [int] IDENTITY(1,1) NOT NULL,
+	[DiscountCode] [varchar](50) NOT NULL,
+	[DiscountName] [varchar](50) NOT NULL,
+	[IsDiscountPercent] [bit] NULL,
+	[DiscountFixedAmount] [decimal](18, 2) NULL,
+	[CreatedBy] [varchar](50) NULL,
+	[CreationDate] [datetime] NULL,
+	[ModifyBy] [varchar](50) NULL,
+	[ModifyDate] [datetime] NULL,
+	[IsActive] [bit] NULL,
+	[IsDeleted] [bit] NULL,
+ CONSTRAINT [PK_InvDiscount_1] PRIMARY KEY CLUSTERED 
+(
+	[DiscountId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[InvDistrict]    Script Date: 11/22/2016 3:34:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[InvGroup]    Script Date: 11/22/2016 3:34:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[InvLocation]    Script Date: 11/22/2016 3:34:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[InvProductWarrenty]    Script Date: 11/22/2016 3:34:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[InvProductWarrenty](
+	[ProductWarrentyId] [int] IDENTITY(1,1) NOT NULL,
+	[ProductId] [int] NULL,
+	[IsReplacementWarrenty] [bit] NULL,
+	[WarrentyPeriodId] [int] NULL,
+	[WarrentyExpireDate] [datetime] NULL,
+	[ServicePeriod] [int] NULL,
+	[WarrentyDescription] [varchar](250) NULL,
+	[Ex1] [varchar](50) NULL,
+	[CreatedBy] [varchar](50) NULL,
+	[CreatedDate] [datetime] NULL,
+	[ModifiedBy] [varchar](50) NULL,
+	[ModifiedDate] [datetime] NULL,
+	[IsActive] [bit] NULL,
+	[IsDeleted] [bit] NULL,
+ CONSTRAINT [PK_InvProductWarrenty] PRIMARY KEY CLUSTERED 
+(
+	[ProductWarrentyId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[InvTax]    Script Date: 11/22/2016 3:34:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[InvTax](
+	[TaxId] [int] IDENTITY(1,1) NOT NULL,
+	[TaxCode] [varchar](50) NOT NULL,
+	[TaxName] [varchar](50) NOT NULL,
+	[IsPercent] [bit] NULL,
+	[PercentAmount] [decimal](18, 2) NULL,
+	[FixedAmount] [decimal](18, 2) NULL,
+	[CreatedBy] [varchar](50) NULL,
+	[CreationDate] [datetime] NULL,
+	[ModifyBy] [varchar](50) NULL,
+	[ModifyDate] [datetime] NULL,
+	[IsActive] [bit] NULL,
+	[IsDeleted] [bit] NULL,
+ CONSTRAINT [PK_InvTax_1] PRIMARY KEY CLUSTERED 
+(
+	[TaxId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[InvWarehouse]    Script Date: 11/22/2016 3:34:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[InvWarehouse](
+	[WareHouseId] [int] IDENTITY(1,1) NOT NULL,
+	[WareHouseCode] [varchar](50) NOT NULL,
+	[WarehouseName] [varchar](50) NOT NULL,
+	[WareHouseDetails] [varchar](250) NOT NULL,
+	[WareHouseNumber] [int] NULL,
+	[AddressCode] [varchar](50) NULL,
+	[WareHouseEx1] [varchar](50) NULL,
+	[CreatedBy] [varchar](50) NULL,
+	[CreationDate] [datetime] NULL,
+	[ModifyBy] [varchar](50) NULL,
+	[ModifyDate] [datetime] NULL,
+	[IsActive] [bit] NULL,
+	[IsDeleted] [bit] NULL,
+ CONSTRAINT [PK_InvWarehouse] PRIMARY KEY CLUSTERED 
+(
+	[WareHouseId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[InvWarrentyPeriod]    Script Date: 11/22/2016 3:34:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[InvWarrentyPeriod](
+	[WarrentyPeriodId] [int] IDENTITY(1,1) NOT NULL,
+	[WarrentyName] [varchar](50) NOT NULL,
+	[WarrentyDays] [int] NULL,
+	[WarrentyDetails] [varchar](250) NULL,
+	[CreatedBy] [varchar](50) NULL,
+	[CreatedDate] [datetime] NULL,
+	[ModifiedBy] [varchar](50) NULL,
+	[ModifiedDate] [datetime] NULL,
+	[IsActive] [bit] NULL,
+	[IsDeleted] [bit] NULL,
+ CONSTRAINT [PK_InvWarrentyPeriod] PRIMARY KEY CLUSTERED 
+(
+	[WarrentyPeriodId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Index [IX_InvGroup]    Script Date: 11/22/2016 3:34:59 PM ******/
+
+GO
+USE [master]
+GO
+ALTER DATABASE RetailSalesManagement SET  READ_WRITE 
+GO

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="eedc92f9e0b8464c899749675a8e7bae" Name="Diagram1" ZoomLevel="77">
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvAddress" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvCategory" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvCityList" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvColor" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvDiscount" Width="1.5" PointX="4.75" PointY="4.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvDistrictList" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvFactory" Width="1.5" PointX="6.75" PointY="4.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvGroup" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvItem" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvOutlet" Width="1.5" PointX="2.75" PointY="8.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvOutletInvoiceDetail" Width="1.5" PointX="8.75" PointY="5.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvOutletInvoiceHistory" Width="1.5" PointX="4.75" PointY="9.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvOutletInvoiceMaster" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvOutletPODetail" Width="1.5" PointX="10.75" PointY="8.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvOutletPOInvoiceMaster" Width="1.5" PointX="6.75" PointY="11.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvOutletPOMaster" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvOutletPOReturnDetail" Width="1.5" PointX="12.75" PointY="5.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvOutletPOReturnMaster" Width="1.5" PointX="12.75" PointY="11.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvOutletStock" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvOutletWarrentyRepair" Width="1.5" PointX="8.75" PointY="13.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvPackageDetail" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvPackageMaster" Width="1.5" PointX="2.75" PointY="14.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvProduct" Width="1.5" PointX="14.75" PointY="4.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvProductPrice" Width="1.5" PointX="14.75" PointY="10.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvProductPurchase" Width="1.5" PointX="14.75" PointY="15.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvProductWarrenty" Width="1.5" PointX="16.75" PointY="0.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvSize" Width="1.5" PointX="16.75" PointY="5.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvSupplier" Width="1.5" PointX="16.75" PointY="9.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvTax" Width="1.5" PointX="16.75" PointY="14.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvUoM" Width="1.5" PointX="4.75" PointY="17.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvWarehouse" Width="1.5" PointX="10.75" PointY="17.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvWarehousePODetail" Width="1.5" PointX="18.75" PointY="0.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvWarehousePOInvoiceDetail" Width="1.5" PointX="18.75" PointY="5.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvWarehousePOInvoiceMaster" Width="1.5" PointX="18.75" PointY="10.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvWarehousePOItemReceived" Width="1.5" PointX="18.75" PointY="16.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvWarehousePOMaster" Width="1.5" PointX="0.75" PointY="19.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvWarehouseStock" Width="1.5" PointX="20.75" PointY="0.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvWarrentyPeriod" Width="1.5" PointX="20.75" PointY="6.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.TestStudent" Width="1.5" PointX="20.75" PointY="10.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.TestStudentAddress" Width="1.5" PointX="20.75" PointY="14.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.TestStudentHistory" Width="1.5" PointX="20.75" PointY="18.75" />
+        <EntityTypeShape EntityType="RetailSalesManagementModel.InvOutletPOInvoiceDetail" Width="1.5" PointX="2.75" PointY="21.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

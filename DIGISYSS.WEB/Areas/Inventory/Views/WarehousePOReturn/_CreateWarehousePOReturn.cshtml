@@ -1,0 +1,260 @@
+﻿<script src="~/Areas/Inventory/Scripts/WarehousePOReturn/CreateWarehousePOReturn.js"></script>
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">APT ERP</h4>
+            </div>
+            <div id="modal-body">
+                <h2 id="rif"></h2>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="myModalFroSendRequest" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">APT ERP</h4>
+            </div>
+            <div id="modal-body">
+                <h2 id="rif"></h2>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="btnYes" data-dismiss="modal">Yes</button>
+                <button type="button" class="btn btn-warning" id="btnNo" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<head>
+    @*tsdstdstd*@
+</head>
+
+<div class="jarviswidget" id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false">
+    <header>
+        <span class="widget-icon"> <i class="fa fa-edit"></i> </span>
+        <h2>Create Warehouse PO Return </h2>
+
+    </header>
+
+    <!-- widget div-->
+    <div>
+
+        <!-- widget edit box -->
+        <div class="jarviswidget-editbox">
+            <!-- This area used as dropdown edit box -->
+
+        </div>
+        <!-- end widget edit box -->
+        <!-- widget content -->
+        <div class="widget-body no-padding">
+
+            <div class="smart-form">
+                <div data-toggle="validator">
+                    <fieldset>
+                    <div class="container-fluid">
+                        <input type="text" id="hdnWarehousePOMasterId" hidden="" value="0"/>
+                        <input type="text" id="hdnWarehousePODetailsId" hidden="" value="0"/>
+                        <div class="row-xs-12">
+
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="row-xs-12">
+
+                                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+                                        <section>
+                                            <h6>Select a Warehouse</h6>
+                                            <label for="cmbWarehouseId" class="label"></label>
+                                            <label class="select">
+                                                <select id="cmbWarehouseId"><option></option></select>
+                                            </label>
+                                        </section>
+
+                                        <section>
+                                            <h6>Select a Product</h6>
+                                            <label for="cmbProductId" class="label"></label>
+                                            <label class="select">
+                                                <select id="cmbProductId"><option></option></select>
+                                            </label>
+                                        </section>
+                                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                            <section>
+                                                <label for="txtProductQuantity" class="label">Enter Quantity</label>
+
+                                                <label class="input">
+                                                    <input type="number" id="txtProductQuantity" name="txtProductQuantity" maxlength="50" placeholder="Product Quantity" min="0" step="1"/>
+                                                </label>
+                                            </section>
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+                                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                            <section>
+                                                <label for="txtPriceAmount" class="label">Price Amount</label>
+
+                                                <label class="input">
+                                                    <input type="number" id="txtPriceAmount" name="txtPriceAmount" maxlength="50" placeholder="Price Amount" readonly="readonly"/>
+                                                </label>
+                                            </section>
+                                        </div>
+
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                            <button class="btn btn-primary" id="btnAddProduct">Add Product</button>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <section>
+                                                <label for="txtBarcode" class="label">Barcode </label>
+
+                                                <label class="input">
+                                                    <input type="text" id="txtBarcode" name="txtBarcode" maxlength="50" placeholder="Barcode" readonly="readonly"/>
+                                                </label>
+                                            </section>
+
+                                        </div>
+                                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                            <section>
+                                                <label for="txtTotalProduct" class="label">Total Product</label>
+
+                                                <label class="input">
+                                                    <input type="number" id="txtTotalProduct" name="txtTotalProduct" maxlength="50" placeholder="Total Product" readonly="readonly"/>
+                                                </label>
+                                            </section>
+
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+                                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                            <section>
+                                                <label for="txtTotalPrice" class="label">Total Price </label>
+
+                                                <label class="input">
+                                                    <input type="number" id="txtTotalPrice" name="txtTotalPrice" maxlength="50" placeholder="Total Price" readonly="readonly"/>
+                                                </label>
+                                            </section>
+
+                                        </div>
+                                        <br>
+
+                                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                            <section>
+                                                <label for="txtRetailPrice" class="label">Retail Price </label>
+
+                                                <label class="input">
+                                                    <input type="text" id="txtRetailPrice" name="txtRetailPrice" maxlength="50" placeholder="Retail Price" readonly="readonly"/>
+                                                </label>
+                                            </section>
+
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+                                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                            <section>
+                                                <label for="txtItemName" class="label">Item </label>
+
+                                                <input type="text" id="hdnProductId" hidden=""/>
+                                                <input type="text" id="hdnProductName" hidden=""/>
+
+                                                <label class="input">
+                                                    <input type="text" id="txtItemName" name="txtItemName" maxlength="50" placeholder="Item Name" readonly="readonly"/>
+                                                </label>
+                                            </section>
+
+                                        </div>
+                                        <br>
+                                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                            <section>
+                                                <label for="txtSize" class="label">Size </label>
+
+                                                <label class="input">
+                                                    <input type="text" id="txtSize" name="txtSize" maxlength="50" placeholder="Size" readonly="readonly"/>
+                                                </label>
+                                            </section>
+
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+                                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                            <section>
+                                                <label for="txtUoM" class="label">UoM </label>
+
+                                                <label class="input">
+                                                    <input type="text" id="txtUoM" name="txtUoM" maxlength="50" placeholder="UoM" readonly="readonly"/>
+                                                </label>
+                                            </section>
+
+                                        </div>
+                                        <br>
+
+                                    </div>
+                               </div>
+                               </div>
+                        </div>
+
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+
+                      <table id="myTable" class="table table-bordered table-hover responsive-utilities ">
+                            <thead>
+                            <tr>
+                                <th>WarehousePOMasterId</th>
+                                <th>WarehousePODetailsId</th>
+                                <th>WarehouseId</th>
+                                <th>ProductId</th>
+                                <th>Product Name</th>
+                                <th>Barcode</th>
+                                <th>Item</th>
+                                <th>Size</th>
+                                <th>UoM</th>
+                                <th>Product Quantity</th>
+                                <th>Retail Price</th>
+                                <th>Price Amount</th>
+                                <th>Status</th>
+                                <th>Edit</th>
+                                <th>Remove</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                        <footer>
+                            <div class="row-lg-12">
+                                <button class="btn btn-primary" id="btnSendRequest">
+                                    Send Request
+                                </button>
+                                <button type="button" class="btn btn-warning" id="btnClearWarehousePOReturnForm">
+                                    Clear
+                                </button>
+                            </div>
+                        </footer>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- end widget content -->
+    <!-- end widget div -->
+
+</div>
+<!-- end widget -->
+
+
+<div id="dialog_simple" title="APT ERP V 1.0.0">
+    <p>
+    </p>
+</div>
+
+

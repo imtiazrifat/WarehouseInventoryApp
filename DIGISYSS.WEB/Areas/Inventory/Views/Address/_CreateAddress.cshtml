@@ -1,0 +1,187 @@
+﻿<script src="~/Areas/Inventory/Scripts/Address/CreateAddress.js"></script>
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">APT ERP</h4>
+            </div>
+            <div id="modal-body">
+                <h2 id="rif"></h2>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="jarviswidget" id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false">
+    <header>
+        <span class="widget-icon"> <i class="fa fa-edit"></i> </span>
+        <h2>Create Address </h2>
+
+    </header>
+
+    <!-- widget div-->
+    <div>
+
+        <!-- widget edit box -->
+        <div class="jarviswidget-editbox">
+            <!-- This area used as dropdown edit box -->
+
+        </div>
+        <!-- end widget edit box -->
+        <!-- widget content -->
+        <div class="widget-body no-padding">
+
+            <div class="smart-form">
+                <header>
+                    Standard Form Header
+                </header>
+
+                <fieldset>
+                    <div class="container-fluid">
+                        <div class="row-lg-12">
+                            <div class="col-lg-3 col-md-3 col-sm-5 col-xs-12">
+
+
+                                <input type="text" id="hdnAddressId" hidden="" value="0"/>
+                                <section>
+                                    <label for="txtAddressCode" class="label">Address Code</label>
+                                    <label class="input">
+                                        <input type="text" id="txtAddressCode" name="txtAddressCode" maxlength="50" placeholder="Address Code" required/>
+                                    </label>
+                                </section>
+
+                                <section>
+                                    <label for="txtHomeAddress1" class="label">Home Address 1</label>
+                                    <label class="input">
+                                        <input type="text" id="txtHomeAddress1" name="txtHomeAddress1" maxlength="350" placeholder="Home Address 1"/>
+                                    </label>
+                                </section>
+                                <section>
+                                    <label for="txtHomeAddress2" class="label">Home Address 2</label>
+                                    <label class="input">
+                                        <input type="text" id="txtHomeAddress2" name="txtHomeAddress2" maxlength="350" placeholder="Home Address 2" />
+                                    </label>
+                                </section>
+                                <section>
+                                    <label for="txtHomeCityId" class="label">Home City Id</label>
+                                    <label class="input">
+                                        <input type="text" id="txtHomeCityId" name="txtHomeCityId" maxlength="50" placeholder="Home City Id"/>
+                                    </label>
+                                </section>
+
+                                
+                            </div>
+
+                            <div class="col-xs-1"></div>
+
+                            <div class="col-lg-3 col-md-3 col-sm-5 col-xs-12">
+
+                                <section>
+                                    <label for="txtHomePostalCode" class="label">Home Postal Code</label>
+                                    <label class="input">
+                                        <input type="text" id="txtHomePostalCode" name="txtHomePostalCode" maxlength="50" placeholder="Home Postal Code" />
+                                    </label>
+                                </section>
+                                <section>
+                                    <label for="txtHomeDistrictId" class="label">Home District Id</label>
+                                    <label class="input">
+                                        <input type="text" id="txtHomeDistrictId" name="txtHomeDistrictId" maxlength="50" placeholder="Home District Id"/>
+                                    </label>
+                                </section>
+                                <section>
+                                    <label for="txtOfficeAddress1" class="label">Office Address 1</label>
+                                    <label class="input">
+                                        <input type="text" id="txtOfficeAddress1" name="txtOfficeAddress1" maxlength="350" placeholder="Office Address 1"/>
+                                    </label>
+                                </section>
+                                <section>
+                                    <label for="txtOfficeAddress2" class="label">Office Address 2</label>
+                                    <label class="input">
+                                        <input type="text" id="txtOfficeAddress2" name="txtOfficeAddress2" maxlength="350" placeholder="Office Address 2" />
+                                    </label>
+                                </section>
+                               
+                            </div>
+
+
+                            <div class="col-xs-1"></div>
+
+
+                            <div class="col-lg-3 col-md-3 col-sm-5 col-xs-12">
+
+
+                                <section>
+                                    <label for="txtOfficeCityId" class="label">Office City Id</label>
+                                    <label class="input">
+                                        <input type="text" id="txtOfficeCityId" name="txtOfficeCityId" maxlength="50" placeholder="Office City Id" />
+                                    </label>
+                                </section>
+
+                                <section>
+                                    <label for="txtOfficePostalCode" class="label">Office Postal Code</label>
+                                    <label class="input">
+                                        <input type="text" id="txtOfficePostalCode" name="txtOfficePostalCode" maxlength="50" placeholder="Office Postal Code" />
+                                    </label>
+                                </section>
+                                <section>
+                                    <label for="txtOfficeDistrictId" class="label">Office District Id</label>
+                                    <label class="input">
+                                        <input type="text" id="txtOfficeDistrictId" name="txtOfficeDistrictId" maxlength="50" placeholder="Office District Id"/>
+                                    </label>
+                                </section>
+                                <section>
+                                    <label for="txtAddressTypeName" class="label">Address Type Name</label>
+                                    <label class="input">
+                                        <input type="text" id="txtAddressTypeName" name="txtAddressTypeName" maxlength="50" placeholder="Address Type Name"/>
+                                    </label>
+                                </section>
+                                <section>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="chkIsActive" id="chkIsActive">
+                                        <i></i>IsActive
+                                    </label>
+                                </section>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <footer>
+                        <div class="col-lg-12">
+                            <button class="btn btn-primary" align="right" id="btnSaveAddress">
+                                @*onclick="createAssetCategoryManager.SaveAssetCategory()"*@
+                                Save
+                            </button>
+                            <button type="button" class="btn btn-warning" id="btnClearAddressForm">
+                                Clear
+                            </button>
+                        </div>
+                    </footer>
+                </fieldset>
+
+            </div>
+
+        </div>
+        <!-- end widget content -->
+
+    </div>
+    <!-- end widget div -->
+
+</div>
+<!-- end widget -->
+
+
+<div id="dialog_simple" title="APT ERP V 1.0.0">
+    <p>
+    </p>
+</div>

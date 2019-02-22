@@ -1,0 +1,415 @@
+﻿<script src="~/Areas/Inventory/Scripts/OutletInvoice/SaleReturn.js"></script>
+
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">APT ERP</h4>
+            </div>
+            <div id="modal-body">
+                <h2 id="rif"></h2>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<head>
+    @*tsdstdstd*@
+</head>
+
+<div class="jarviswidget" id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false">
+    <header>
+        <span class="widget-icon"> <i class="fa fa-edit"></i> </span>
+        <h2>Sale Return</h2>
+
+    </header>
+
+    <!-- widget div-->
+    <div>
+
+        <!-- widget edit box -->
+        <div class="jarviswidget-editbox">
+            <!-- This area used as dropdown edit box -->
+
+        </div>
+        <!-- end widget edit box -->
+        <!-- widget content -->
+        <div class="widget-body no-padding">
+
+            <div class="smart-form">
+                <div data-toggle="validator">
+                    @*<fieldset>*@
+                    <div class="container-fluid">
+                        <input type="text" id="hdnOutletInvoiceMasterId" hidden="" value="0" />
+                        <input type="text" id="hdnOutletInvoiceDetailsId" hidden="" value="0" />
+                        <div class="row-xs-12">
+
+
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                <fieldset>
+                                    <div class="row-xs-12">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12" style="padding-right: 10px">
+                                                <section>
+                                                    <label for="txtSROutletName" class="label">Outlet Name</label>
+                                                    <label class="input">
+                                                        <input type="text" id="txtSROutletName" name="txtSROutletName" maxlength="50" placeholder="Branch Name" readonly="readonly" />
+                                                    </label>
+                                                </section>
+                                            </div>
+
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12" style="padding-right: 10px">
+                                                <section>
+                                                    <label for="txtSRSalePerson" class="label">Sale Person </label>
+
+                                                    <label class="input">
+                                                        <input type="text" id="txtSRSalePerson" name="txtSRSalePerson" maxlength="50" placeholder="Sale Person" readonly="readonly" />
+                                                    </label>
+                                                </section>
+                                            </div>
+                                            @*<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>*@
+                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="padding-right: 10px">
+                                                <section>
+                                                    <label for="txtSROutletSaleInvoiceNo" class="label">Invoice No</label>
+
+                                                    <label class="input">
+                                                        <input type="number" id="txtSROutletSaleInvoiceNo" name="txtSROutletSaleInvoiceNo" maxlength="50" placeholder="Invoice No" readonly="readonly" />
+                                                    </label>
+                                                </section>
+                                            </div>
+                                            @*<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>*@
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12" style="padding-right: 10px">
+                                                <section>
+                                                    <label for="txtSRCustomerName" class="label">Customer Name</label>
+                                                    <label class="input">
+                                                        <input type="text" id="txtSRCustomerName" name="txtSRCustomerName" maxlength="50" placeholder="Customer Name"/>
+                                                    </label>
+                                                </section>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12" style="padding-right: 10px">
+                                                <section>
+                                                    <h6>Current Stock</h6>
+                                                    <label for="txtSRCurrentStock" class="label"></label>
+                                                    <label class="input">
+                                                        <input type="number" id="txtSRCurrentStock" name="txtSRCurrentStock" maxlength="50" placeholder="Current Stock" readonly="readonly" />
+                                                    </label>
+                                                </section>
+                                            </div>
+
+
+
+
+                                        </div>
+
+                                        <div class="row-xs-12">
+                                            @*<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>*@
+                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="padding-right: 10px">
+                                                <section>
+                                                    <h6>Product</h6>
+                                                    <label for="cmbProductId" class="label"></label>
+                                                    <label class="select">
+                                                        <select id="cmbProductId"><option></option></select>
+                                                    </label>
+                                                </section>
+                                            </div>
+                                            
+                                            @*<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>*@
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12" style="padding-right: 10px">
+                                                <section>
+                                                    <h6>Quantity</h6>
+                                                    <label for="txtSRProductQuantity" class="label"></label>
+                                                    <label class="input">
+                                                        <input type="number" id="txtSRProductQuantity" name="txtSRProductQuantity" maxlength="50" placeholder="Quantity" min="1" step="1" />
+                                                    </label>
+                                                </section>
+                                            </div>
+
+
+                                            @*<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>*@
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12" style="padding-right: 10px">
+                                                <section>
+                                                    <h6>Price</h6>
+                                                    <label for="txtSRPriceAmount" class="label"></label>
+                                                    <label class="input">
+                                                        <input type="number" id="txtSRPriceAmount" name="txtSRPriceAmount" maxlength="50" placeholder="Price" readonly="readonly"/>
+                                                    </label>
+                                                </section>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="padding-right: 10px">
+                                                <footer>
+                                                    <div class="col-lg-12">
+                                                        @*  <button class="btn btn-labeled btn-success" id="btnSRAddProduct"> <span class="btn-label"><i class="glyphicon glyphicon-ok"></i></span>Success </button>*@
+                                                        <button class="btn btn-primary" id="btnSRAddProduct"><span class="glyphicon glyphicon-shopping-cart"></span> Add Product</button>
+                                                    </div>
+
+                                                </footer>
+                                            </div>
+
+
+                                            @*<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>*@
+                                           
+
+                                            @*<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                                                    <button class="btn btn-primary" id="btnSRAddProduct">Add Product</button>
+                                                </div>*@
+
+                                        </div>
+                                        
+                                        <div class="row-xs-12">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                @*<button class="btn btn-primary" id="btnSRAddProduct">Add Product</button>*@
+
+                                                <table id="myTableSaleReturn" class="table table-bordered table-hover responsive-utilities ">
+                                                    <thead>
+                                                        <tr>
+                                                            @*<th>ID</th>*@
+                                                            <th>Product Id</th>
+                                                            <th>OutletInvoiceId</th>
+                                                            <th>SL.</th>
+                                                            <th>Product Name</th>
+                                                            <th>Barcode</th>
+                                                            <th>UoM</th>
+                                                            <th>Qty</th>
+                                                            <th>Unit Price</th>
+                                                            <th>VAT</th>
+                                                            <th>Total Price</th>
+                                                            @*<th>Discount</th>*@
+                                                            @*<th>Status</th>
+                                                                <th>Edit</th>*@
+                                                            <th>DO</th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                </fieldset>
+                            </div>
+
+
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                <fieldset>
+                                    <div class="row-xs-8">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <section>
+                                                    <label for="txtSRPaymentMode" class="label">Payment Mode</label>
+
+                                                    <label class="input">
+                                                        <input type="text" id="txtSRPaymentMode" name="txtSRPaymentMode" maxlength="50" placeholder="Payment Mode" readonly="readonly" />
+                                                    </label>
+                                                </section>
+                                                <table id="myTableForPaymentMode" class="table table-bordered table-hover responsive-utilities ">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Card No.</th>
+                                                            <th>Card Type</th>
+                                                            <th>Issue From</th>
+                                                            <th>Price</th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+
+                                            </div>
+                                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                                <section>
+                                                    <label for="txtSRSubTotal" class="label">Sub Total </label>
+
+                                                    <label class="input">
+                                                        <input type="number" id="txtSRSubTotal" name="txtSRSubTotal" maxlength="50" placeholder="Sub Total " readonly="readonly" />
+                                                    </label>
+                                                </section>
+                                            </div>
+                                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+                                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                                <section>
+                                                    <label for="txtSRVat" class="label">VAT</label>
+
+                                                    <label class="input">
+                                                        <input type="number" id="txtSRVat" name="txtSRVat" maxlength="50" placeholder="VAT" readonly="readonly" />
+                                                    </label>
+                                                </section>
+                                            </div>
+
+
+                                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                                <section>
+                                                    <label for="txtSRDiscount" class="label">Discount</label>
+
+                                                    <input type="text" id="hdnProductId" hidden="" />
+                                                    <input type="text" id="hdnProductName" hidden="" />
+
+                                                    <label class="input">
+                                                        <input type="number" id="txtSRDiscount" name="txtSRDiscount" maxlength="50" placeholder="Discount" min="0" step="1" />
+                                                    </label>
+                                                </section>
+
+                                            </div>
+                                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+                                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                                <section>
+                                                    <label for="txtSRRoundi" class="label">Rounding</label>
+
+                                                    <label class="input">
+                                                        <input type="text" id="txtSRRoundi" name="txtSRRoundi" maxlength="50" placeholder="Rounding" readonly="readonly" min="0" step="1" />
+                                                    </label>
+                                                </section>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <section>
+                                                    <h6>Pay Amount</h6>
+                                                    <label for="txtSRAmountPayable" class="label"></label>
+
+                                                    <label class="input">
+                                                        <input type="text" class="form-control input-lg" id="txtSRAmountPayable" name="txtSRAmountPayable" maxlength="50" placeholder="Pay Amount" readonly="readonly" min="0" step="1"/>
+                                                    </label>
+                                                </section>
+                                            </div>
+                                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                                <section>
+                                                    <label for="txtSRCashAmount" class="label">Cash </label>
+
+                                                    <label class="input">
+                                                        <input type="number" id="txtSRCashAmount" name="txtSRCashAmount" maxlength="50" placeholder="Cash" min="0" step="1" />
+                                                    </label>
+                                                </section>
+                                            </div>
+                                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+                                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                                <section>
+                                                    <label for="txtSRCreditAmount" class="label">Credit </label>
+
+                                                    <label class="input">
+                                                        <input type="number" id="txtSRCreditAmount" name="txtSRCreditAmount" maxlength="50" placeholder="Credit Amount" min="0" step="1" />
+                                                    </label>
+                                                </section>
+
+                                            </div>
+
+                                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                                <section>
+                                                    <label for="txtSRPaidAmount" class="label">Paid Amount</label>
+                                                    <label class="input">
+                                                        <input type="number" id="txtSRPaidAmount" name="txtSRPaidAmount" maxlength="50" placeholder="Paid Amount" readonly="readonly" />
+                                                    </label>
+                                                </section>
+                                            </div>
+                                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+                                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                                <section>
+                                                    <label for="txtSRDueOrRefund" class="label">Refund/Due</label>
+                                                    <label class="input">
+                                                        <input type="number" id="txtSRDueOrRefund" name="txtSRDueOrRefund" maxlength="50" placeholder="Refund/Due" readonly="readonly" />
+                                                    </label>
+                                                </section>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <footer>
+                                                    <div class="col-lg-6">
+                                                        <button type="button" class="btn btn-warning" id="btnClearSaleReturnForm">Clear</button>
+
+                                                    </div>
+                                                    <div class="col-lg-6">
+
+                                                        <button class="btn btn-primary" id="btnSRSaveRequest">Save</button>
+                                                    </div>
+
+                                                </footer>
+                                            </div>
+                                            <div class="col-xs-1" style="visibility: hidden">
+                                                <section>
+                                                    <label class="input">
+                                                        <input type="number" id="txtSRRetailPrice" name="txtSRRetailPrice" />
+                                                    </label>
+                                                </section>
+                                                <section>
+                                                    <label class="input">
+                                                        <input type="number" id="txtSRTotalSaleReturnPrice" name="txtSRTotalSaleReturnPrice" />
+                                                    </label>
+                                                </section>
+                                                <section>
+
+                                                    <label class="input">
+                                                        <input type="number" id="txtSRTotalProduct" name="txtSRTotalProduct" />
+                                                    </label>
+                                                </section>
+                                                <section>
+                                                    <label class="input">
+                                                        <input type="number" id="txtSRTotalPrice" name="txtSRTotalPrice"/>
+                                                    </label>
+                                                </section>
+                                                <section>
+                                                    <label class="input">
+                                                        <input type="number" id="txtSRVatForInvididualProduct" name="txtSRVatForInvididualProduct" />
+                                                    </label>
+                                                </section>
+                                                <section>
+                                                    <label class="input">
+                                                        <input type="text" id="txtSRItemName" name="txtSRItemName" />
+                                                    </label>
+                                                </section>
+                                                <section>
+                                                    <label class="input">
+                                                        <input type="text" id="txtSRSize" name="txtSRSize" />
+                                                    </label>
+                                                </section>
+                                                <section>
+                                                    <label class="input">
+                                                        <input type="text" id="txtSRUoM" name="txtSRUoM" />
+                                                    </label>
+                                                </section>
+                                                <section>
+                                                    <label class="input">
+                                                        <input type="text" id="txtSRBarcode" name="txtSRBarcode"/>
+                                                    </label>
+                                                </section>
+                                                <section>
+                                                    <label class="input">
+                                                        <input type="text" id="txtSRDBCurrentStock" name="txtSRDBCurrentStock" />
+                                                    </label>
+                                                </section>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                </fieldset>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    @*</fieldset>*@
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- end widget content -->
+    <!-- end widget div -->
+
+</div>
+<!-- end widget -->
+
+
+<div id="dialog_simple" title="APT ERP V 1.0.0">
+    <p>
+    </p>
+</div>
+
+

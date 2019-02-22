@@ -1,0 +1,252 @@
+1.Create Product
+----------------
+Code:<script src="~/Areas/Inventory/Scripts/Product/CreateProduct.js"></script>
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">APT ERP</h4>
+            </div>
+            <div id="modal-body">
+                <h2 id="rif"></h2>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<head>
+    <script src="~/Areas/Inventory/Scripts/Product/CreateProduct.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<div class="jarviswidget" id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false">
+    <header>
+        <span class="widget-icon"> <i class="fa fa-edit"></i> </span>
+        <h2>Create Product </h2>
+
+    </header>
+
+    <!-- widget div-->
+    <div>
+
+        <!-- widget edit box -->
+        <div class="jarviswidget-editbox">
+            <!-- This area used as dropdown edit box -->
+
+        </div>
+        <!-- end widget edit box -->
+        <!-- widget content -->
+        <div class="widget-body no-padding">
+
+            <div class="smart-form">
+                <header>
+                    Standard Form Header
+                </header>
+
+
+
+
+                <fieldset>
+
+                    <div class="container-fluid">
+                        <input type="text" id="hdnProductId" hidden="" value="0" />
+                        <input type="text" id="hdnProductPriceId" hidden="" value="0" />
+
+
+                        <div class="row">
+
+                            <div class="col-sm-1 col-md-1 col-lg-1"></div>
+                            <div class="col-sm-3 col-md-3 col-lg-3">
+
+                                <section>
+                                    <label for="txtProductCode" class="label">Product Code</label>
+                                    <label class="input">
+                                        <input type="text" id="txtProductCode" name="txtProductCode" maxlength="50" placeholder="Product Code" required/>
+                                    </label>
+                                </section>
+                                <section>
+                                    <label for="txtProductName" class="label">Product Name</label>
+                                    <label class="input">
+                                        <input type="text" id="txtProductName" name="txtProductName" maxlength="50" placeholder="Product Name"/>
+                                    </label>
+                                </section>
+                               
+                                <section>
+                                    <label for="txtProductMainBarCode" class="label">Product MainBar Code</label>
+
+                                    <label class="input">
+                                        <input type="text" id="txtProductMainBarCode" name="txtProductMainBarCode" maxlength="50" placeholder="Product Main Bar Code"/>
+                                    </label>
+                                </section>
+
+                                <section>
+                                    <label for="txtProductFactoryBarCode" class="label">Product Factory Bar Code</label>
+                                    <label class="input">
+                                        <input type="text" id="txtProductFactoryBarCode" name="txtProductFactoryBarCode" maxlength="50" placeholder="Product Factory Bar Code"/>
+                                    </label>
+                                </section>
+                                <section>
+                                    <label for="txtMinimumStock" class="label">Minimum Stock</label>
+                                    <label class="input">
+                                        <input type="text" id="txtMinimumStock" name="txtMinimumStock" maxlength="50" placeholder="Minimum Stock" />
+                                    </label>
+                                </section>
+
+                            </div>
+
+
+
+
+                            <div class="col-sm-1 col-md-1 col-lg-1"></div>
+
+                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                <section>
+                                    <label for="cmbColorId" class="label">Color Code:</label>
+                                    <label class="select">
+                                        <select id="cmbColorId"></select>
+                                    </label>
+                                    @*<br><br>*@
+                                </section>
+                                 <section>
+                                    <label for="cmbItemId" class="label">Item Code:</label>
+                                    <label class="select">
+                                        <select id="cmbItemId"></select>
+                                    </label>
+                                </section>
+                                <section>
+                                    <label for="cmbSizeId" class="label">Size Code:</label>
+                                    <label class="select">
+                                        <select id="cmbSizeId"></select>
+                                    </label>
+                                </section>
+                                
+                                <section>
+                                    <label for="cmbUoMId" class="label">UoM Code:</label>
+                                    <label class="select">
+                                        <select id="cmbUoMId"></select>
+                                    </label>
+                                </section>
+                            </div>
+
+                            @*<section>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="chkIsActive" id="chkIsActive">
+                                        <i></i>IsActive
+                                    </label>
+                                </section>*@
+                            <div class="col-sm-1 col-md-1 col-lg-1"></div>
+                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                <div class="form-group">
+                                    <h3>Price Setup</h3>
+                                    <div class="bordered  "></div>
+
+                                    <section>
+                                        <label for="txtCostPrice" class="label">Cost Price</label>
+                                        <label class="input">
+                                            <input type="text" id="txtCostPrice" name="txtCostPrice" maxlength="50" placeholder="Cost Test"/>
+                                        </label>
+                                    </section>
+                                    <section>
+                                        <label for="txtWholeSalePrice" class="label">Whole Sale Price</label>
+                                        <label class="input">
+                                            <input type="text" id="txtWholeSalePrice" name="txtWholeSalePrice" maxlength="50" placeholder="Whole Sale Price"/>
+                                        </label>
+                                    </section>
+                                    <section>
+                                        <label for="txtRetailPrice" class="label">Retail Price</label>
+                                        <label class="input">
+                                            <input type="text" id="txtRetailPrice" name="txtRetailPrice" maxlength="50" placeholder="Retail Price"/>
+                                        </label>
+                                    </section>
+                                    <section>
+                                        <label class="checkbox">
+                                            <input type="checkbox" name="chkIsActive" id="chkIsActive">
+                                            <i></i>IsActive
+                                        </label>
+                                    </section>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <footer>
+                                <button class="btn btn-primary" id="btnSaveProduct">
+                                    Save
+                                </button>
+                                <button type="button" class="btn btn-warning" id="btnClearProductForm">
+                                    Clear
+                                </button>
+                            </footer>
+                        </div>
+                    </div>
+                </fieldset>
+
+
+            </div>
+
+        </div>
+        <!-- end widget content -->
+
+    </div>
+    <!-- end widget div -->
+
+</div>
+<!-- end widget -->
+
+
+<div id="dialog_simple" title="APT ERP V 1.0.0">
+    <p>
+    </p>
+</div>
+
+
+---------------------END CreateProduct..................
+
+
+
+
+
+
+1.AddressId	
+2.AddressCode	
+3.HomeAddressDetails	
+4.HomeCityId	
+5.HomePostalCode	
+6.HomeDistrictId	
+7.OfficeAddressDetails	
+8.OfficeCityId	
+9.OfficePostalCode	
+10.OfficeDistrictId	
+11.AddressTypeName	
+12.CreatedBy	
+13.CreatedDate	
+14.ModifiedBy	
+15.ModifiedDate	
+16.IsActive	
+17.IsDeleted	
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>....Link....<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<,
+1. ProductQuantity = invOutletPoDetails.Where(m => m.OutletPOMasterId == pOMast.OutletPOMasterId).Select(m => m.ProductQuantity).Sum(),
+
+
+
+select * from [dbo].[InvWarehousePOMaster] m
+join [dbo].[InvWarehousePODetail] d on m.WarehousePOMasterId=d.WarehousePOMasterId
+where m.WarehousePOMasterId=1

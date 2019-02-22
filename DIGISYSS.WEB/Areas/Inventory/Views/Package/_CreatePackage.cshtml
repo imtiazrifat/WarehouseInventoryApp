@@ -1,0 +1,281 @@
+﻿<script src="~/Areas/Inventory/Scripts/Package/CreatePackage.js"></script>
+
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">APT ERP</h4>
+            </div>
+            <div id="modal-body">
+                <h2 id="rif"></h2>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<head>
+    @*tsdstdstd*@
+</head>
+
+<div class="jarviswidget" id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false">
+    <header>
+        <span class="widget-icon"> <i class="fa fa-edit"></i> </span>
+        <h2>Create Product Package </h2>
+
+    </header>
+
+    <!-- widget div-->
+    <div>
+
+        <!-- widget edit box -->
+        <div class="jarviswidget-editbox">
+            <!-- This area used as dropdown edit box -->
+
+        </div>
+        <!-- end widget edit box -->
+        <!-- widget content -->
+        <div class="widget-body no-padding">
+
+            <div class="smart-form">
+                @*<header>
+                    Standard Form Header
+
+                          @*<h3>Product Receive</h3>
+                          <div class="bordered"></div>
+
+                      </header>*@
+
+                <div data-toggle="validator">
+                    <fieldset>
+                        <div class="container-fluid">
+
+                            <input type="text" id="hdnPackageMasterId" hidden="" value="0" />
+                            <input type="text" id="hdnPackageDetailsId" hidden="" value="0" />
+                            <div class="row-xs-12">
+
+
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="row-xs-12">
+
+                                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+                                            <section>
+                                                <label for="txtPackageName" class="label">Package Name</label>
+
+                                                <label class="input">
+                                                    <input type="text" id="txtPackageName" name="txtPackageName" maxlength="50" class="input-lg" placeholder="Package Name" />
+                                                </label>
+                                            </section>
+
+
+                                            <section>
+                                                <h6>Select a Product</h6>
+                                                <label for="cmbProductId" class="label"></label>
+                                                <label class="select">
+                                                    <select id="cmbProductId"><option></option></select>
+                                                </label>
+                                            </section>
+                                            <section>
+                                                <label for="txtProductQuantity" class="label">Enter Product Quantity</label>
+
+                                                <label class="input">
+                                                    <input type="number" id="txtProductQuantity" name="txtProductQuantity" maxlength="50" placeholder="Product Quantity" min="0" step="1" />
+                                                </label>
+                                            </section>
+
+                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                <button class="btn btn-primary" id="btnAddPackage">Add Product Package</button>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                                <section>
+                                                    <label for="txtTotalProduct" class="label">Total Product</label>
+
+                                                    <label class="input">
+                                                        <input type="number" id="txtTotalProduct" name="txtTotalProduct" maxlength="50" placeholder="Total Product" readonly="readonly" />
+                                                    </label>
+                                                </section>
+
+                                            </div>
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+                                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                                <section>
+                                                    <label for="txtTotalPrice" class="label">Total Package Price </label>
+
+                                                    <label class="input">
+                                                        <input type="number" id="txtTotalPrice" name="txtTotalPrice" maxlength="50" placeholder="Total Price" readonly="readonly" />
+                                                    </label>
+                                                </section>
+
+                                            </div>
+                                            <br>
+
+                                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                                <section>
+                                                    <label for="txtRetailPrice" class="label">Retail Price </label>
+
+                                                    <label class="input">
+                                                        <input type="text" id="txtRetailPrice" name="txtRetailPrice" maxlength="50" placeholder="Retail Price" readonly="readonly" />
+                                                    </label>
+                                                </section>
+
+                                            </div>
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+                                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                                <section>
+                                                    <label for="txtItemName" class="label">Item </label>
+
+                                                    <input type="text" id="hdnProductId" hidden="" />
+                                                    <input type="text" id="hdnProductName" hidden="" />
+
+                                                    <label class="input">
+                                                        <input type="text" id="txtItemName" name="txtItemName" maxlength="50" placeholder="Item Name" readonly="readonly" />
+                                                    </label>
+                                                </section>
+
+                                            </div>
+                                            <br>
+                                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                                <section>
+                                                    <label for="txtSize" class="label">Size </label>
+
+                                                    <label class="input">
+                                                        <input type="text" id="txtSize" name="txtSize" maxlength="50" placeholder="Size" readonly="readonly" />
+                                                    </label>
+                                                </section>
+
+                                            </div>
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+                                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                                <section>
+                                                    <label for="txtUoM" class="label">UoM </label>
+
+                                                    <label class="input">
+                                                        <input type="text" id="txtUoM" name="txtUoM" maxlength="50" placeholder="UoM" readonly="readonly" />
+                                                    </label>
+                                                </section>
+
+                                            </div>
+                                            <br>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <section>
+                                                    <label for="txtBarcode" class="label">Barcode </label>
+
+                                                    <label class="input">
+                                                        <input type="text" id="txtBarcode" name="txtBarcode" maxlength="50" placeholder="Barcode" readonly="readonly" />
+                                                    </label>
+                                                </section>
+
+                                            </div>
+                                        </div>
+                                        @*<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>*@
+
+
+
+                                    </div>
+                                    @*<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="visibility: hidden">
+
+                                                <section>
+                                                    <label class="input">
+                                                        <input type="number" id="txtRetailPrice" name="txtRetailPrice" />
+                                                    </label>
+                                                </section>
+                                                <section>
+                                                    <label class="input">
+                                                        <input type="number" id="txtTotalPackagePrice" name="txtTotalPackagePrice" />
+                                                    </label>
+                                                </section>
+                                            </div>
+
+                                        </div>*@
+                                </div>
+                            </div>
+
+
+                            @*<div class="row-lg-12 row-md-12 row-sm-12 row-xs-12">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <section>
+                                            <label for="txtPackageQuantity" class="label">Package Quantity</label>
+                                            <label class="input">
+                                                <input type="number" id="txtPackageQuantity" name="txtPackageQuantity" maxlength="50" placeholder="Purchase Quantity"/>
+                                            </label>
+                                        </section>
+                                    </div>
+                                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <button class="btn btn-primary" id="btnAddPackage">Add Package</button>
+
+                                    </div>
+                                </div>*@
+
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+
+                            @*<div class="row-lg-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">*@
+                            <table id="myTable" class="table table-bordered table-hover responsive-utilities ">
+                                <thead>
+                                    <tr>
+                                        @*<th>ID</th>*@
+                                        <th>Product Id</th>
+                                        <th>Product Name</th>
+                                        <th>Barcode</th>
+                                        <th>Item</th>
+                                        <th>Size</th>
+                                        <th>UoM</th>
+                                        <th>Retail Price</th>
+                                        <th>Quantity</th>
+                                        <th>Total Price</th>
+                                        <th>Edit</th>
+                                        <th>Remove</th>
+                                    </tr>
+
+                                </thead>
+                            </table>
+                            @*</div>
+                                </div>*@
+
+                        </div>
+
+                        <footer>
+                            <div class="row-lg-12">
+                                <button class="btn btn-primary" id="btnSavePackage">
+                                    Save
+                                </button>
+                                <button type="button" class="btn btn-warning" id="btnClearPackageForm">
+                                    Clear
+                                </button>
+                            </div>
+                        </footer>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- end widget content -->
+    <!-- end widget div -->
+
+</div>
+<!-- end widget -->
+
+
+<div id="dialog_simple" title="APT ERP V 1.0.0">
+    <p>
+    </p>
+</div>
+
+

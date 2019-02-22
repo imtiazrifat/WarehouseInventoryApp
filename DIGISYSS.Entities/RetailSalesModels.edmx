@@ -1,0 +1,2753 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RetailSalesManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="InvAddress">
+          <Key>
+            <PropertyRef Name="AddressId" />
+          </Key>
+          <Property Name="AddressId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AddressCode" Type="varchar" MaxLength="50" />
+          <Property Name="HomeAddress1" Type="varchar" MaxLength="350" />
+          <Property Name="HomeAddress2" Type="varchar" MaxLength="350" />
+          <Property Name="HomeCityId" Type="int" />
+          <Property Name="HomePostalCode" Type="varchar" MaxLength="50" />
+          <Property Name="HomeDistrictId" Type="int" />
+          <Property Name="OfficeAddress1" Type="varchar" MaxLength="350" />
+          <Property Name="OfficeAddress2" Type="varchar" MaxLength="350" />
+          <Property Name="OfficeCityId" Type="int" />
+          <Property Name="OfficePostalCode" Type="varchar" MaxLength="50" />
+          <Property Name="OfficeDistrictId" Type="int" />
+          <Property Name="AddressTypeName" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvCategory">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryCode" Type="varchar" MaxLength="50" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="50" />
+          <Property Name="CategoryDetails" Type="varchar" MaxLength="350" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvCityList">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="CityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CityName" Type="varchar" MaxLength="50" />
+          <Property Name="CityDetails" Type="varchar" MaxLength="350" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvColor">
+          <Key>
+            <PropertyRef Name="ColorId" />
+          </Key>
+          <Property Name="ColorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ColorCode" Type="varchar" MaxLength="50" />
+          <Property Name="ColorName" Type="varchar" MaxLength="50" />
+          <Property Name="ColorDetails" Type="varchar" MaxLength="350" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvDiscount">
+          <Key>
+            <PropertyRef Name="DiscountId" />
+          </Key>
+          <Property Name="DiscountId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DiscountCode" Type="varchar" MaxLength="50" />
+          <Property Name="DiscountName" Type="varchar" MaxLength="50" />
+          <Property Name="IsDiscountPercent" Type="bit" />
+          <Property Name="DiscountFixedAmount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvDistrictList">
+          <Key>
+            <PropertyRef Name="DistrictId" />
+          </Key>
+          <Property Name="DistrictId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DistrictName" Type="varchar" MaxLength="50" />
+          <Property Name="DistrictShortName" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvFactory">
+          <Key>
+            <PropertyRef Name="FactoryId" />
+          </Key>
+          <Property Name="FactoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AddressId" Type="int" />
+          <Property Name="FactoryName" Type="varchar" MaxLength="50" />
+          <Property Name="FactoryCode" Type="varchar" MaxLength="50" />
+          <Property Name="FactoryNumber" Type="varchar" MaxLength="50" />
+          <Property Name="FactoryDetails" Type="varchar" MaxLength="350" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvGroup">
+          <Key>
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Name="GroupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="50" />
+          <Property Name="GroupCode" Type="varchar" MaxLength="50" />
+          <Property Name="GroupName" Type="varchar" MaxLength="50" />
+          <Property Name="GroupDetails" Type="varchar" MaxLength="350" />
+          <Property Name="CategoryCode" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvItem">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemCode" Type="varchar" MaxLength="50" />
+          <Property Name="ItemName" Type="varchar" MaxLength="50" />
+          <Property Name="ItemDetails" Type="varchar" MaxLength="350" />
+          <Property Name="GroupCode" Type="varchar" MaxLength="50" />
+          <Property Name="Ex1" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvOutlet">
+          <Key>
+            <PropertyRef Name="OutletId" />
+          </Key>
+          <Property Name="OutletId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AddressId" Type="int" />
+          <Property Name="OutletName" Type="varchar" MaxLength="50" />
+          <Property Name="OutletCode" Type="varchar" MaxLength="50" />
+          <Property Name="OutletNumber" Type="varchar" MaxLength="50" />
+          <Property Name="OutletRegistrationNumber" Type="varchar" MaxLength="50" />
+          <Property Name="OutletDetails" Type="varchar" MaxLength="350" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvOutletInvoiceDetail">
+          <Key>
+            <PropertyRef Name="OutletInvoiceDetailsId" />
+          </Key>
+          <Property Name="OutletInvoiceDetailsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OutletInvoiceMasterId" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="ProductQuantity" Type="float" />
+          <Property Name="Discount" Type="float" />
+          <Property Name="DiscountPercent" Type="int" />
+          <Property Name="UnitPrice" Type="float" />
+          <Property Name="TotalPrice" Type="float" />
+          <Property Name="Note" Type="varchar" MaxLength="100" />
+          <Property Name="Status" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsChanged" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsEdited" Type="bit" />
+          <Property Name="IsReceived" Type="bit" />
+          <Property Name="IsReturned" Type="int" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvOutletInvoiceHistory">
+          <Key>
+            <PropertyRef Name="OutletInvoiceHistoryId" />
+          </Key>
+          <Property Name="OutletInvoiceHistoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OutletInvoiceId" Type="int" Nullable="false" />
+          <Property Name="OutletPODetailsId" Type="int" />
+          <Property Name="OutletId" Type="int" />
+          <Property Name="WarehouseId" Type="int" />
+          <Property Name="TotalProducts" Type="float" />
+          <Property Name="TotalPrice" Type="float" />
+          <Property Name="Status" Type="int" />
+          <Property Name="IsChanged" Type="nchar" MaxLength="10" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvOutletInvoiceMaster">
+          <Key>
+            <PropertyRef Name="OutletInvoiceMasterId" />
+          </Key>
+          <Property Name="OutletInvoiceMasterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OutletId" Type="int" />
+          <Property Name="SalePersonId" Type="int" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="OutletSaleInvoiceNo" Type="int" />
+          <Property Name="PaymentMode" Type="varchar" MaxLength="50" />
+          <Property Name="TotalItem" Type="float" />
+          <Property Name="VAT" Type="float" />
+          <Property Name="TotalGrandPrice" Type="float" />
+          <Property Name="PayableAmount" Type="float" />
+          <Property Name="Cash" Type="float" />
+          <Property Name="Credit" Type="float" />
+          <Property Name="Discount" Type="float" />
+          <Property Name="Rounding" Type="float" />
+          <Property Name="PaidAmount" Type="float" />
+          <Property Name="DueOrRefund" Type="float" />
+          <Property Name="Note" Type="varchar" MaxLength="100" />
+          <Property Name="Status" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsChanged" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsEdited" Type="bit" />
+          <Property Name="IsFullPaid" Type="bit" />
+          <Property Name="IsReturned" Type="int" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="PreviousInvoice" Type="varchar" MaxLength="50" />
+          <Property Name="NewInvoice" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="InvOutletPODetail">
+          <Key>
+            <PropertyRef Name="OutletPODetailsId" />
+          </Key>
+          <Property Name="OutletPODetailsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OutletPOMasterId" Type="int" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="ProductQuantity" Type="float" />
+          <Property Name="Note" Type="varchar" MaxLength="100" />
+          <Property Name="Status" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsChanged" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsEdited" Type="bit" />
+          <Property Name="IsReceived" Type="bit" />
+          <Property Name="IsReturned" Type="int" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'RetailSalesManagement.dbo.InvOutletPOInvoiceDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="InvOutletPOInvoiceDetail">
+          <Key>
+            <PropertyRef Name="OutletPOInvoiceDetailsId" />
+          </Key>
+          <Property Name="OutletPOInvoiceDetailsId" Type="int" Nullable="false" />
+          <Property Name="OutletPOInvoiceMasterId" Type="int" />
+          <Property Name="Original_OutletPODetailsId" Type="int" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="ProductQuantity" Type="float" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Note" Type="varchar" MaxLength="100" />
+          <Property Name="IsEdited" Type="bit" />
+          <Property Name="IsReceived" Type="bit" />
+          <Property Name="IsReturned" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvOutletPOInvoiceMaster">
+          <Key>
+            <PropertyRef Name="OutletPOInvoiceMasterId" />
+          </Key>
+          <Property Name="OutletPOInvoiceMasterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Original_OutletPOMasterId" Type="int" />
+          <Property Name="OutletPOInvoiceNo" Type="varchar" MaxLength="50" />
+          <Property Name="WarehouseId" Type="int" />
+          <Property Name="OutletId" Type="int" />
+          <Property Name="UniqueId" Type="int" />
+          <Property Name="POReference" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Note" Type="varchar" MaxLength="100" />
+          <Property Name="IsEdited" Type="bit" />
+          <Property Name="IsReturned" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvOutletPOMaster">
+          <Key>
+            <PropertyRef Name="OutletPOMasterId" />
+          </Key>
+          <Property Name="OutletPOMasterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OutletId" Type="int" />
+          <Property Name="WarehouseId" Type="int" />
+          <Property Name="Extra1_WarehouseName" Type="varchar" MaxLength="50" />
+          <Property Name="Note" Type="varchar" MaxLength="100" />
+          <Property Name="Status" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsChanged" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsEdited" Type="bit" />
+          <Property Name="IsReceived" Type="bit" />
+          <Property Name="IsReturned" Type="int" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvOutletPOReturnDetail">
+          <Key>
+            <PropertyRef Name="OutletPOReturnDetailsId" />
+          </Key>
+          <Property Name="OutletPOReturnDetailsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OutletPOReturnMasterId" Type="int" />
+          <Property Name="Original_OutletPODetailsId" Type="int" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="ProductQuantity" Type="float" />
+          <Property Name="Note" Type="varchar" MaxLength="100" />
+          <Property Name="Status" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsChanged" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsEdited" Type="bit" />
+          <Property Name="IsReceived" Type="bit" />
+          <Property Name="IsReturned" Type="int" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvOutletPOReturnMaster">
+          <Key>
+            <PropertyRef Name="OutletPOReturnMasterId" />
+          </Key>
+          <Property Name="OutletPOReturnMasterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Original_OutletPOMasterId" Type="int" />
+          <Property Name="OutletPOInvoiceNo" Type="varchar" MaxLength="50" />
+          <Property Name="OutletId" Type="int" />
+          <Property Name="WarehouseId" Type="int" />
+          <Property Name="Extra1" Type="varchar" MaxLength="50" />
+          <Property Name="Note" Type="varchar" MaxLength="100" />
+          <Property Name="RepairCost" Type="int" />
+          <Property Name="RepairReturnDate" Type="datetime" />
+          <Property Name="Status" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsChanged" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsEdited" Type="bit" />
+          <Property Name="IsReceived" Type="bit" />
+          <Property Name="IsReturned" Type="int" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvOutletStock">
+          <Key>
+            <PropertyRef Name="OutletStockId" />
+          </Key>
+          <Property Name="OutletStockId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WarehouseId" Type="int" />
+          <Property Name="OutletId" Type="int" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="OutletStockQuantity" Type="float" />
+          <Property Name="InOut" Type="int" />
+          <Property Name="AdjustedReason" Type="varchar" MaxLength="50" />
+          <Property Name="Note" Type="varchar" MaxLength="100" />
+          <Property Name="Status" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsChanged" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsEdited" Type="bit" />
+          <Property Name="IsReceived" Type="bit" />
+          <Property Name="IsReturned" Type="int" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvOutletWarrentyRepair">
+          <Key>
+            <PropertyRef Name="OutletWarrentyRepairId" />
+          </Key>
+          <Property Name="OutletWarrentyRepairId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OutletInvoiceDetailsId" Type="int" />
+          <Property Name="OutletSaleInvoiceNo" Type="varchar" MaxLength="50" />
+          <Property Name="RepairTokenNo" Type="varchar" MaxLength="50" />
+          <Property Name="WarehouseId" Type="int" />
+          <Property Name="OutletId" Type="int" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="ProductQuantity" Type="float" />
+          <Property Name="Problem" Type="varchar" MaxLength="400" />
+          <Property Name="WarrentyType" Type="varchar" MaxLength="50" />
+          <Property Name="PurchaseDate" Type="datetime" />
+          <Property Name="EstimatedReturnDate" Type="datetime" />
+          <Property Name="ReturnDate" Type="datetime" />
+          <Property Name="RepairCost" Type="float" />
+          <Property Name="RepairStatus" Type="varchar" MaxLength="50" />
+          <Property Name="Note" Type="varchar" MaxLength="100" />
+          <Property Name="Status" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsChanged" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsEdited" Type="bit" />
+          <Property Name="IsReceived" Type="bit" />
+          <Property Name="IsRepaired" Type="bit" />
+          <Property Name="IsReturned" Type="int" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvPackageDetail">
+          <Key>
+            <PropertyRef Name="PackageDetailsId" />
+          </Key>
+          <Property Name="PackageDetailsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PackageMasterId" Type="int" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="ProductQuantity" Type="float" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvPackageMaster">
+          <Key>
+            <PropertyRef Name="PackageMasterId" />
+          </Key>
+          <Property Name="PackageMasterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PackageCode" Type="varchar" MaxLength="50" />
+          <Property Name="PackageName" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvProduct">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FactoryId" Type="int" />
+          <Property Name="ItemId" Type="int" />
+          <Property Name="SizeId" Type="int" />
+          <Property Name="ColorId" Type="int" />
+          <Property Name="UoMId" Type="int" />
+          <Property Name="ProductCode" Type="varchar" MaxLength="50" />
+          <Property Name="ProductName" Type="varchar" MaxLength="50" />
+          <Property Name="ProductMainBarcode" Type="varchar" MaxLength="50" />
+          <Property Name="ProductFactoryBarcode" Type="varchar" MaxLength="50" />
+          <Property Name="IsFactoryBarCode" Type="int" />
+          <Property Name="MinimumStock" Type="float" />
+          <Property Name="ProductFrontImage" Type="varchar" MaxLength="350" />
+          <Property Name="ProductBackImage" Type="varchar" MaxLength="350" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvProductPrice">
+          <Key>
+            <PropertyRef Name="ProductPriceId" />
+          </Key>
+          <Property Name="ProductPriceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="ProductCode" Type="varchar" MaxLength="50" />
+          <Property Name="CostPrice" Type="float" />
+          <Property Name="WholeSalePrice" Type="float" />
+          <Property Name="RetailPrice" Type="float" />
+          <Property Name="PriceSetupDate" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvProductPurchase">
+          <Key>
+            <PropertyRef Name="ProductPurchaseId" />
+          </Key>
+          <Property Name="ProductPurchaseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FactoryId" Type="int" />
+          <Property Name="ItemId" Type="int" />
+          <Property Name="UoMId" Type="int" />
+          <Property Name="SizeId" Type="int" />
+          <Property Name="ColorId" Type="int" />
+          <Property Name="ProductCode" Type="varchar" MaxLength="50" />
+          <Property Name="ProductName" Type="varchar" MaxLength="50" />
+          <Property Name="ProductMainBarcode" Type="int" />
+          <Property Name="ProductFactoryBarcode" Type="int" />
+          <Property Name="MinimumStock" Type="float" />
+          <Property Name="CurrentStock" Type="float" />
+          <Property Name="NewStock" Type="float" />
+          <Property Name="PurchaseQuantity" Type="float" />
+          <Property Name="CostPrice" Type="float" />
+          <Property Name="WholeSalePrice" Type="float" />
+          <Property Name="RetailPrice" Type="float" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvProductWarrenty">
+          <Key>
+            <PropertyRef Name="ProductWarrentyId" />
+          </Key>
+          <Property Name="ProductWarrentyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="IsReplacementWarrenty" Type="bit" />
+          <Property Name="WarrentyPeriodId" Type="int" />
+          <Property Name="WarrentyExpireDate" Type="datetime" />
+          <Property Name="ServicePeriod" Type="int" />
+          <Property Name="WarrentyDescription" Type="varchar" MaxLength="350" />
+          <Property Name="Ex1" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvSize">
+          <Key>
+            <PropertyRef Name="SizeId" />
+          </Key>
+          <Property Name="SizeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SizeCode" Type="varchar" MaxLength="50" />
+          <Property Name="SizeName" Type="varchar" MaxLength="50" />
+          <Property Name="SizeDetails" Type="varchar" MaxLength="350" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvSupplier">
+          <Key>
+            <PropertyRef Name="SupplierId" />
+          </Key>
+          <Property Name="SupplierId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SupplierCode" Type="varchar" MaxLength="50" />
+          <Property Name="SupplierName" Type="varchar" MaxLength="50" />
+          <Property Name="SupplierDetails" Type="varchar" MaxLength="350" />
+          <Property Name="SupplierNumber" Type="int" />
+          <Property Name="AddressCode" Type="varchar" MaxLength="50" />
+          <Property Name="Ex1" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvTax">
+          <Key>
+            <PropertyRef Name="TaxId" />
+          </Key>
+          <Property Name="TaxId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TaxCode" Type="varchar" MaxLength="50" />
+          <Property Name="TaxName" Type="varchar" MaxLength="50" />
+          <Property Name="IsPercent" Type="bit" />
+          <Property Name="PercentAmount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="FixedAmount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvUoM">
+          <Key>
+            <PropertyRef Name="UoMId" />
+          </Key>
+          <Property Name="UoMId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UoMCode" Type="varchar" MaxLength="50" />
+          <Property Name="UoMShortName" Type="varchar" MaxLength="50" />
+          <Property Name="UoMDetails" Type="varchar" MaxLength="350" />
+          <Property Name="Ex1" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvWarehouse">
+          <Key>
+            <PropertyRef Name="WarehouseId" />
+          </Key>
+          <Property Name="WarehouseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WarehouseCode" Type="varchar" MaxLength="50" />
+          <Property Name="WarehouseName" Type="varchar" MaxLength="50" />
+          <Property Name="WarehouseDetails" Type="varchar" MaxLength="350" />
+          <Property Name="WarehouseNumber" Type="int" />
+          <Property Name="AddressCode" Type="varchar" MaxLength="50" />
+          <Property Name="Ex1" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvWarehousePODetail">
+          <Key>
+            <PropertyRef Name="WarehousePODetailsId" />
+          </Key>
+          <Property Name="WarehousePODetailsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WarehousePOMasterId" Type="int" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="ProductQuantity" Type="float" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Note" Type="varchar" MaxLength="100" />
+          <Property Name="IsEdited" Type="bit" />
+          <Property Name="IsReturned" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvWarehousePOInvoiceDetail">
+          <Key>
+            <PropertyRef Name="WarehousePOInvoiceDetailsId" />
+          </Key>
+          <Property Name="WarehousePOInvoiceDetailsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WarehousePOInvoiceMasterId" Type="int" />
+          <Property Name="Original_WarehousePODetailsId" Type="int" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="ProductQuantity" Type="float" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Note" Type="varchar" MaxLength="100" />
+          <Property Name="IsEdited" Type="bit" />
+          <Property Name="IsReturned" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvWarehousePOInvoiceMaster">
+          <Key>
+            <PropertyRef Name="WarehousePOInvoiceMasterId" />
+          </Key>
+          <Property Name="WarehousePOInvoiceMasterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Original_WarehousePOMasterId" Type="int" />
+          <Property Name="WarehousePOInvoiceNo" Type="varchar" MaxLength="50" />
+          <Property Name="SupplierId" Type="int" />
+          <Property Name="WarehouseId" Type="int" />
+          <Property Name="UniqueId" Type="int" />
+          <Property Name="POReference" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Note" Type="varchar" MaxLength="100" />
+          <Property Name="IsEdited" Type="bit" />
+          <Property Name="IsReturned" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvWarehousePOItemReceived">
+          <Key>
+            <PropertyRef Name="WarehousePOItemReceivedId" />
+          </Key>
+          <Property Name="WarehousePOItemReceivedId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WarehousePOMasterId" Type="int" />
+          <Property Name="WarehousePODetailsId" Type="int" />
+          <Property Name="ItemReceivedQuantity" Type="float" />
+          <Property Name="Note" Type="varchar" MaxLength="100" />
+          <Property Name="Status" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvWarehousePOMaster">
+          <Key>
+            <PropertyRef Name="WarehousePOMasterId" />
+          </Key>
+          <Property Name="WarehousePOMasterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SupplierId" Type="int" />
+          <Property Name="WarehouseId" Type="int" />
+          <Property Name="UniqueId" Type="int" />
+          <Property Name="POReference" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Note" Type="varchar" MaxLength="100" />
+          <Property Name="IsEdited" Type="bit" />
+          <Property Name="IsReturned" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvWarehouseStock">
+          <Key>
+            <PropertyRef Name="WarehouseStockId" />
+          </Key>
+          <Property Name="WarehouseStockId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WarehouseId" Type="int" />
+          <Property Name="OutletId" Type="int" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="WarehouseStockQuantity" Type="float" />
+          <Property Name="AdjustedReason" Type="int" />
+          <Property Name="Note" Type="varchar" MaxLength="100" />
+          <Property Name="Status" Type="int" />
+          <Property Name="InOut" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsChanged" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsEdited" Type="bit" />
+          <Property Name="IsReceived" Type="bit" />
+          <Property Name="IsReturned" Type="int" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InvWarrentyPeriod">
+          <Key>
+            <PropertyRef Name="WarrentyPeriodId" />
+          </Key>
+          <Property Name="WarrentyPeriodId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WarrentyName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="WarrentyDays" Type="int" />
+          <Property Name="WarrentyDetails" Type="varchar" MaxLength="350" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TestStudent">
+          <Key>
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="StudentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentName" Type="varchar" MaxLength="50" />
+          <Property Name="StudentPhone" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TestStudentAddress">
+          <Key>
+            <PropertyRef Name="StudentAddressId" />
+          </Key>
+          <Property Name="StudentAddressId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentId" Type="int" />
+          <Property Name="Address" Type="varchar" MaxLength="50" />
+          <Property Name="Country" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TestStudentHistory">
+          <Key>
+            <PropertyRef Name="HistoryId" />
+          </Key>
+          <Property Name="HistoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentId" Type="int" />
+          <Property Name="HistoryTitle" Type="varchar" MaxLength="50" />
+          <Property Name="HistoryDetials" Type="varchar" MaxLength="350" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <Function Name="spSaleInvoice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="OutletSaleInvoiceNo" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spTempo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="num" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="RetailSalesManagementModelStoreContainer">
+          <EntitySet Name="InvAddress" EntityType="Self.InvAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvCategory" EntityType="Self.InvCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvCityList" EntityType="Self.InvCityList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvColor" EntityType="Self.InvColor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvDiscount" EntityType="Self.InvDiscount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvDistrictList" EntityType="Self.InvDistrictList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvFactory" EntityType="Self.InvFactory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvGroup" EntityType="Self.InvGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvItem" EntityType="Self.InvItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvOutlet" EntityType="Self.InvOutlet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvOutletInvoiceDetail" EntityType="Self.InvOutletInvoiceDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvOutletInvoiceHistory" EntityType="Self.InvOutletInvoiceHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvOutletInvoiceMaster" EntityType="Self.InvOutletInvoiceMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvOutletPODetail" EntityType="Self.InvOutletPODetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvOutletPOInvoiceMaster" EntityType="Self.InvOutletPOInvoiceMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvOutletPOMaster" EntityType="Self.InvOutletPOMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvOutletPOReturnDetail" EntityType="Self.InvOutletPOReturnDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvOutletPOReturnMaster" EntityType="Self.InvOutletPOReturnMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvOutletStock" EntityType="Self.InvOutletStock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvOutletWarrentyRepair" EntityType="Self.InvOutletWarrentyRepair" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvPackageDetail" EntityType="Self.InvPackageDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvPackageMaster" EntityType="Self.InvPackageMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvProduct" EntityType="Self.InvProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvProductPrice" EntityType="Self.InvProductPrice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvProductPurchase" EntityType="Self.InvProductPurchase" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvProductWarrenty" EntityType="Self.InvProductWarrenty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvSize" EntityType="Self.InvSize" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvSupplier" EntityType="Self.InvSupplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvTax" EntityType="Self.InvTax" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvUoM" EntityType="Self.InvUoM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvWarehouse" EntityType="Self.InvWarehouse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvWarehousePODetail" EntityType="Self.InvWarehousePODetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvWarehousePOInvoiceDetail" EntityType="Self.InvWarehousePOInvoiceDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvWarehousePOInvoiceMaster" EntityType="Self.InvWarehousePOInvoiceMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvWarehousePOItemReceived" EntityType="Self.InvWarehousePOItemReceived" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvWarehousePOMaster" EntityType="Self.InvWarehousePOMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvWarehouseStock" EntityType="Self.InvWarehouseStock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvWarrentyPeriod" EntityType="Self.InvWarrentyPeriod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TestStudent" EntityType="Self.TestStudent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TestStudentAddress" EntityType="Self.TestStudentAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TestStudentHistory" EntityType="Self.TestStudentHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvOutletPOInvoiceDetail" EntityType="Self.InvOutletPOInvoiceDetail" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [InvOutletPOInvoiceDetail].[OutletPOInvoiceDetailsId] AS [OutletPOInvoiceDetailsId], 
+    [InvOutletPOInvoiceDetail].[OutletPOInvoiceMasterId] AS [OutletPOInvoiceMasterId], 
+    [InvOutletPOInvoiceDetail].[Original_OutletPODetailsId] AS [Original_OutletPODetailsId], 
+    [InvOutletPOInvoiceDetail].[ProductId] AS [ProductId], 
+    [InvOutletPOInvoiceDetail].[ProductQuantity] AS [ProductQuantity], 
+    [InvOutletPOInvoiceDetail].[Status] AS [Status], 
+    [InvOutletPOInvoiceDetail].[Note] AS [Note], 
+    [InvOutletPOInvoiceDetail].[IsEdited] AS [IsEdited], 
+    [InvOutletPOInvoiceDetail].[IsReceived] AS [IsReceived], 
+    [InvOutletPOInvoiceDetail].[IsReturned] AS [IsReturned], 
+    [InvOutletPOInvoiceDetail].[IsActive] AS [IsActive], 
+    [InvOutletPOInvoiceDetail].[IsDeleted] AS [IsDeleted], 
+    [InvOutletPOInvoiceDetail].[CreatedBy] AS [CreatedBy], 
+    [InvOutletPOInvoiceDetail].[CreatedDate] AS [CreatedDate], 
+    [InvOutletPOInvoiceDetail].[ModifiedBy] AS [ModifiedBy], 
+    [InvOutletPOInvoiceDetail].[ModifiedDate] AS [ModifiedDate]
+    FROM [dbo].[InvOutletPOInvoiceDetail] AS [InvOutletPOInvoiceDetail]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RetailSalesManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="RetailSalesManagementEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="spTempo" ReturnType="Collection(Int32)">
+          <Parameter Name="num" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spSaleInvoice" ReturnType="Collection(RetailSalesManagementModel.spSaleInvoice_Result)">
+          <Parameter Name="OutletSaleInvoiceNo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="InvAddresses" EntityType="RetailSalesManagementModel.InvAddress" />
+          <EntitySet Name="InvCategories" EntityType="RetailSalesManagementModel.InvCategory" />
+          <EntitySet Name="InvCityLists" EntityType="RetailSalesManagementModel.InvCityList" />
+          <EntitySet Name="InvColors" EntityType="RetailSalesManagementModel.InvColor" />
+          <EntitySet Name="InvDiscounts" EntityType="RetailSalesManagementModel.InvDiscount" />
+          <EntitySet Name="InvDistrictLists" EntityType="RetailSalesManagementModel.InvDistrictList" />
+          <EntitySet Name="InvFactories" EntityType="RetailSalesManagementModel.InvFactory" />
+          <EntitySet Name="InvGroups" EntityType="RetailSalesManagementModel.InvGroup" />
+          <EntitySet Name="InvItems" EntityType="RetailSalesManagementModel.InvItem" />
+          <EntitySet Name="InvOutlets" EntityType="RetailSalesManagementModel.InvOutlet" />
+          <EntitySet Name="InvOutletInvoiceDetails" EntityType="RetailSalesManagementModel.InvOutletInvoiceDetail" />
+          <EntitySet Name="InvOutletInvoiceHistories" EntityType="RetailSalesManagementModel.InvOutletInvoiceHistory" />
+          <EntitySet Name="InvOutletInvoiceMasters" EntityType="RetailSalesManagementModel.InvOutletInvoiceMaster" />
+          <EntitySet Name="InvOutletPODetails" EntityType="RetailSalesManagementModel.InvOutletPODetail" />
+          <EntitySet Name="InvOutletPOInvoiceMasters" EntityType="RetailSalesManagementModel.InvOutletPOInvoiceMaster" />
+          <EntitySet Name="InvOutletPOMasters" EntityType="RetailSalesManagementModel.InvOutletPOMaster" />
+          <EntitySet Name="InvOutletPOReturnDetails" EntityType="RetailSalesManagementModel.InvOutletPOReturnDetail" />
+          <EntitySet Name="InvOutletPOReturnMasters" EntityType="RetailSalesManagementModel.InvOutletPOReturnMaster" />
+          <EntitySet Name="InvOutletStocks" EntityType="RetailSalesManagementModel.InvOutletStock" />
+          <EntitySet Name="InvOutletWarrentyRepairs" EntityType="RetailSalesManagementModel.InvOutletWarrentyRepair" />
+          <EntitySet Name="InvPackageDetails" EntityType="RetailSalesManagementModel.InvPackageDetail" />
+          <EntitySet Name="InvPackageMasters" EntityType="RetailSalesManagementModel.InvPackageMaster" />
+          <EntitySet Name="InvProducts" EntityType="RetailSalesManagementModel.InvProduct" />
+          <EntitySet Name="InvProductPrices" EntityType="RetailSalesManagementModel.InvProductPrice" />
+          <EntitySet Name="InvProductPurchases" EntityType="RetailSalesManagementModel.InvProductPurchase" />
+          <EntitySet Name="InvProductWarrenties" EntityType="RetailSalesManagementModel.InvProductWarrenty" />
+          <EntitySet Name="InvSizes" EntityType="RetailSalesManagementModel.InvSize" />
+          <EntitySet Name="InvSuppliers" EntityType="RetailSalesManagementModel.InvSupplier" />
+          <EntitySet Name="InvTaxes" EntityType="RetailSalesManagementModel.InvTax" />
+          <EntitySet Name="InvUoMs" EntityType="RetailSalesManagementModel.InvUoM" />
+          <EntitySet Name="InvWarehouses" EntityType="RetailSalesManagementModel.InvWarehouse" />
+          <EntitySet Name="InvWarehousePODetails" EntityType="RetailSalesManagementModel.InvWarehousePODetail" />
+          <EntitySet Name="InvWarehousePOInvoiceDetails" EntityType="RetailSalesManagementModel.InvWarehousePOInvoiceDetail" />
+          <EntitySet Name="InvWarehousePOInvoiceMasters" EntityType="RetailSalesManagementModel.InvWarehousePOInvoiceMaster" />
+          <EntitySet Name="InvWarehousePOItemReceiveds" EntityType="RetailSalesManagementModel.InvWarehousePOItemReceived" />
+          <EntitySet Name="InvWarehousePOMasters" EntityType="RetailSalesManagementModel.InvWarehousePOMaster" />
+          <EntitySet Name="InvWarehouseStocks" EntityType="RetailSalesManagementModel.InvWarehouseStock" />
+          <EntitySet Name="InvWarrentyPeriods" EntityType="RetailSalesManagementModel.InvWarrentyPeriod" />
+          <EntitySet Name="TestStudents" EntityType="RetailSalesManagementModel.TestStudent" />
+          <EntitySet Name="TestStudentAddresses" EntityType="RetailSalesManagementModel.TestStudentAddress" />
+          <EntitySet Name="TestStudentHistories" EntityType="RetailSalesManagementModel.TestStudentHistory" />
+          <EntitySet Name="InvOutletPOInvoiceDetails" EntityType="RetailSalesManagementModel.InvOutletPOInvoiceDetail" />
+          </EntityContainer>
+        <ComplexType Name="spSaleInvoice_Result">
+          <Property Type="Int32" Name="OutletInvoiceMasterId" Nullable="false" />
+          <Property Type="Int32" Name="Sale_Invoice_No" Nullable="false" />
+          <Property Type="Int32" Name="OutletId" Nullable="false" />
+          <Property Type="Int32" Name="SalePersonId" Nullable="false" />
+          <Property Type="Int32" Name="CustomerId" Nullable="false" />
+          <Property Type="String" Name="Payment_Mode" Nullable="false" MaxLength="50" />
+          <Property Type="Double" Name="Total_Item" Nullable="false" />
+          <Property Type="Double" Name="Total_Grand_Price" Nullable="false" />
+          <Property Type="Double" Name="VAT" Nullable="false" />
+          <Property Type="Double" Name="Discount" Nullable="false" />
+          <Property Type="Double" Name="Cash" Nullable="false" />
+          <Property Type="Double" Name="Credit" Nullable="false" />
+          <Property Type="Double" Name="Paid_Amount" Nullable="false" />
+          <Property Type="Double" Name="Due_Or_Refund" Nullable="false" />
+          <Property Type="String" Name="Note" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <Property Type="Boolean" Name="IsFullPaid" Nullable="false" />
+          <Property Type="Int32" Name="IsReturned" Nullable="false" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ModifiedBy" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="PreviousInvoice" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="NewInvoice" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="OutletInvoiceDetailsId" Nullable="false" />
+          <Property Type="Int32" Name="ProductId" Nullable="false" />
+          <Property Type="Double" Name="Product_Quantity" Nullable="false" />
+          <Property Type="Double" Name="Unit_Price" Nullable="false" />
+          <Property Type="Double" Name="Total_Price" Nullable="false" />
+          <Property Type="Boolean" Name="IsChanged" Nullable="false" />
+          <Property Type="Boolean" Name="IsEdited" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Product_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="OutletName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="FactoryName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ItemName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="SizeName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="UoMShortName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ColorName" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="InvAddress">
+          <Key>
+            <PropertyRef Name="AddressId" />
+          </Key>
+          <Property Name="AddressId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AddressCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HomeAddress1" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="HomeAddress2" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="HomeCityId" Type="Int32" />
+          <Property Name="HomePostalCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HomeDistrictId" Type="Int32" />
+          <Property Name="OfficeAddress1" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="OfficeAddress2" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="OfficeCityId" Type="Int32" />
+          <Property Name="OfficePostalCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OfficeDistrictId" Type="Int32" />
+          <Property Name="AddressTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvCategory">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryDetails" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvCityList">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="CityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CityDetails" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvColor">
+          <Key>
+            <PropertyRef Name="ColorId" />
+          </Key>
+          <Property Name="ColorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ColorCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ColorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ColorDetails" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvDiscount">
+          <Key>
+            <PropertyRef Name="DiscountId" />
+          </Key>
+          <Property Name="DiscountId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DiscountCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DiscountName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsDiscountPercent" Type="Boolean" />
+          <Property Name="DiscountFixedAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvDistrictList">
+          <Key>
+            <PropertyRef Name="DistrictId" />
+          </Key>
+          <Property Name="DistrictId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DistrictName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DistrictShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvFactory">
+          <Key>
+            <PropertyRef Name="FactoryId" />
+          </Key>
+          <Property Name="FactoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AddressId" Type="Int32" />
+          <Property Name="FactoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FactoryCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FactoryNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FactoryDetails" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvGroup">
+          <Key>
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Name="GroupId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GroupCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GroupDetails" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvItem">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ItemDetails" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="GroupCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ex1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvOutlet">
+          <Key>
+            <PropertyRef Name="OutletId" />
+          </Key>
+          <Property Name="OutletId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AddressId" Type="Int32" />
+          <Property Name="OutletName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OutletCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OutletNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OutletRegistrationNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OutletDetails" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvOutletInvoiceDetail">
+          <Key>
+            <PropertyRef Name="OutletInvoiceDetailsId" />
+          </Key>
+          <Property Name="OutletInvoiceDetailsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OutletInvoiceMasterId" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="ProductQuantity" Type="Double" />
+          <Property Name="Discount" Type="Double" />
+          <Property Name="DiscountPercent" Type="Int32" />
+          <Property Name="UnitPrice" Type="Double" />
+          <Property Name="TotalPrice" Type="Double" />
+          <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsChanged" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsEdited" Type="Boolean" />
+          <Property Name="IsReceived" Type="Boolean" />
+          <Property Name="IsReturned" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvOutletInvoiceHistory">
+          <Key>
+            <PropertyRef Name="OutletInvoiceHistoryId" />
+          </Key>
+          <Property Name="OutletInvoiceHistoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OutletInvoiceId" Type="Int32" Nullable="false" />
+          <Property Name="OutletPODetailsId" Type="Int32" />
+          <Property Name="OutletId" Type="Int32" />
+          <Property Name="WarehouseId" Type="Int32" />
+          <Property Name="TotalProducts" Type="Double" />
+          <Property Name="TotalPrice" Type="Double" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="IsChanged" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvOutletInvoiceMaster">
+          <Key>
+            <PropertyRef Name="OutletInvoiceMasterId" />
+          </Key>
+          <Property Name="OutletInvoiceMasterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OutletId" Type="Int32" />
+          <Property Name="SalePersonId" Type="Int32" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="OutletSaleInvoiceNo" Type="Int32" />
+          <Property Name="PaymentMode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TotalItem" Type="Double" />
+          <Property Name="VAT" Type="Double" />
+          <Property Name="TotalGrandPrice" Type="Double" />
+          <Property Name="PayableAmount" Type="Double" />
+          <Property Name="Cash" Type="Double" />
+          <Property Name="Credit" Type="Double" />
+          <Property Name="Discount" Type="Double" />
+          <Property Name="Rounding" Type="Double" />
+          <Property Name="PaidAmount" Type="Double" />
+          <Property Name="DueOrRefund" Type="Double" />
+          <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsChanged" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsEdited" Type="Boolean" />
+          <Property Name="IsFullPaid" Type="Boolean" />
+          <Property Name="IsReturned" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="PreviousInvoice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NewInvoice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="InvOutletPODetail">
+          <Key>
+            <PropertyRef Name="OutletPODetailsId" />
+          </Key>
+          <Property Name="OutletPODetailsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OutletPOMasterId" Type="Int32" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="ProductQuantity" Type="Double" />
+          <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsChanged" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsEdited" Type="Boolean" />
+          <Property Name="IsReceived" Type="Boolean" />
+          <Property Name="IsReturned" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvOutletPOInvoiceMaster">
+          <Key>
+            <PropertyRef Name="OutletPOInvoiceMasterId" />
+          </Key>
+          <Property Name="OutletPOInvoiceMasterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Original_OutletPOMasterId" Type="Int32" />
+          <Property Name="OutletPOInvoiceNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WarehouseId" Type="Int32" />
+          <Property Name="OutletId" Type="Int32" />
+          <Property Name="UniqueId" Type="Int32" />
+          <Property Name="POReference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsEdited" Type="Boolean" />
+          <Property Name="IsReturned" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvOutletPOMaster">
+          <Key>
+            <PropertyRef Name="OutletPOMasterId" />
+          </Key>
+          <Property Name="OutletPOMasterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OutletId" Type="Int32" />
+          <Property Name="WarehouseId" Type="Int32" />
+          <Property Name="Extra1_WarehouseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsChanged" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsEdited" Type="Boolean" />
+          <Property Name="IsReceived" Type="Boolean" />
+          <Property Name="IsReturned" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvOutletPOReturnDetail">
+          <Key>
+            <PropertyRef Name="OutletPOReturnDetailsId" />
+          </Key>
+          <Property Name="OutletPOReturnDetailsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OutletPOReturnMasterId" Type="Int32" />
+          <Property Name="Original_OutletPODetailsId" Type="Int32" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="ProductQuantity" Type="Double" />
+          <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsChanged" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsEdited" Type="Boolean" />
+          <Property Name="IsReceived" Type="Boolean" />
+          <Property Name="IsReturned" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvOutletPOReturnMaster">
+          <Key>
+            <PropertyRef Name="OutletPOReturnMasterId" />
+          </Key>
+          <Property Name="OutletPOReturnMasterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Original_OutletPOMasterId" Type="Int32" />
+          <Property Name="OutletPOInvoiceNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OutletId" Type="Int32" />
+          <Property Name="WarehouseId" Type="Int32" />
+          <Property Name="Extra1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RepairCost" Type="Int32" />
+          <Property Name="RepairReturnDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsChanged" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsEdited" Type="Boolean" />
+          <Property Name="IsReceived" Type="Boolean" />
+          <Property Name="IsReturned" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvOutletStock">
+          <Key>
+            <PropertyRef Name="OutletStockId" />
+          </Key>
+          <Property Name="OutletStockId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WarehouseId" Type="Int32" />
+          <Property Name="OutletId" Type="Int32" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="OutletStockQuantity" Type="Double" />
+          <Property Name="InOut" Type="Int32" />
+          <Property Name="AdjustedReason" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsChanged" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsEdited" Type="Boolean" />
+          <Property Name="IsReceived" Type="Boolean" />
+          <Property Name="IsReturned" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvOutletWarrentyRepair">
+          <Key>
+            <PropertyRef Name="OutletWarrentyRepairId" />
+          </Key>
+          <Property Name="OutletWarrentyRepairId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OutletInvoiceDetailsId" Type="Int32" />
+          <Property Name="OutletSaleInvoiceNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RepairTokenNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WarehouseId" Type="Int32" />
+          <Property Name="OutletId" Type="Int32" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="ProductQuantity" Type="Double" />
+          <Property Name="Problem" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="WarrentyType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PurchaseDate" Type="DateTime" Precision="3" />
+          <Property Name="EstimatedReturnDate" Type="DateTime" Precision="3" />
+          <Property Name="ReturnDate" Type="DateTime" Precision="3" />
+          <Property Name="RepairCost" Type="Double" />
+          <Property Name="RepairStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsChanged" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsEdited" Type="Boolean" />
+          <Property Name="IsReceived" Type="Boolean" />
+          <Property Name="IsRepaired" Type="Boolean" />
+          <Property Name="IsReturned" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvPackageDetail">
+          <Key>
+            <PropertyRef Name="PackageDetailsId" />
+          </Key>
+          <Property Name="PackageDetailsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PackageMasterId" Type="Int32" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="ProductQuantity" Type="Double" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvPackageMaster">
+          <Key>
+            <PropertyRef Name="PackageMasterId" />
+          </Key>
+          <Property Name="PackageMasterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PackageCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PackageName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvProduct">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FactoryId" Type="Int32" />
+          <Property Name="ItemId" Type="Int32" />
+          <Property Name="SizeId" Type="Int32" />
+          <Property Name="ColorId" Type="Int32" />
+          <Property Name="UoMId" Type="Int32" />
+          <Property Name="ProductCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductMainBarcode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductFactoryBarcode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsFactoryBarCode" Type="Int32" />
+          <Property Name="MinimumStock" Type="Double" />
+          <Property Name="ProductFrontImage" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="ProductBackImage" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvProductPrice">
+          <Key>
+            <PropertyRef Name="ProductPriceId" />
+          </Key>
+          <Property Name="ProductPriceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="ProductCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CostPrice" Type="Double" />
+          <Property Name="WholeSalePrice" Type="Double" />
+          <Property Name="RetailPrice" Type="Double" />
+          <Property Name="PriceSetupDate" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvProductPurchase">
+          <Key>
+            <PropertyRef Name="ProductPurchaseId" />
+          </Key>
+          <Property Name="ProductPurchaseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FactoryId" Type="Int32" />
+          <Property Name="ItemId" Type="Int32" />
+          <Property Name="UoMId" Type="Int32" />
+          <Property Name="SizeId" Type="Int32" />
+          <Property Name="ColorId" Type="Int32" />
+          <Property Name="ProductCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductMainBarcode" Type="Int32" />
+          <Property Name="ProductFactoryBarcode" Type="Int32" />
+          <Property Name="MinimumStock" Type="Double" />
+          <Property Name="CurrentStock" Type="Double" />
+          <Property Name="NewStock" Type="Double" />
+          <Property Name="PurchaseQuantity" Type="Double" />
+          <Property Name="CostPrice" Type="Double" />
+          <Property Name="WholeSalePrice" Type="Double" />
+          <Property Name="RetailPrice" Type="Double" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvProductWarrenty">
+          <Key>
+            <PropertyRef Name="ProductWarrentyId" />
+          </Key>
+          <Property Name="ProductWarrentyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="IsReplacementWarrenty" Type="Boolean" />
+          <Property Name="WarrentyPeriodId" Type="Int32" />
+          <Property Name="WarrentyExpireDate" Type="DateTime" Precision="3" />
+          <Property Name="ServicePeriod" Type="Int32" />
+          <Property Name="WarrentyDescription" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="Ex1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvSize">
+          <Key>
+            <PropertyRef Name="SizeId" />
+          </Key>
+          <Property Name="SizeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SizeCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SizeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SizeDetails" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvSupplier">
+          <Key>
+            <PropertyRef Name="SupplierId" />
+          </Key>
+          <Property Name="SupplierId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SupplierCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SupplierName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SupplierDetails" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="SupplierNumber" Type="Int32" />
+          <Property Name="AddressCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ex1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvTax">
+          <Key>
+            <PropertyRef Name="TaxId" />
+          </Key>
+          <Property Name="TaxId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaxCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TaxName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsPercent" Type="Boolean" />
+          <Property Name="PercentAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="FixedAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvUoM">
+          <Key>
+            <PropertyRef Name="UoMId" />
+          </Key>
+          <Property Name="UoMId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UoMCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UoMShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UoMDetails" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="Ex1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvWarehouse">
+          <Key>
+            <PropertyRef Name="WarehouseId" />
+          </Key>
+          <Property Name="WarehouseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WarehouseCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WarehouseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WarehouseDetails" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="WarehouseNumber" Type="Int32" />
+          <Property Name="AddressCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ex1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvWarehousePODetail">
+          <Key>
+            <PropertyRef Name="WarehousePODetailsId" />
+          </Key>
+          <Property Name="WarehousePODetailsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WarehousePOMasterId" Type="Int32" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="ProductQuantity" Type="Double" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsEdited" Type="Boolean" />
+          <Property Name="IsReturned" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvWarehousePOInvoiceDetail">
+          <Key>
+            <PropertyRef Name="WarehousePOInvoiceDetailsId" />
+          </Key>
+          <Property Name="WarehousePOInvoiceDetailsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WarehousePOInvoiceMasterId" Type="Int32" />
+          <Property Name="Original_WarehousePODetailsId" Type="Int32" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="ProductQuantity" Type="Double" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsEdited" Type="Boolean" />
+          <Property Name="IsReturned" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvWarehousePOInvoiceMaster">
+          <Key>
+            <PropertyRef Name="WarehousePOInvoiceMasterId" />
+          </Key>
+          <Property Name="WarehousePOInvoiceMasterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Original_WarehousePOMasterId" Type="Int32" />
+          <Property Name="WarehousePOInvoiceNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SupplierId" Type="Int32" />
+          <Property Name="WarehouseId" Type="Int32" />
+          <Property Name="UniqueId" Type="Int32" />
+          <Property Name="POReference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsEdited" Type="Boolean" />
+          <Property Name="IsReturned" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvWarehousePOItemReceived">
+          <Key>
+            <PropertyRef Name="WarehousePOItemReceivedId" />
+          </Key>
+          <Property Name="WarehousePOItemReceivedId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WarehousePOMasterId" Type="Int32" />
+          <Property Name="WarehousePODetailsId" Type="Int32" />
+          <Property Name="ItemReceivedQuantity" Type="Double" />
+          <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvWarehousePOMaster">
+          <Key>
+            <PropertyRef Name="WarehousePOMasterId" />
+          </Key>
+          <Property Name="WarehousePOMasterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SupplierId" Type="Int32" />
+          <Property Name="WarehouseId" Type="Int32" />
+          <Property Name="UniqueId" Type="Int32" />
+          <Property Name="POReference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsEdited" Type="Boolean" />
+          <Property Name="IsReturned" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvWarehouseStock">
+          <Key>
+            <PropertyRef Name="WarehouseStockId" />
+          </Key>
+          <Property Name="WarehouseStockId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WarehouseId" Type="Int32" />
+          <Property Name="OutletId" Type="Int32" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="WarehouseStockQuantity" Type="Double" />
+          <Property Name="AdjustedReason" Type="Int32" />
+          <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="InOut" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsChanged" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsEdited" Type="Boolean" />
+          <Property Name="IsReceived" Type="Boolean" />
+          <Property Name="IsReturned" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvWarrentyPeriod">
+          <Key>
+            <PropertyRef Name="WarrentyPeriodId" />
+          </Key>
+          <Property Name="WarrentyPeriodId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WarrentyName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WarrentyDays" Type="Int32" />
+          <Property Name="WarrentyDetails" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TestStudent">
+          <Key>
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="StudentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StudentPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TestStudentAddress">
+          <Key>
+            <PropertyRef Name="StudentAddressId" />
+          </Key>
+          <Property Name="StudentAddressId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentId" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TestStudentHistory">
+          <Key>
+            <PropertyRef Name="HistoryId" />
+          </Key>
+          <Property Name="HistoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentId" Type="Int32" />
+          <Property Name="HistoryTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HistoryDetials" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="InvOutletPOInvoiceDetail">
+          <Key>
+            <PropertyRef Name="OutletPOInvoiceDetailsId" />
+          </Key>
+          <Property Name="OutletPOInvoiceDetailsId" Type="Int32" Nullable="false" />
+          <Property Name="OutletPOInvoiceMasterId" Type="Int32" />
+          <Property Name="Original_OutletPODetailsId" Type="Int32" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="ProductQuantity" Type="Double" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsEdited" Type="Boolean" />
+          <Property Name="IsReceived" Type="Boolean" />
+          <Property Name="IsReturned" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RetailSalesManagementModelStoreContainer" CdmEntityContainer="RetailSalesManagementEntities">
+          <FunctionImportMapping FunctionImportName="spTempo" FunctionName="RetailSalesManagementModel.Store.spTempo" />
+          <FunctionImportMapping FunctionImportName="spSaleInvoice" FunctionName="RetailSalesManagementModel.Store.spSaleInvoice">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RetailSalesManagementModel.spSaleInvoice_Result">
+                <ScalarProperty Name="OutletInvoiceMasterId" ColumnName="OutletInvoiceMasterId" />
+                <ScalarProperty Name="Sale_Invoice_No" ColumnName="Sale Invoice No" />
+                <ScalarProperty Name="OutletId" ColumnName="OutletId" />
+                <ScalarProperty Name="SalePersonId" ColumnName="SalePersonId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Payment_Mode" ColumnName="Payment Mode" />
+                <ScalarProperty Name="Total_Item" ColumnName="Total Item" />
+                <ScalarProperty Name="Total_Grand_Price" ColumnName="Total Grand Price" />
+                <ScalarProperty Name="VAT" ColumnName="VAT" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Cash" ColumnName="Cash" />
+                <ScalarProperty Name="Credit" ColumnName="Credit" />
+                <ScalarProperty Name="Paid_Amount" ColumnName="Paid Amount" />
+                <ScalarProperty Name="Due_Or_Refund" ColumnName="Due Or Refund" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsFullPaid" ColumnName="IsFullPaid" />
+                <ScalarProperty Name="IsReturned" ColumnName="IsReturned" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="PreviousInvoice" ColumnName="PreviousInvoice" />
+                <ScalarProperty Name="NewInvoice" ColumnName="NewInvoice" />
+                <ScalarProperty Name="OutletInvoiceDetailsId" ColumnName="OutletInvoiceDetailsId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Product_Quantity" ColumnName="Product Quantity" />
+                <ScalarProperty Name="Unit_Price" ColumnName="Unit Price" />
+                <ScalarProperty Name="Total_Price" ColumnName="Total Price" />
+                <ScalarProperty Name="IsChanged" ColumnName="IsChanged" />
+                <ScalarProperty Name="IsEdited" ColumnName="IsEdited" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Product_Name" ColumnName="Product Name" />
+                <ScalarProperty Name="OutletName" ColumnName="OutletName" />
+                <ScalarProperty Name="FactoryName" ColumnName="FactoryName" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="SizeName" ColumnName="SizeName" />
+                <ScalarProperty Name="UoMShortName" ColumnName="UoMShortName" />
+                <ScalarProperty Name="ColorName" ColumnName="ColorName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="InvAddresses">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvAddress">
+              <MappingFragment StoreEntitySet="InvAddress">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="AddressTypeName" ColumnName="AddressTypeName" />
+                <ScalarProperty Name="OfficeDistrictId" ColumnName="OfficeDistrictId" />
+                <ScalarProperty Name="OfficePostalCode" ColumnName="OfficePostalCode" />
+                <ScalarProperty Name="OfficeCityId" ColumnName="OfficeCityId" />
+                <ScalarProperty Name="OfficeAddress2" ColumnName="OfficeAddress2" />
+                <ScalarProperty Name="OfficeAddress1" ColumnName="OfficeAddress1" />
+                <ScalarProperty Name="HomeDistrictId" ColumnName="HomeDistrictId" />
+                <ScalarProperty Name="HomePostalCode" ColumnName="HomePostalCode" />
+                <ScalarProperty Name="HomeCityId" ColumnName="HomeCityId" />
+                <ScalarProperty Name="HomeAddress2" ColumnName="HomeAddress2" />
+                <ScalarProperty Name="HomeAddress1" ColumnName="HomeAddress1" />
+                <ScalarProperty Name="AddressCode" ColumnName="AddressCode" />
+                <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvCategories">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvCategory">
+              <MappingFragment StoreEntitySet="InvCategory">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CategoryDetails" ColumnName="CategoryDetails" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvCityLists">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvCityList">
+              <MappingFragment StoreEntitySet="InvCityList">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CityDetails" ColumnName="CityDetails" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvColors">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvColor">
+              <MappingFragment StoreEntitySet="InvColor">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ColorDetails" ColumnName="ColorDetails" />
+                <ScalarProperty Name="ColorName" ColumnName="ColorName" />
+                <ScalarProperty Name="ColorCode" ColumnName="ColorCode" />
+                <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvDiscounts">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvDiscount">
+              <MappingFragment StoreEntitySet="InvDiscount">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DiscountFixedAmount" ColumnName="DiscountFixedAmount" />
+                <ScalarProperty Name="IsDiscountPercent" ColumnName="IsDiscountPercent" />
+                <ScalarProperty Name="DiscountName" ColumnName="DiscountName" />
+                <ScalarProperty Name="DiscountCode" ColumnName="DiscountCode" />
+                <ScalarProperty Name="DiscountId" ColumnName="DiscountId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvDistrictLists">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvDistrictList">
+              <MappingFragment StoreEntitySet="InvDistrictList">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DistrictShortName" ColumnName="DistrictShortName" />
+                <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvFactories">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvFactory">
+              <MappingFragment StoreEntitySet="InvFactory">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="FactoryDetails" ColumnName="FactoryDetails" />
+                <ScalarProperty Name="FactoryNumber" ColumnName="FactoryNumber" />
+                <ScalarProperty Name="FactoryCode" ColumnName="FactoryCode" />
+                <ScalarProperty Name="FactoryName" ColumnName="FactoryName" />
+                <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+                <ScalarProperty Name="FactoryId" ColumnName="FactoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvGroups">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvGroup">
+              <MappingFragment StoreEntitySet="InvGroup">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
+                <ScalarProperty Name="GroupDetails" ColumnName="GroupDetails" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="GroupCode" ColumnName="GroupCode" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvItems">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvItem">
+              <MappingFragment StoreEntitySet="InvItem">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Ex1" ColumnName="Ex1" />
+                <ScalarProperty Name="GroupCode" ColumnName="GroupCode" />
+                <ScalarProperty Name="ItemDetails" ColumnName="ItemDetails" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvOutlets">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvOutlet">
+              <MappingFragment StoreEntitySet="InvOutlet">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="OutletDetails" ColumnName="OutletDetails" />
+                <ScalarProperty Name="OutletRegistrationNumber" ColumnName="OutletRegistrationNumber" />
+                <ScalarProperty Name="OutletNumber" ColumnName="OutletNumber" />
+                <ScalarProperty Name="OutletCode" ColumnName="OutletCode" />
+                <ScalarProperty Name="OutletName" ColumnName="OutletName" />
+                <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+                <ScalarProperty Name="OutletId" ColumnName="OutletId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvOutletInvoiceDetails">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvOutletInvoiceDetail">
+              <MappingFragment StoreEntitySet="InvOutletInvoiceDetail">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsReturned" ColumnName="IsReturned" />
+                <ScalarProperty Name="IsReceived" ColumnName="IsReceived" />
+                <ScalarProperty Name="IsEdited" ColumnName="IsEdited" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsChanged" ColumnName="IsChanged" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="DiscountPercent" ColumnName="DiscountPercent" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="ProductQuantity" ColumnName="ProductQuantity" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="OutletInvoiceMasterId" ColumnName="OutletInvoiceMasterId" />
+                <ScalarProperty Name="OutletInvoiceDetailsId" ColumnName="OutletInvoiceDetailsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvOutletInvoiceHistories">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvOutletInvoiceHistory">
+              <MappingFragment StoreEntitySet="InvOutletInvoiceHistory">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsChanged" ColumnName="IsChanged" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="TotalProducts" ColumnName="TotalProducts" />
+                <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+                <ScalarProperty Name="OutletId" ColumnName="OutletId" />
+                <ScalarProperty Name="OutletPODetailsId" ColumnName="OutletPODetailsId" />
+                <ScalarProperty Name="OutletInvoiceId" ColumnName="OutletInvoiceId" />
+                <ScalarProperty Name="OutletInvoiceHistoryId" ColumnName="OutletInvoiceHistoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvOutletInvoiceMasters">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvOutletInvoiceMaster">
+              <MappingFragment StoreEntitySet="InvOutletInvoiceMaster">
+                <ScalarProperty Name="NewInvoice" ColumnName="NewInvoice" />
+                <ScalarProperty Name="PreviousInvoice" ColumnName="PreviousInvoice" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsReturned" ColumnName="IsReturned" />
+                <ScalarProperty Name="IsFullPaid" ColumnName="IsFullPaid" />
+                <ScalarProperty Name="IsEdited" ColumnName="IsEdited" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsChanged" ColumnName="IsChanged" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="DueOrRefund" ColumnName="DueOrRefund" />
+                <ScalarProperty Name="PaidAmount" ColumnName="PaidAmount" />
+                <ScalarProperty Name="Rounding" ColumnName="Rounding" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Credit" ColumnName="Credit" />
+                <ScalarProperty Name="Cash" ColumnName="Cash" />
+                <ScalarProperty Name="PayableAmount" ColumnName="PayableAmount" />
+                <ScalarProperty Name="TotalGrandPrice" ColumnName="TotalGrandPrice" />
+                <ScalarProperty Name="VAT" ColumnName="VAT" />
+                <ScalarProperty Name="TotalItem" ColumnName="TotalItem" />
+                <ScalarProperty Name="PaymentMode" ColumnName="PaymentMode" />
+                <ScalarProperty Name="OutletSaleInvoiceNo" ColumnName="OutletSaleInvoiceNo" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="SalePersonId" ColumnName="SalePersonId" />
+                <ScalarProperty Name="OutletId" ColumnName="OutletId" />
+                <ScalarProperty Name="OutletInvoiceMasterId" ColumnName="OutletInvoiceMasterId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvOutletPODetails">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvOutletPODetail">
+              <MappingFragment StoreEntitySet="InvOutletPODetail">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsReturned" ColumnName="IsReturned" />
+                <ScalarProperty Name="IsReceived" ColumnName="IsReceived" />
+                <ScalarProperty Name="IsEdited" ColumnName="IsEdited" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsChanged" ColumnName="IsChanged" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="ProductQuantity" ColumnName="ProductQuantity" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="OutletPOMasterId" ColumnName="OutletPOMasterId" />
+                <ScalarProperty Name="OutletPODetailsId" ColumnName="OutletPODetailsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvOutletPOInvoiceMasters">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvOutletPOInvoiceMaster">
+              <MappingFragment StoreEntitySet="InvOutletPOInvoiceMaster">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsReturned" ColumnName="IsReturned" />
+                <ScalarProperty Name="IsEdited" ColumnName="IsEdited" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="POReference" ColumnName="POReference" />
+                <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
+                <ScalarProperty Name="OutletId" ColumnName="OutletId" />
+                <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+                <ScalarProperty Name="OutletPOInvoiceNo" ColumnName="OutletPOInvoiceNo" />
+                <ScalarProperty Name="Original_OutletPOMasterId" ColumnName="Original_OutletPOMasterId" />
+                <ScalarProperty Name="OutletPOInvoiceMasterId" ColumnName="OutletPOInvoiceMasterId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvOutletPOMasters">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvOutletPOMaster">
+              <MappingFragment StoreEntitySet="InvOutletPOMaster">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsReturned" ColumnName="IsReturned" />
+                <ScalarProperty Name="IsReceived" ColumnName="IsReceived" />
+                <ScalarProperty Name="IsEdited" ColumnName="IsEdited" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsChanged" ColumnName="IsChanged" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Extra1_WarehouseName" ColumnName="Extra1_WarehouseName" />
+                <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+                <ScalarProperty Name="OutletId" ColumnName="OutletId" />
+                <ScalarProperty Name="OutletPOMasterId" ColumnName="OutletPOMasterId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvOutletPOReturnDetails">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvOutletPOReturnDetail">
+              <MappingFragment StoreEntitySet="InvOutletPOReturnDetail">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsReturned" ColumnName="IsReturned" />
+                <ScalarProperty Name="IsReceived" ColumnName="IsReceived" />
+                <ScalarProperty Name="IsEdited" ColumnName="IsEdited" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsChanged" ColumnName="IsChanged" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="ProductQuantity" ColumnName="ProductQuantity" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Original_OutletPODetailsId" ColumnName="Original_OutletPODetailsId" />
+                <ScalarProperty Name="OutletPOReturnMasterId" ColumnName="OutletPOReturnMasterId" />
+                <ScalarProperty Name="OutletPOReturnDetailsId" ColumnName="OutletPOReturnDetailsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvOutletPOReturnMasters">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvOutletPOReturnMaster">
+              <MappingFragment StoreEntitySet="InvOutletPOReturnMaster">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsReturned" ColumnName="IsReturned" />
+                <ScalarProperty Name="IsReceived" ColumnName="IsReceived" />
+                <ScalarProperty Name="IsEdited" ColumnName="IsEdited" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsChanged" ColumnName="IsChanged" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="RepairReturnDate" ColumnName="RepairReturnDate" />
+                <ScalarProperty Name="RepairCost" ColumnName="RepairCost" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Extra1" ColumnName="Extra1" />
+                <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+                <ScalarProperty Name="OutletId" ColumnName="OutletId" />
+                <ScalarProperty Name="OutletPOInvoiceNo" ColumnName="OutletPOInvoiceNo" />
+                <ScalarProperty Name="Original_OutletPOMasterId" ColumnName="Original_OutletPOMasterId" />
+                <ScalarProperty Name="OutletPOReturnMasterId" ColumnName="OutletPOReturnMasterId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvOutletStocks">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvOutletStock">
+              <MappingFragment StoreEntitySet="InvOutletStock">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsReturned" ColumnName="IsReturned" />
+                <ScalarProperty Name="IsReceived" ColumnName="IsReceived" />
+                <ScalarProperty Name="IsEdited" ColumnName="IsEdited" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsChanged" ColumnName="IsChanged" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="AdjustedReason" ColumnName="AdjustedReason" />
+                <ScalarProperty Name="InOut" ColumnName="InOut" />
+                <ScalarProperty Name="OutletStockQuantity" ColumnName="OutletStockQuantity" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="OutletId" ColumnName="OutletId" />
+                <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+                <ScalarProperty Name="OutletStockId" ColumnName="OutletStockId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvOutletWarrentyRepairs">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvOutletWarrentyRepair">
+              <MappingFragment StoreEntitySet="InvOutletWarrentyRepair">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsReturned" ColumnName="IsReturned" />
+                <ScalarProperty Name="IsRepaired" ColumnName="IsRepaired" />
+                <ScalarProperty Name="IsReceived" ColumnName="IsReceived" />
+                <ScalarProperty Name="IsEdited" ColumnName="IsEdited" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsChanged" ColumnName="IsChanged" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="RepairStatus" ColumnName="RepairStatus" />
+                <ScalarProperty Name="RepairCost" ColumnName="RepairCost" />
+                <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+                <ScalarProperty Name="EstimatedReturnDate" ColumnName="EstimatedReturnDate" />
+                <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
+                <ScalarProperty Name="WarrentyType" ColumnName="WarrentyType" />
+                <ScalarProperty Name="Problem" ColumnName="Problem" />
+                <ScalarProperty Name="ProductQuantity" ColumnName="ProductQuantity" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="OutletId" ColumnName="OutletId" />
+                <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+                <ScalarProperty Name="RepairTokenNo" ColumnName="RepairTokenNo" />
+                <ScalarProperty Name="OutletSaleInvoiceNo" ColumnName="OutletSaleInvoiceNo" />
+                <ScalarProperty Name="OutletInvoiceDetailsId" ColumnName="OutletInvoiceDetailsId" />
+                <ScalarProperty Name="OutletWarrentyRepairId" ColumnName="OutletWarrentyRepairId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvPackageDetails">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvPackageDetail">
+              <MappingFragment StoreEntitySet="InvPackageDetail">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ProductQuantity" ColumnName="ProductQuantity" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="PackageMasterId" ColumnName="PackageMasterId" />
+                <ScalarProperty Name="PackageDetailsId" ColumnName="PackageDetailsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvPackageMasters">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvPackageMaster">
+              <MappingFragment StoreEntitySet="InvPackageMaster">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="PackageName" ColumnName="PackageName" />
+                <ScalarProperty Name="PackageCode" ColumnName="PackageCode" />
+                <ScalarProperty Name="PackageMasterId" ColumnName="PackageMasterId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvProducts">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvProduct">
+              <MappingFragment StoreEntitySet="InvProduct">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ProductBackImage" ColumnName="ProductBackImage" />
+                <ScalarProperty Name="ProductFrontImage" ColumnName="ProductFrontImage" />
+                <ScalarProperty Name="MinimumStock" ColumnName="MinimumStock" />
+                <ScalarProperty Name="IsFactoryBarCode" ColumnName="IsFactoryBarCode" />
+                <ScalarProperty Name="ProductFactoryBarcode" ColumnName="ProductFactoryBarcode" />
+                <ScalarProperty Name="ProductMainBarcode" ColumnName="ProductMainBarcode" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="UoMId" ColumnName="UoMId" />
+                <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+                <ScalarProperty Name="SizeId" ColumnName="SizeId" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="FactoryId" ColumnName="FactoryId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvProductPrices">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvProductPrice">
+              <MappingFragment StoreEntitySet="InvProductPrice">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="PriceSetupDate" ColumnName="PriceSetupDate" />
+                <ScalarProperty Name="RetailPrice" ColumnName="RetailPrice" />
+                <ScalarProperty Name="WholeSalePrice" ColumnName="WholeSalePrice" />
+                <ScalarProperty Name="CostPrice" ColumnName="CostPrice" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="ProductPriceId" ColumnName="ProductPriceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvProductPurchases">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvProductPurchase">
+              <MappingFragment StoreEntitySet="InvProductPurchase">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="RetailPrice" ColumnName="RetailPrice" />
+                <ScalarProperty Name="WholeSalePrice" ColumnName="WholeSalePrice" />
+                <ScalarProperty Name="CostPrice" ColumnName="CostPrice" />
+                <ScalarProperty Name="PurchaseQuantity" ColumnName="PurchaseQuantity" />
+                <ScalarProperty Name="NewStock" ColumnName="NewStock" />
+                <ScalarProperty Name="CurrentStock" ColumnName="CurrentStock" />
+                <ScalarProperty Name="MinimumStock" ColumnName="MinimumStock" />
+                <ScalarProperty Name="ProductFactoryBarcode" ColumnName="ProductFactoryBarcode" />
+                <ScalarProperty Name="ProductMainBarcode" ColumnName="ProductMainBarcode" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+                <ScalarProperty Name="SizeId" ColumnName="SizeId" />
+                <ScalarProperty Name="UoMId" ColumnName="UoMId" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="FactoryId" ColumnName="FactoryId" />
+                <ScalarProperty Name="ProductPurchaseId" ColumnName="ProductPurchaseId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvProductWarrenties">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvProductWarrenty">
+              <MappingFragment StoreEntitySet="InvProductWarrenty">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Ex1" ColumnName="Ex1" />
+                <ScalarProperty Name="WarrentyDescription" ColumnName="WarrentyDescription" />
+                <ScalarProperty Name="ServicePeriod" ColumnName="ServicePeriod" />
+                <ScalarProperty Name="WarrentyExpireDate" ColumnName="WarrentyExpireDate" />
+                <ScalarProperty Name="WarrentyPeriodId" ColumnName="WarrentyPeriodId" />
+                <ScalarProperty Name="IsReplacementWarrenty" ColumnName="IsReplacementWarrenty" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="ProductWarrentyId" ColumnName="ProductWarrentyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvSizes">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvSize">
+              <MappingFragment StoreEntitySet="InvSize">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="SizeDetails" ColumnName="SizeDetails" />
+                <ScalarProperty Name="SizeName" ColumnName="SizeName" />
+                <ScalarProperty Name="SizeCode" ColumnName="SizeCode" />
+                <ScalarProperty Name="SizeId" ColumnName="SizeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvSuppliers">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvSupplier">
+              <MappingFragment StoreEntitySet="InvSupplier">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Ex1" ColumnName="Ex1" />
+                <ScalarProperty Name="AddressCode" ColumnName="AddressCode" />
+                <ScalarProperty Name="SupplierNumber" ColumnName="SupplierNumber" />
+                <ScalarProperty Name="SupplierDetails" ColumnName="SupplierDetails" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvTaxes">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvTax">
+              <MappingFragment StoreEntitySet="InvTax">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="FixedAmount" ColumnName="FixedAmount" />
+                <ScalarProperty Name="PercentAmount" ColumnName="PercentAmount" />
+                <ScalarProperty Name="IsPercent" ColumnName="IsPercent" />
+                <ScalarProperty Name="TaxName" ColumnName="TaxName" />
+                <ScalarProperty Name="TaxCode" ColumnName="TaxCode" />
+                <ScalarProperty Name="TaxId" ColumnName="TaxId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvUoMs">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvUoM">
+              <MappingFragment StoreEntitySet="InvUoM">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Ex1" ColumnName="Ex1" />
+                <ScalarProperty Name="UoMDetails" ColumnName="UoMDetails" />
+                <ScalarProperty Name="UoMShortName" ColumnName="UoMShortName" />
+                <ScalarProperty Name="UoMCode" ColumnName="UoMCode" />
+                <ScalarProperty Name="UoMId" ColumnName="UoMId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvWarehouses">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvWarehouse">
+              <MappingFragment StoreEntitySet="InvWarehouse">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Ex1" ColumnName="Ex1" />
+                <ScalarProperty Name="AddressCode" ColumnName="AddressCode" />
+                <ScalarProperty Name="WarehouseNumber" ColumnName="WarehouseNumber" />
+                <ScalarProperty Name="WarehouseDetails" ColumnName="WarehouseDetails" />
+                <ScalarProperty Name="WarehouseName" ColumnName="WarehouseName" />
+                <ScalarProperty Name="WarehouseCode" ColumnName="WarehouseCode" />
+                <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvWarehousePODetails">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvWarehousePODetail">
+              <MappingFragment StoreEntitySet="InvWarehousePODetail">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsReturned" ColumnName="IsReturned" />
+                <ScalarProperty Name="IsEdited" ColumnName="IsEdited" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ProductQuantity" ColumnName="ProductQuantity" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="WarehousePOMasterId" ColumnName="WarehousePOMasterId" />
+                <ScalarProperty Name="WarehousePODetailsId" ColumnName="WarehousePODetailsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvWarehousePOInvoiceDetails">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvWarehousePOInvoiceDetail">
+              <MappingFragment StoreEntitySet="InvWarehousePOInvoiceDetail">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsReturned" ColumnName="IsReturned" />
+                <ScalarProperty Name="IsEdited" ColumnName="IsEdited" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ProductQuantity" ColumnName="ProductQuantity" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Original_WarehousePODetailsId" ColumnName="Original_WarehousePODetailsId" />
+                <ScalarProperty Name="WarehousePOInvoiceMasterId" ColumnName="WarehousePOInvoiceMasterId" />
+                <ScalarProperty Name="WarehousePOInvoiceDetailsId" ColumnName="WarehousePOInvoiceDetailsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvWarehousePOInvoiceMasters">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvWarehousePOInvoiceMaster">
+              <MappingFragment StoreEntitySet="InvWarehousePOInvoiceMaster">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsReturned" ColumnName="IsReturned" />
+                <ScalarProperty Name="IsEdited" ColumnName="IsEdited" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="POReference" ColumnName="POReference" />
+                <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
+                <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+                <ScalarProperty Name="WarehousePOInvoiceNo" ColumnName="WarehousePOInvoiceNo" />
+                <ScalarProperty Name="Original_WarehousePOMasterId" ColumnName="Original_WarehousePOMasterId" />
+                <ScalarProperty Name="WarehousePOInvoiceMasterId" ColumnName="WarehousePOInvoiceMasterId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvWarehousePOItemReceiveds">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvWarehousePOItemReceived">
+              <MappingFragment StoreEntitySet="InvWarehousePOItemReceived">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="ItemReceivedQuantity" ColumnName="ItemReceivedQuantity" />
+                <ScalarProperty Name="WarehousePODetailsId" ColumnName="WarehousePODetailsId" />
+                <ScalarProperty Name="WarehousePOMasterId" ColumnName="WarehousePOMasterId" />
+                <ScalarProperty Name="WarehousePOItemReceivedId" ColumnName="WarehousePOItemReceivedId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvWarehousePOMasters">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvWarehousePOMaster">
+              <MappingFragment StoreEntitySet="InvWarehousePOMaster">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsReturned" ColumnName="IsReturned" />
+                <ScalarProperty Name="IsEdited" ColumnName="IsEdited" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="POReference" ColumnName="POReference" />
+                <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
+                <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+                <ScalarProperty Name="WarehousePOMasterId" ColumnName="WarehousePOMasterId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvWarehouseStocks">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvWarehouseStock">
+              <MappingFragment StoreEntitySet="InvWarehouseStock">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsReturned" ColumnName="IsReturned" />
+                <ScalarProperty Name="IsReceived" ColumnName="IsReceived" />
+                <ScalarProperty Name="IsEdited" ColumnName="IsEdited" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsChanged" ColumnName="IsChanged" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="InOut" ColumnName="InOut" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="AdjustedReason" ColumnName="AdjustedReason" />
+                <ScalarProperty Name="WarehouseStockQuantity" ColumnName="WarehouseStockQuantity" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="OutletId" ColumnName="OutletId" />
+                <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+                <ScalarProperty Name="WarehouseStockId" ColumnName="WarehouseStockId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvWarrentyPeriods">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvWarrentyPeriod">
+              <MappingFragment StoreEntitySet="InvWarrentyPeriod">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="WarrentyDetails" ColumnName="WarrentyDetails" />
+                <ScalarProperty Name="WarrentyDays" ColumnName="WarrentyDays" />
+                <ScalarProperty Name="WarrentyName" ColumnName="WarrentyName" />
+                <ScalarProperty Name="WarrentyPeriodId" ColumnName="WarrentyPeriodId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TestStudents">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.TestStudent">
+              <MappingFragment StoreEntitySet="TestStudent">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="StudentPhone" ColumnName="StudentPhone" />
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TestStudentAddresses">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.TestStudentAddress">
+              <MappingFragment StoreEntitySet="TestStudentAddress">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="StudentAddressId" ColumnName="StudentAddressId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TestStudentHistories">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.TestStudentHistory">
+              <MappingFragment StoreEntitySet="TestStudentHistory">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="HistoryDetials" ColumnName="HistoryDetials" />
+                <ScalarProperty Name="HistoryTitle" ColumnName="HistoryTitle" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="HistoryId" ColumnName="HistoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvOutletPOInvoiceDetails">
+            <EntityTypeMapping TypeName="RetailSalesManagementModel.InvOutletPOInvoiceDetail">
+              <MappingFragment StoreEntitySet="InvOutletPOInvoiceDetail">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsReturned" ColumnName="IsReturned" />
+                <ScalarProperty Name="IsReceived" ColumnName="IsReceived" />
+                <ScalarProperty Name="IsEdited" ColumnName="IsEdited" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ProductQuantity" ColumnName="ProductQuantity" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Original_OutletPODetailsId" ColumnName="Original_OutletPODetailsId" />
+                <ScalarProperty Name="OutletPOInvoiceMasterId" ColumnName="OutletPOInvoiceMasterId" />
+                <ScalarProperty Name="OutletPOInvoiceDetailsId" ColumnName="OutletPOInvoiceDetailsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

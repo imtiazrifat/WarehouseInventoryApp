@@ -1,0 +1,131 @@
+﻿
+@*<script src="~/Areas/Inventory/Scripts/InvTax/CreateTax.js"></script>*@
+
+<script src="~/Areas/Inventory/Scripts/Tax/CreateTax.js"></script>
+
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">APT ERP</h4>
+            </div>
+            <div id="modal-body">
+                <h2 id="rif"></h2>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="jarviswidget" id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false">
+    <header>
+        <span class="widget-icon"> <i class="fa fa-edit"></i> </span>
+        <h2>Create Tax </h2>
+
+    </header>
+
+    <!-- widget div-->
+    <div>
+
+        <!-- widget edit box -->
+        <div class="jarviswidget-editbox">
+            <!-- This area used as dropdown edit box -->
+
+        </div>
+        <!-- end widget edit box -->
+        <!-- widget content -->
+        <div class="widget-body no-padding">
+
+            <div class="smart-form">
+               <fieldset>
+                    <input type="text" id="hdnTaxId" hidden="" value="0" />
+
+                    
+                    <section>
+                        <label for="txtTaxCode" class="label">Tax Code</label>
+                        <label class="input">
+                            <input type="text" id="txtTaxCode" name="txtTaxCode" maxlength="50" placeholder="Tax Code" required />
+                        </label>
+                    </section>
+
+                    <section>
+                        <label for="txtTaxName" class="label">Tax Name</label>
+                        <label class="input">
+                            <input type="text" id="txtTaxName" name="txtTaxName" maxlength="50" placeholder="Tax Name" required />
+                        </label>
+                    </section>
+
+
+                    <section>
+                        <label for="txtPercentAmount" class="label"> Percent Amount</label>
+                        <label class="input">
+                            <input type="text" id="txtPercentAmount" name="txtPercentAmount" maxlength="50" placeholder="Tax Details" />
+                        </label>
+                    </section>
+                    
+                    <section>
+                        <label for="txtFixedAmount" class="label">Fixed Amount</label>
+                        <label class="input">
+                            <input type="text" id="txtFixedAmount" name="txtFixedAmount" maxlength="50" placeholder="Tax Details" />
+                        </label>
+                    </section>
+                    
+
+
+
+
+
+
+                    @*<section>
+                            <label for="chkIsActive" class="label">Is Active</label>
+                            <label class="checkbox">
+                                <input type="checkbox" id="chkIsActive" name="IsActive" />
+                            </label>
+
+                        </section>*@
+                    <section>
+                        <label class="checkbox">
+                            <input type="checkbox" name="chkIsActive" id="chkIsActive">
+                            <i></i>IsActive
+
+                        </label>
+
+                    </section>
+                </fieldset>
+
+
+
+                <footer>
+                    <button class="btn btn-primary" id="btnSaveTax">
+                        @*onclick="createAssetTaxManager.SaveAssetTax()"*@
+                        Save
+                    </button>
+                    <button type="button" class="btn btn-warning" id="btnClearTaxForm">
+                        Clear
+                    </button>
+                </footer>
+            </div>
+
+        </div>
+        <!-- end widget content -->
+
+    </div>
+    <!-- end widget div -->
+
+</div>
+<!-- end widget -->
+
+
+<div id="dialog_simple" title="APT ERP V 1.0.0">
+    <p>
+    </p>
+</div>
+

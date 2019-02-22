@@ -1,0 +1,174 @@
+﻿<script src="~/Areas/Inventory/Scripts/OutletWarrentyRepair/IndividualOutletWarrentyView.js"></script>
+<script src="~/Areas/Inventory/Scripts/OutletWarrentyRepair/RepairStatusForDd.js"></script>
+<head>
+    <script>
+        $(document).ready(function () {
+            $(function () { repairStatus.loadRepairStatusInDd(); });
+        });
+    </script>
+</head>
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">APT ERP</h4>
+            </div>
+            <div id="modal-body">
+                <h2 id="rif"></h2>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<head>
+    @*Head*@
+</head>
+
+<div class="jarviswidget" id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false">
+    <header>
+        <span class="widget-icon"> <i class="fa fa-edit"></i> </span>
+        <h2>Individual Outlet Warrenty View by Warehouse</h2>
+
+    </header>
+
+    <!-- widget div-->
+    <div>
+
+        <!-- widget edit box -->
+        <div class="jarviswidget-editbox">
+            <!-- This area used as dropdown edit box -->
+
+        </div>
+        <!-- end widget edit box -->
+        <!-- widget content -->
+        <div class="widget-body no-padding">
+
+            <div class="smart-form">
+                <div data-toggle="validator">
+                    <div class="row-xs-12">
+                        <fieldset>
+                            <div class="container-fluid">
+                                <input type="text" id="hdnOutletWarrentyRepairId" hidden="" value="0" />
+                                <input type="text" id="hdnOutletInvoiceDetailsId" hidden="" value="0" />
+                                <input type="text" id="hdnOutletSaleInvoiceNo" hidden="" value="0" />
+                                <input type="text" id="hdnOutletId" hidden="" value="0" />
+                                <input type="text" id="hdnRepairTokenNo" hidden="" value="0" />
+                                <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <section>
+                                            <h6>Product Name</h6>
+                                            <label for="txtProductName" class="label"></label>
+                                            <input type="text" id="hdnProductId" hidden=""/>
+                                            <input type="text" id="hdnProductName" hidden=""/>
+                                            <label class="input">
+                                                <input type="text" id="txtProductName" name="txtProductName" maxlength="50" placeholder="Product Name" readonly="readonly"/>
+                                            </label>
+                                        </section>
+                                        <section>
+                                            <label for="txtPurchaseDate" class="label">Purchase Date</label>
+                                            <label class="input">
+                                                <input type="datetime" id="txtPurchaseDate" class="datepicker" name="txtPurchaseDate" maxlength="50" placeholder="Purchase Date" readonly="readonly"/>
+                                            </label>
+                                        </section>
+                                        <section>
+                                            <label for="txtReturnDate" class="label">Return Date</label>
+                                            <label class="input">
+                                                <input type="datetime" id="txtReturnDate" class="datepicker" name="txtReturnDate" maxlength="50" placeholder="Return Date"/>
+                                            </label>
+                                        </section>
+                                    </div>
+                                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"></div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <section>
+                                            <h6>Warrenty type</h6>
+                                            <label for="txtWarrentyType" class="label"></label>
+                                            <label class="input">
+                                                <input type="text" id="txtWarrentyType" name="txtWarrentyType" maxlength="50" placeholder="Warrenty Type"/>
+                                            </label>
+                                        </section>
+                                        <section>
+                                            <label for="txtProductQuantity" class="label"> Quantity</label>
+                                            <label class="input">
+                                                <input type="number" id="txtProductQuantity" name="txtProductQuantity" maxlength="50" placeholder="Product Quantity" min="1" step="1"/>
+                                            </label>
+                                        </section>
+                                        <section>
+                                            <label for="txtProblem" class="label">Problem</label>
+                                            <label class="input">
+                                                <input type="text" id="txtProblem" name="txtProblem" maxlength="300" placeholder="Problem"/>
+                                            </label>
+                                        </section>
+                                    </div>
+                                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"></div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <section>
+                                            <label for="txtRepairCost" class="label">Repair Cost</label>
+                                            <label class="input">
+                                                <input type="text" id="txtRepairCost" name="txtRepairCost" maxlength="50" placeholder="Repair Cost"/>
+                                            </label>
+                                        </section>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <section>
+                                                <label for="cmbRepairStatus" class="label">Repair Status</label>
+                                                <label class="select">
+                                                    <select id="cmbRepairStatus"><option></option></select>
+                                                </label>
+                                            </section>
+                                            <section>
+                                                <label for="txtNote" class="label">Note</label>
+                                                <label class="input">
+                                                    <input type="text" id="txtNote" name="txtNote" maxlength="50" placeholder="Note" />
+                                                </label>
+                                            </section>
+                                        </div>
+                                    </div>
+                                    @*<div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"></div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <section>
+                                            <label for="cmbRepairStatus" class="label">Warrenty Status</label>
+                                            <label class="select">
+                                                <select id="cmbRepairStatus"><option></option></select>
+                                            </label>
+                                        </section>
+                                    </div>*@
+
+
+                                </div>
+                              
+                            </div>
+                          
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <footer>
+                                    <div class="col-lg-12">
+                                        <button class="btn btn-primary" id="btnSaveOutletWarrentyData">Save</button>
+                                        <button class="btn btn-warning" id="btnClearAllData">Clear</button>
+                                    </div>
+                                </footer>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- end widget content -->
+    <!-- end widget div -->
+
+</div>
+<!-- end widget -->
+
+
+<div id="dialog_simple" title="APT ERP V 1.0.0">
+    <p>
+    </p>
+</div>
+
+

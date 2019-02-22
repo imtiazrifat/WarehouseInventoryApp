@@ -1,0 +1,132 @@
+﻿<script src="~/Areas/Inventory/Scripts/OutletPOReturn/OutletPOReturn.js"></script>
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">APT ERP</h4>
+            </div>
+            <div id="modal-body">
+                <h2 id="rif"></h2>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal fade" id="confirm-clear" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                ...
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-danger btn-ok">Yes</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<head>
+    @*tsdstdstd*@
+</head>
+
+<div class="jarviswidget" id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false">
+    <header>
+        <span class="widget-icon"> <i class="fa fa-edit"></i> </span>
+        <h2>Outlet PO Return Table </h2>
+
+    </header>
+
+    <!-- widget div-->
+    <div>
+
+        <!-- widget edit box -->
+        <div class="jarviswidget-editbox">
+            <!-- This area used as dropdown edit box -->
+
+        </div>
+        <!-- end widget edit box -->
+        <!-- widget content -->
+        <div class="widget-body no-padding">
+
+            <div class="smart-form">
+                <div data-toggle="validator">
+                    <fieldset>
+                        <div class="container-fluid">
+                            <input type="text" id="hdnOutletPOReturnMasterId" hidden="" value="0" />
+                            <input type="text" id="hdnOutletPOReturnDetailsId" hidden="" value="0" />
+                            <input type="text" id="hdnOutletPOMasterId" hidden="" value="0" />
+                            <input type="text" id="hdnOutletPODetailsId" hidden="" value="0"/>
+                            <input type="text" id="hdnWarehouseId" hidden="" value="0" />
+                            <input type="text" id="hdnOutletId" hidden="" value="0" />
+                            
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+
+                            <table id="myTableReturnOutletPO" class="table table-bordered table-hover responsive-utilities ">
+                                <thead>
+                                <tr>
+                                    <th>OutletPOReturnMasterId</th>
+                                    <th>OutletPOReturnDetailsId</th>
+                                    <th>OutletPOMasterId</th>
+                                    <th>OutletPODetailsId</th>
+                                    <th>WarehouseId</th>
+                                    <th>OutletId</th>
+                                    <th>ProductId</th>
+                                    <th>SL.</th>
+                                    <th>Product Name</th>
+                                    <th>Barcode</th>
+                                    <th>Item</th>
+                                    <th>Size</th>
+                                    <th>UoM</th>
+                                    <th>Product Quantity</th>
+                                    <th>Retail Price</th>
+                                    <th>Price Amount</th>
+                                    <th>Status</th>
+                                    @*<th>Edit</th>*@
+                                    <th>View</th>
+                                    @*<th>Remove</th>*@
+                                    @*<th>Return</th>*@
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <footer>
+                            <div class="row-lg-12">
+                                <button class="btn btn-primary" id="btnReturnOutletPO">
+                                    Return All
+                                </button>
+                                <button type="button" class="btn btn-warning" id="btnClearOutletPOReturnForm">
+                                    Clear
+                                </button>
+                            </div>
+                        </footer>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- end widget content -->
+    <!-- end widget div -->
+
+</div>
+<!-- end widget -->
+
+
+<div id="dialog_simple" title="APT ERP V 1.0.0">
+    <p>
+    </p>
+</div>
+
+

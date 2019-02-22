@@ -1,0 +1,274 @@
+﻿<script src="~/Areas/Inventory/Scripts/ProductReceive/CreateProductReceive.js"></script>
+
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">APT ERP</h4>
+            </div>
+            <div id="modal-body">
+                <h2 id="rif"></h2>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<head>
+    <script src="~/Areas/Inventory/Scripts/ProductReceive/CreateProductReceive.js"></script>
+
+</head>
+
+<div class="jarviswidget" id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false">
+    <header>
+        <span class="widget-icon"> <i class="fa fa-edit"></i> </span>
+        <h2>Create Product Purchase </h2>
+
+    </header>
+
+    <!-- widget div-->
+    <div>
+
+        <!-- widget edit box -->
+        <div class="jarviswidget-editbox">
+            <!-- This area used as dropdown edit box -->
+
+        </div>
+        <!-- end widget edit box -->
+        <!-- widget content -->
+        <div class="widget-body no-padding">
+
+            <div class="smart-form">
+                <div data-toggle="validator">
+                    <fieldset>
+                        <div class="container-fluid">
+                            @*<h3>Product Purchase</h3>
+                    <div class="bordered  "></div>*@
+                            <input type="text" id="hdnProductReceiveId" hidden="" value="0" />
+
+                            <div class="row-xs-12">
+                                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                                    <h3>Product Receive</h3>
+                                    <div class="bordered"></div>
+                                    <section>
+                                        <label for="cmbFactoryId" class="label">Select a Factory Name:</label>
+                                        <label class="select">
+                                            <select id="cmbFactoryId"><option></option></select>
+                                        </label>
+                                    </section>
+                                    <section>
+                                        <label for="cmbItemId" class="label">Item Name:</label>
+                                        <label class="select">
+                                            <select id="cmbItemId">
+                                                <option></option>
+                                            </select>
+
+                                        </label>
+                                    </section>
+                                    <section>
+                                        <label for="cmbProductId" class="label">Search Product:</label>
+                                        <label class="select">
+                                            <select id="cmbProductId"><option></option></select>
+                                        </label>
+                                    </section>
+
+                                    <section>
+                                        <label for="cmbUoMId" class="label">UoM Name:</label>
+                                        <label class="select">
+                                            <select id="cmbUoMId"><option></option></select>
+                                        </label>
+                                    </section>
+
+                                    <section>
+                                        <label for="cmbSizeId" class="label">Size Name:</label>
+                                        <label class="select">
+                                            <select id="cmbSizeId"><option></option></select>
+                                        </label>
+                                    </section>
+                                    <section>
+                                        <label for="cmbColorId" class="label">Color Name:</label>
+                                        <label class="select">
+                                            <select id="cmbColorId"><option></option></select>
+                                        </label>
+                                    </section>
+                                    <div class="row-lg-3 row-md-3 row-sm-4 row-xs-12">
+                                        <div class="col-xs-12">
+                                            <footer>
+                                                <button class="btn btn-primary" id="btnAddProductReceive">
+                                                    Add
+                                                </button>
+                                            </footer>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                @*<div class="row-lg-12">
+
+                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"></div>
+                            <footer>
+                                <section>
+                                    <label for="txtNewStock" class="label">New Stock</label>
+                                    <label class="input">
+                                        <input type="text" id="txtNewStock" name="txtNewStock" maxlength="50" placeholder="New Stock"/>
+                                    </label>
+                                </section>
+
+                                <button class="btn btn-primary" id="btnAddProductReceive">
+                                    Add
+                                </button>
+                            </footer>
+                        </div>*@
+
+                                @*<section>
+                            <button class="btn btn-primary" id="btnAddProductReceive">
+                                Add
+                            </button>
+                        </section>*@
+                                <div class="col-xs-1 col-sm-1"></div>
+
+                                <div class="col-lg-8 col-md-8 col-sm-7 col-xs-12">
+                                    <h3>Product Receive Details</h3>
+                                    <div class="bordered"></div>
+
+                                    <div class="row-lg-12 row-md-12 row-sm-12 row-xs-12">
+
+                                        <div class="col-lg-4 col-md-5 col-sm-5 col-xs-12">
+
+                                            <section>
+                                                <label for="txtProductReceiveDate" class="label">Date</label>
+                                                <label class="input">
+                                                    <input type="date" id="txtProductReceiveDate" name="txtProductReceiveDate" maxlength="50" placeholder="Date"/>
+                                                </label>
+                                            </section>
+                                           
+                                            <section>
+                                                <label for="txtProductCode" class="label">Product Code</label>
+                                                <label class="input">
+                                                    <input type="text" id="txtProductCode" name="txtProductCode" maxlength="50" placeholder="Product Code" required />
+                                                </label>
+                                            </section>
+
+                                            <section>
+                                                <label for="txtProductName" class="label">Product Name</label>
+                                                <label class="input">
+                                                    <input type="text" id="txtProductName" name="txtProductName" maxlength="50" placeholder="Product Name" required />
+                                                </label>
+                                            </section>
+
+                                            <section>
+                                                <label for="txtProductMainBarcode" class="label">Product Main Barcode</label>
+
+                                                <label class="input">
+                                                    <input type="text" id="txtProductMainBarcode" name="txtProductMainBarcode" maxlength="50" placeholder="Product Main Barcode" />
+                                                </label>
+                                            </section>
+                                            <section>
+                                                <label for="txtProductFactoryBarcode" class="label">Product Factory Barcode</label>
+
+                                                <label class="input">
+                                                    <input type="text" id="txtProductFactoryBarcode" name="txtProductFactoryBarcode" maxlength="50" placeholder="Product Factory Barcode" />
+                                                </label>
+                                            </section>
+                                            <section>
+                                                <label for="txtPurchaseQuantity" class="label">Purchase Quantity</label>
+                                                <label class="input">
+                                                    <input type="text" id="txtPurchaseQuantity" name="txtPurchaseQuantity" maxlength="50" placeholder="Purchase Quantity" />
+                                                </label>
+                                            </section>
+
+
+
+                                        </div>
+
+
+                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-1"></div>
+
+                                        <div class="col-lg-4 col-md-5 col-sm-5 col-xs-12">
+
+
+                                            <section>
+                                                <label for="txtMinimumStock" class="label">Minimum Stock</label>
+                                                <label class="input">
+                                                    <input type="text" id="txtMinimumStock" name="txtMinimumStock" maxlength="50" placeholder="Minimum Stock" />
+                                                </label>
+                                            </section>
+                                            <section>
+                                                <label for="txtCurrentStock" class="label">Current Stock</label>
+                                                <label class="input">
+                                                    <input type="text" id="txtCurrentStock" name="txtCurrentStock" maxlength="50" placeholder="Current Stock" />
+                                                </label>
+                                            </section>
+                                            <section>
+                                                <label for="txtNewStock" class="label">New Stock</label>
+                                                <label class="input">
+                                                    <input type="text" id="txtNewStock" name="txtNewStock" maxlength="50" placeholder="New Stock" />
+                                                </label>
+                                            </section> <section>
+                                                <label for="txtCostPrice" class="label">Cost Price</label>
+                                                <label class="input">
+                                                    <input type="text" id="txtCostPrice" name="txtCostPrice" maxlength="50" placeholder="Cost Test" required />
+                                                </label>
+                                            </section>
+                                            <section>
+                                                <label for="txtWholeSalePrice" class="label">Whole Sale Price</label>
+                                                <label class="input">
+                                                    <input type="text" id="txtWholeSalePrice" name="txtWholeSalePrice" maxlength="50" placeholder="Whole Sale Price" required />
+                                                </label>
+                                            </section>
+                                            <section>
+                                                <label for="txtRetailPrice" class="label">Retail Price</label>
+                                                <label class="input">
+                                                    <input type="text" id="txtRetailPrice" name="txtRetailPrice" maxlength="50" placeholder="Retail Price" required />
+                                                </label>
+                                            </section>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                </div>
+
+                        </div>
+
+                        <footer>
+                            <div class="row-lg-12">
+                                <button class="btn btn-primary" id="btnSaveProductReceive">
+                                    Save
+                                </button>
+                                <button type="button" class="btn btn-warning" id="btnClearProductReceiveForm">
+                                    Clear
+                                </button>
+                            </div>
+                        </footer>
+                    </fieldset>
+                </div>
+
+
+                </div>
+
+        </div>
+        <!-- end widget content -->
+
+    </div>
+    <!-- end widget div -->
+
+</div>
+<!-- end widget -->
+
+
+<div id="dialog_simple" title="APT ERP V 1.0.0">
+    <p>
+    </p>
+</div>
+
+
+
+
+
+

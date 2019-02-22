@@ -1,0 +1,287 @@
+﻿<script src="~/Areas/Inventory/Scripts/OutletInvoice/EditSaleData.js"></script>
+
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">APT ERP</h4>
+            </div>
+            <div id="modal-body">
+                <h2 id="rif"></h2>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<head>
+    @*tsdstdstd*@
+</head>
+
+<div class="jarviswidget" id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false">
+    <header>
+        <span class="widget-icon"> <i class="fa fa-edit"></i> </span>
+        <h2>Edit Sale Data</h2>
+
+    </header>
+
+    <!-- widget div-->
+    <div>
+
+        <!-- widget edit box -->
+        <div class="jarviswidget-editbox">
+            <!-- This area used as dropdown edit box -->
+
+        </div>
+        <!-- end widget edit box -->
+        <!-- widget content -->
+        <div class="widget-body no-padding">
+            <div class="smart-form">
+                <div data-toggle="validator">
+                    <fieldset>
+                        <div class="container-fluid">
+                           
+                            <div class="row-xs-12">
+                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                    <section>
+                                        <h6>Product Name</h6>
+                                        <label for="txtProductName_Esd" class="label"></label>
+                                        <input type="text" id="hdnDiscount" hidden="" />
+                                        <input type="text" id="hdnItemId" hidden="" />
+                                        <input type="text" id="hdnItemName" hidden="" />
+                                        <input type="text" id="hdnOutletId" hidden="" />
+                                        <input type="text" id="hdnOutletInvoiceDetailsId" hidden="" />
+                                        <input type="text" id="hdnOutletInvoiceMasterId" hidden="" />
+                                        <input type="text" id="hdnOutletName" hidden="" />
+                                        <input type="text" id="hdnOutletSaleInvoiceNo" hidden="" />
+                                       @* <input type="text" id="hdnPriceAmount" hidden="" />*@
+                                        <input type="text" id="hdnProductId" hidden=""/>
+                                        <input type="text" id="hdnProductMainBarcode" hidden="" />
+                                        <input type="text" id="hdnProductName" hidden="" />
+                                        <input type="text" id="hdnProductQuantity" hidden="" />
+                                        <input type="text" id="hdnSizeName" hidden="" />
+                                        <input type="text" id="hdnTotalGrandPrice" hidden=""/>
+
+                                        <input type="text" id="hdnTotalPrice" hidden=""/>
+                                        <input type="text" id="hdnUnitPrice" hidden="" />
+                                        <input type="text" id="hdnUoMShortName" hidden="" />
+                                        <input type="text" id="hdnVAT" hidden="" />
+                                      
+                                        <label class="input">
+                                            <input type="text" id="txtProductName_Esd" name="txtProductName_Esd" maxlength="50" placeholder="Product Name" readonly="readonly" />
+                                        </label>
+                                    </section>
+
+                                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                        <section>
+                                            <label for="txtProductQuantity_Esd" class="label">Product Quantity</label>
+                                            <label class="input">
+                                                <input type="number" id="txtProductQuantity_Esd" name="txtProductQuantity_Esd" maxlength="50" placeholder="Product Quantity" min="1" step="1" />
+                                            </label>
+                                        </section>
+
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+                                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+
+                                        <section>
+                                            <label for="txtPrice_Ep" class="label">Price</label>
+                                            <label class="input">
+                                                <input type="number" id="txtPrice_Ep" name="txtPrice_Ep" maxlength="50" placeholder="Price" readonly="readonly" />
+                                            </label>
+                                        </section>
+                                    </div>
+
+                                </div>
+                                <div></div>
+                            </div>
+
+                        </div>
+                        <div class="row-10">
+                            <div class="col-lg-8">
+                                <div class="col-7">
+                                    <footer>
+                                        <button class="btn btn-primary" id="btnUpdateSaleData">Update</button>
+                                    </footer>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    @*<div class="row-xs-1" style="visibility: hidden">
+                    <section>
+                        <label class="input">
+                            <input type="number" id="txtRetailPrice" name="txtRetailPrice" />
+                        </label>
+                    </section>
+                    <section>
+                        <label class="input">
+                            <input type="number" id="txtTotalOutletSaleUIPrice" name="txtTotalOutletSaleUIPrice" />
+                        </label>
+                    </section>
+                    <section>
+
+                        <label class="input">
+                            <input type="number" id="txtTotalProduct" name="txtTotalProduct" />
+                        </label>
+                    </section>
+                    <section>
+                        <label class="input">
+                            <input type="number" id="txtTotalPrice" name="txtTotalPrice" />
+                        </label>
+                    </section>
+                    <section>
+                        <label class="input">
+                            <input type="number" id="txtVATForInvididualProduct" name="txtVATForInvididualProduct" />
+                        </label>
+                    </section>
+                    <section>
+                        <label class="input">
+                            <input type="text" id="txtItemName" name="txtItemName" />
+                        </label>
+                    </section>
+                    <section>
+                        <label class="input">
+                            <input type="text" id="txtSize" name="txtSize" />
+                        </label>
+                    </section>
+                    <section>
+                        <label class="input">
+                            <input type="text" id="txtUoM" name="txtUoM" />
+                        </label>
+                    </section>
+                    <section>
+                        <label class="input">
+                            <input type="text" id="txtBarcode" name="txtBarcode" />
+                        </label>
+                    </section>
+
+                </div>*@
+
+                </div>
+            </div>
+            @*<div class="smart-form">
+                <div data-toggle="validator">
+                    <fieldset>
+                        <div class="container-fluid">
+                            <input type="text" id="hdnOutletInvoiceMasterId" hidden="" value="0"/>
+                            <input type="text" id="hdnOutletInvoiceDetailsId" hidden="" value="0"/>
+                            <div class="row-xs-12">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <section>
+                                        <h6>Product Name</h6>
+                                        <label for="txtProductName" class="label"></label>
+                                        <input type="text" id="hdnProductId" hidden=""/>
+                                        <input type="text" id="hdnProductName" hidden=""/>
+                                        <label class="input">
+                                            <input type="text" id="txtProductName" name="txtProductName" maxlength="50" placeholder="Product Name" readonly="readonly"/>
+                                        </label>
+                                    </section>
+
+                                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                        <section>
+                                            <label for="txtProductQuantity" class="label">Product Quantity</label>
+                                            <label class="input">
+                                                <input type="number" id="txtProductQuantity" name="txtProductQuantity" maxlength="50" placeholder="Product Quantity" min="0" step="1"/>
+                                            </label>
+                                        </section>
+                                        
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+                                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+
+                                        <section>
+                                            <label for="txtPrice_Ep" class="label">Price</label>
+                                            <label class="input">
+                                                <input type="number" id="txtPrice_Ep" name="txtPrice_Ep" maxlength="50" placeholder="Price" readonly="readonly"/>
+                                            </label>
+                                        </section>
+                                    </div>
+
+                                </div>
+                                <div></div>
+                            </div>
+
+                        </div>
+                        <div class="row-12">
+                            <div class="col-4">
+                                <footer>
+                                    <button class="btn btn-primary" id="btnUpdateSaleData">Update</button>
+                                </footer>
+                            </div>
+
+                        </div>
+                    </fieldset>
+                    @*<div class="row-xs-1" style="visibility: hidden">
+                        <section>
+                            <label class="input">
+                                <input type="number" id="txtRetailPrice" name="txtRetailPrice" />
+                            </label>
+                        </section>
+                        <section>
+                            <label class="input">
+                                <input type="number" id="txtTotalOutletSaleUIPrice" name="txtTotalOutletSaleUIPrice" />
+                            </label>
+                        </section>
+                        <section>
+
+                            <label class="input">
+                                <input type="number" id="txtTotalProduct" name="txtTotalProduct" />
+                            </label>
+                        </section>
+                        <section>
+                            <label class="input">
+                                <input type="number" id="txtTotalPrice" name="txtTotalPrice" />
+                            </label>
+                        </section>
+                        <section>
+                            <label class="input">
+                                <input type="number" id="txtVATForInvididualProduct" name="txtVATForInvididualProduct" />
+                            </label>
+                        </section>
+                        <section>
+                            <label class="input">
+                                <input type="text" id="txtItemName" name="txtItemName" />
+                            </label>
+                        </section>
+                        <section>
+                            <label class="input">
+                                <input type="text" id="txtSize" name="txtSize" />
+                            </label>
+                        </section>
+                        <section>
+                            <label class="input">
+                                <input type="text" id="txtUoM" name="txtUoM" />
+                            </label>
+                        </section>
+                        <section>
+                            <label class="input">
+                                <input type="text" id="txtBarcode" name="txtBarcode" />
+                            </label>
+                        </section>
+                       
+                    </div>
+                    
+                </div>
+            </div>*@
+        </div>
+    </div>
+
+
+    <!-- end widget content -->
+    <!-- end widget div -->
+
+</div>
+<!-- end widget -->
+
+
+<div id="dialog_simple" title="APT ERP V 1.0.0">
+    <p>
+    </p>
+</div>
+
+

@@ -1,0 +1,282 @@
+﻿<script src="~/Areas/Inventory/Scripts/OutletWarrentyRepair/OutletWarrentyRepair.js"></script>
+
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">APT ERP</h4>
+            </div>
+            <div id="modal-body">
+                <h2 id="rif"></h2>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<head>
+    @*tsdstdstd*@
+</head>
+
+<div class="jarviswidget" id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false">
+    <header>
+        <span class="widget-icon"> <i class="fa fa-edit"></i> </span>
+        <h2>Outlet Warrenty Repair</h2>
+
+    </header>
+
+    <!-- widget div-->
+    <div>
+
+        <!-- widget edit box -->
+        <div class="jarviswidget-editbox">
+            <!-- This area used as dropdown edit box -->
+
+        </div>
+        <!-- end widget edit box -->
+        <!-- widget content -->
+        <div class="widget-body no-padding">
+
+            <div class="smart-form">
+                <div data-toggle="validator">
+                    @*<fieldset>*@
+                    <div class="container-fluid">
+                        <input type="text" id="hdnOutletInvoiceMasterId" hidden="" value="0"/>
+                        <input type="text" id="hdnOutletInvoiceDetailsId" hidden="" value="0"/>
+                        <input type="text" id="hdnOutletSaleInvoiceNo" hidden="" value="0"/>
+                        <div class="row-xs-12">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                <fieldset>
+                                    <div class="row-xs-8">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                                                <section>
+                                                    <h6>Invoice No.</h6>
+                                                    <label for="txtOutletSaleInvoiceNo_OWR" class="label"></label>
+                                                    <label class="input">
+                                                        <input type="number" id="txtOutletSaleInvoiceNo_OWR" class="form-control input-lg" name="txtOutletSaleInvoiceNo_OWR" maxlength="50" min="1" placeholder="Invoice No"/>
+                                                    </label>
+                                                </section>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <footer>
+                                                        <div class="col-lg-9">
+                                                            <button class="btn btn-primary" id="btnSearchOutletSaleInvoiceNoOWR">Search</button>
+                                                        </div>
+                                                    </footer>
+                                                </div>
+                                            </div>
+
+
+                                            @*<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <footer>
+                                                        <div class="col-lg-6">
+                                                            <button type="button" class="btn btn-warning" id="btnClearOutletWarrentyRepairForm">Clear</button>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <button class="btn btn-primary" id="btnUpdateRequest">Save</button>
+                                                        </div>
+                                                    </footer>
+                                                </div>*@
+
+                                        </div>
+                                    </div>
+
+                                </fieldset>
+
+
+                            </div>
+
+                            <div class="row-xs-12">
+                                <fieldset>
+                                    <div class="row-xs-12">
+                                        <div class="row-xs-12">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <table id="myTableOutletWarrentyRepair" class="table table-bordered table-hover responsive-utilities ">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Product Id</th>
+                                                        <th>OutletSaleInvoiceNo</th>
+                                                        <th>SL.</th>
+                                                        <th>Product Name</th>
+                                                        <th>Barcode</th>
+                                                        <th>UoM</th>
+                                                        <th>Qty</th>
+                                                        <th>Unit Price</th>
+                                                        <th>VAT</th>
+                                                        <th>Total Price</th>
+                                                        <th>Edit</th>
+                                                    </tr>
+                                                    </thead>
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                        </div>
+
+                        @*<div class="col-xs-1" style="visibility: hidden">
+                            <section>
+                                <label class="input">
+                                    <input type="number" id="txtRetailPrice" name="txtRetailPrice" />
+                                </label>
+                            </section>
+                            <section>
+                                <label class="input">
+                                    <input type="number" id="txtTotalOutletWarrentyRepairPrice" name="txtTotalOutletWarrentyRepairPrice" />
+                                </label>
+                            </section>
+                            <section>
+
+                                <label class="input">
+                                    <input type="number" id="txtTotalProduct" name="txtTotalProduct" />
+                                </label>
+                            </section>
+                            <section>
+                                <label class="input">
+                                    <input type="number" id="txtTotalPrice" name="txtTotalPrice" />
+                                </label>
+                            </section>
+                            <section>
+                                <label class="input">
+                                    <input type="number" id="txtVATForInvididualProduct" name="txtVATForInvididualProduct" />
+                                </label>
+                            </section>
+                            <section>
+                                <label class="input">
+                                    <input type="text" id="txtItemName" name="txtItemName" />
+                                </label>
+                            </section>
+                            <section>
+                                <label class="input">
+                                    <input type="text" id="txtSize" name="txtSize" />
+                                </label>
+                            </section>
+                            <section>
+                                <label class="input">
+                                    <input type="text" id="txtUoM" name="txtUoM" />
+                                </label>
+                            </section>
+                            <section>
+                                <label class="input">
+                                    <input type="text" id="txtBarcode" name="txtBarcode" />
+                                </label>
+                            </section>
+                            <section>
+                                <label class="input">
+                                    <input type="text" id="txtDBCurrentStock" name="txtDBCurrentStock" />
+                                </label>
+                            </section>
+                        </div>*@
+                        
+                    </div>
+                    
+                    <div class="row-xs-8">
+                        <fieldset>
+                            <div class="container-fluid">
+                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                        <section>
+                                            <h6>Product Name</h6>
+                                            <label for="txtProductName_OWR" class="label"></label>
+                                            <input type="text" id="hdnProductId_OWR" hidden="" />
+                                            <input type="text" id="hdnProductName_OWR" hidden="" />
+                                            <label class="input">
+                                                <input type="text" id="txtProductName_OWR" name="txtProductName_OWR" maxlength="50" placeholder="Product Name" readonly="readonly" />
+                                            </label>
+                                        </section>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"></div>
+                                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                        <section>
+                                            <h6>Warrenty type</h6>
+                                            <label for="cmbWarrentyId" class="label"></label>
+                                            <label class="select">
+                                                <select id="cmbWarrentyId"><option></option></select>
+                                            </label>
+                                        </section>
+                                    </div>
+                                    @*<div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"></div>*@
+                                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                        <section>
+                                            <label for="txtPurchaseDate" class="label">Purchase Date</label>
+                                            <label class="input">
+                                                <input type="date" id="txtPurchaseDate" name="txtPurchaseDate" maxlength="50" placeholder="Purchase Date">
+                                            </label>
+                                        </section>
+                                        
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"></div>
+                                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                        <section>
+                                            <label for="txtProblem" class="label">Problem</label>
+                                            <label class="input">
+                                                <input type="text" id="txtProblem" name="txtProblem" maxlength="300" placeholder="Problem" />
+                                            </label>
+                                        </section>  
+                                    </div>
+                                    @*<div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"></div>*@
+                                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                        <section>
+                                            <label for="txtReturnDate" class="label">Return Date</label>
+                                            <label class="input">
+                                                <input type="date" id="txtReturnDate" name="txtReturnDate" maxlength="50" placeholder="Return Date">
+                                            </label>
+                                        </section>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"></div>
+                                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                        
+                                        <section>
+                                            <label for="txtProductQuantity_OWR" class="label"> Quantity</label>
+                                            <label class="input">
+                                                <input type="number" id="txtProductQuantity_OWR" name="txtProductQuantity_OWR" maxlength="50" placeholder="Product Quantity" min="1" step="1" />
+                                            </label>
+                                        </section> 
+                                       
+                                    </div>
+                                </div>
+                                <div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <footer>
+                                    @*<div class="col-lg-9">*@
+                                    <div class="col-lg-12">
+                                        <button class="btn btn-primary" id="btnSaveOutletWarrentyData">Save</button>
+                                        <button class="btn btn-warning" id="btnClearData">Clear</button>
+                                    </div>
+                                </footer>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    @*</fieldset>*@
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- end widget content -->
+    <!-- end widget div -->
+
+</div>
+<!-- end widget -->
+
+
+<div id="dialog_simple" title="APT ERP V 1.0.0">
+    <p>
+    </p>
+</div>
+
+
